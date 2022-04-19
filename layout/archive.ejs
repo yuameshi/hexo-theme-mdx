@@ -1,0 +1,18 @@
+<main class="postList mdui-center">
+	<%var title_year = '0'%>
+	<div class="postCount">
+		<%=_p('counter.archives',site.posts.length)%>
+	</div>
+	<%page.posts.data.forEach(function(post) {%>
+		<%var item_year=date(post.date,'Y')%>
+		<%if(item_year != title_year){%>
+			<a href="<%- url_for('/archives/' + item_year) %>" class="archiveTitle mdui-text-color-theme">
+				<h2>
+					<%-__('archives')%>:<%=item_year%>
+				</h2>
+			</a>
+			<%title_year = item_year%>
+		<%}%>
+		<%- partial('_partial/postFragment',{post:post}) %>
+	<%})%>
+</main>

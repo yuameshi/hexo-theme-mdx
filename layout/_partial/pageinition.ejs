@@ -1,0 +1,9 @@
+<% if (page.total> 1) { %>
+	<div class="pageInition">
+		<%- paginator({
+			prev_text: '<i class="mdui-icon material-icons">&#xe314;</i>' ,
+			next_text: '<i class="mdui-icon material-icons">&#xe315;</i>' ,
+			escape: false
+		})%>
+	</div>
+<%}%>

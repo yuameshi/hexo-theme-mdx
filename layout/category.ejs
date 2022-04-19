@@ -1,0 +1,5 @@
+<main class="postList mdui-center">
+	<%page.posts.data.forEach(function(post) {%>
+		<%- partial('_partial/postFragment',{post:post}) %>
+	<%})%>
+</main>

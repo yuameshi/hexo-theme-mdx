@@ -1,0 +1,36 @@
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="<%= theme.favicon %> " type="image/x-icon">
+	<%- js(['js/material.js']) %>
+	<%- css(['css/main.css']) %>
+	<%# Font Awesome %> 
+	<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<%# MDUI %> 
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js" async></script>
+	<title>
+		<% let title = page.title || page.category || page.tag || config.title %>
+		<%= title==config.title?title:title + ' - '+ config.title %>
+		<%#
+			var title = page.title;
+			if (is_archive()) {
+				title = __('archive');
+				if (is_month()) {
+					title += ': ' + page.year + '/' + page.month;
+				} else if (is_year()) {
+					title += ': ' + page.year;
+				}
+			} else if (is_category()) {
+				title = __('category') + ': ' + page.category;
+			} else if (is_tag()) {
+				title = __('tag') + ': ' + page.tag;
+			}
+			title += " - " + config.title
+		%>
+		<%# title ? title : config.title %>
+	</title>
+</head>

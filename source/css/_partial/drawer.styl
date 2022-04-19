@@ -1,0 +1,50 @@
+div#left-drawer{
+	div.drawerHeader{
+		div.drawerAbout{
+			height 250px
+			width 100%
+			div.drawerAboutMain{
+				height 100%
+				width 100%
+				--drawer-bg: url(https://picsum.photos/1280/480.webp?random=1)
+				display flex
+				flex-direction column
+				justify-content flex-end
+				align-items flex-start
+				line-height 1.5rem
+				background var(--drawer-bg) center no-repeat
+				background-size cover
+				&:before{
+					content attr(data-name)
+					font-size 18px
+					margin 0 10px
+				}
+				&:after{
+					content attr(data-slogan)
+					color #ffffffb3
+					font-size 14px
+					margin 0 10px 10px 10px
+				}
+			}
+		}
+		button.nightMode{
+			position absolute
+			top 0
+			right 0
+			padding 10px
+			color #000
+			font-size 20px
+			cursor pointer
+			transition .3s
+		}
+	}
+	nav div a{
+		border-top-right-radius: 999px;
+		border-bottom-right-radius: 999px;
+		color:rgba(0, 0, 0, 0.87)
+		width: 100%;
+		i.mdui-icon.material-icons{
+			margin 0 5px
+		}
+	}
+}

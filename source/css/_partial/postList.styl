@@ -1,0 +1,64 @@
+main.postList{
+	width 100%
+	max-width 700px
+	div.postItem{
+		border-radius 8px
+		margin-bottom 25px
+		&:last-child{
+			margin-bottom 0
+		}
+		div.postItemContent{
+			display flex
+			flex-direction column
+			padding 8px
+			a.postTitle{
+				text-decoration none
+				font-weight: 400;
+				padding 0 10px
+				h1{
+					margin-top 8px
+					margin-bottom 20px
+				}
+			}
+			p.postExcerpt{
+				margin 0
+				padding 0 10px
+			}
+			div.mdui-divider{
+				margin 10px 0 5px 0
+			}
+			div.postItemFooter{
+				display flex
+				flex-direction row
+				justify-content space-between
+				align-items center
+				padding 0 10px
+				span.postItemInfo{
+					display flex
+					flex-direction row
+					div{
+						display flex
+						flex-direction row
+						align-items center
+						justify-content start
+						margin-left 10px
+						color rgba(0,0,0,.87)
+						&:first-child{
+							margin-left 0
+						}
+						i{
+							margin-right 5px
+						}
+						a.category-link{
+							color rgba(0,0,0,.87)
+							text-decoration none
+						}
+					}
+				}
+				a.readMore{
+					justify-self flex-end
+				}
+			}
+		}
+	}
+}

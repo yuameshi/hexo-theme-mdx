@@ -1,0 +1,75 @@
+<div class="postPage mdui-card mdui-center">
+	<%# 元信息 %>
+	<div class="postMeta mdui-card-media">
+		<%# 发布时间 %>
+		<div class="mdui-chip postDate" mdui-tooltip="{content: '发布时间'}">
+			<span class="mdui-chip-icon">
+			  <i class="mdui-icon material-icons">&#xe192;</i>
+			</span>
+			<span class="mdui-chip-title">
+				<%= date(page.date) %>
+			</span>
+		</div>
+		<%# 更新 %>
+		<div class="mdui-chip postDate" mdui-tooltip="{content: '更新时间'}">
+			<span class="mdui-chip-icon">
+			  <i class="mdui-icon material-icons">&#xe923;</i>
+			</span>
+			<span class="mdui-chip-title">
+				<%= date(page.updated) %>
+			</span>
+		</div>
+		<%# 分类 %>
+		<% if (type=='post') { %>
+			<div class="mdui-chip postCategories" mdui-tooltip="{content: '分类'}">
+				<span class="mdui-chip-icon">
+					<i class="mdui-icon material-icons">&#xe2c7;</i>
+				</span>
+				<span class="mdui-chip-title">
+					<% if (list_categories(page.categories)) { %>
+						<%- list_categories(page.categories, {show_count: false, style: 'none', separator: ' / '}) %>
+					<% } else { %>
+						<%=__('post.uncategorized')%>
+					<% } %>
+				</span>
+			</div>
+		<% } %>
+	</div>
+	<div class="mdui-divider"></div>
+	<%# 正文 %>
+	<div class="mdui-card-content mdui-typo">
+		<%- page.content %>
+	</div>
+	<%#文末结束语%>
+	<div class="mdui-divider"></div>
+	<div class="pageEnd">
+		<% if (theme.passage_end_tag.enabled == true) { %>
+			<div class="pageEndText mdui-card-actions mdui-typo">
+				<%- theme.passage_end_tag.text.replace(/%link%/g,full_url_for(page.path)).replace(/%title%/g,page.title) %>
+			</div>
+		<% } %>
+		<div class="postTags">
+			<i class="mdui-icon material-icons">&#xe54e;</i>
+			<% if (page.tags.length) { %>
+				<%- list_tags(page.tags, {style: 'none',show_count:false, separator: ''}) %>
+			<% } else { %>
+				<%=__('post.untagged')%>
+			<% } %>
+		</div>
+		<%# 底部文章前后导航 %>
+		<div class="nav">
+			<% if (page.prev) { %>
+				<a rel="prev" href="<%- url_for(page.prev.path) %>">
+					<i class="mdui-icon material-icons">&#xe314;</i>
+					<span><%= page.prev.title %></span>
+				</a>
+			<% } %>
+			<% if (page.next) { %>
+				<a rel="next" href="<%- url_for(page.next.path) %>">
+					<span><%= page.next.title %></span>
+					<i class="mdui-icon material-icons">&#xe315;</i>
+				</a>
+			<% } %>
+		</div>
+	</div>
+</div>

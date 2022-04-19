@@ -1,0 +1,15 @@
+<% if (page.layout=='friends') { %>
+	<div class="postPage mdui-card mdui-center">
+		<%# 正文 %>
+		<div class="mdui-card-content mdui-typo">
+			<%- page.content %>
+			<%- partial('_partial/friends') %> 
+		</div>
+	</div>
+<% } else { %><%- 
+	partial('_partial/post',{
+		page:page,
+		type:'page',
+	}) 
+	%>
+<% } %>

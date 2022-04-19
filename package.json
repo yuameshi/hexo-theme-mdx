@@ -1,0 +1,30 @@
+{
+	"name": "hexo-theme-mdx",
+	"version": "0.0.1-beta",
+	"description": "A hexo theme with material design",
+	"author": "Yuameshi",
+	"license": "MIT",
+	"keywords": [
+		"hexo",
+		"theme",
+		"mdx",
+		"material design"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Yuameshi/hexo-theme-mdx"
+	},
+	"bugs": {
+		"url": "https://github.com/Yuameshi/hexo-theme-mdx/issues"
+	},
+	"homepage": "https://github.com/Yuameshi/hexo-theme-mdx",
+	"engines": {
+		"node": ">=14.6.0"
+	},
+	"scripts": {},
+	"peerDependencies": {
+		"hexo-renderer-ejs": "^2.0.0",
+		"hexo-renderer-marked": "^5.0.0",
+		"hexo-renderer-stylus": "^2.0.0"
+	}
+}
