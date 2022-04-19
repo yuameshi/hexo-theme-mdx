@@ -1,19 +1,31 @@
 <head>
 	<meta charset="UTF-8">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
+	<% 
+		let description = config.description;
+		if(strip_html(page.excerpt)!=''){
+			description = strip_html(page.excerpt);
+		} else if(truncate(strip_html(page.content), {length: 70})!='') {
+			description = truncate(strip_html(page.content), {length: 70});
+		}
+	%>
+	<meta name="description" content="<%= description %>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="<%= theme.favicon %> " type="image/x-icon">
-	<%- js(['js/material.js']) %>
+	<%- js({ src: 'js/material.js', async: true }) %>
 	<%- css(['css/main.css']) %>
 	<%# Font Awesome %> 
 	<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<%# MDUI %> 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css" />
-	<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js" async></script>
+	<link rel="preload" crossorigin="crossorigin" href="https://cdn.bootcss.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font">
+	<%# MDUI %>
+	<link rel="preload" crossorigin="crossorigin" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/icons/material-icons/MaterialIcons-Regular.woff2" as="font">
+	<link rel="preload" crossorigin="crossorigin" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Regular.woff2" as="font">
+	<link rel="preload" crossorigin="crossorigin" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Medium.woff2" as="font">
+	<link rel="preload" crossorigin="crossorigin" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Bold.woff2" as="font">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css?v=1.0.2" />
+	<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js?v=1.0.2" async></script>
 	<title>
-		<% let title = page.title || page.category || page.tag || config.title %>
+		<% var title = page.title || page.category || page.tag || config.title %>
 		<%= title==config.title?title:title + ' - '+ config.title %>
 		<%#
 			var title = page.title;
