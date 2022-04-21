@@ -6,6 +6,10 @@
 			description = strip_html(page.excerpt);
 		} else if(truncate(strip_html(page.content), {length: 70})!='') {
 			description = truncate(strip_html(page.content), {length: 70});
+		} else if(page.category!='') {
+			description = __('categories') + ' - ' + page.category + ' - '+ config.title;
+		} else if(page.tag!='') {
+			description = __('tags') + ' - ' + page.tag + ' - '+ config.title;
 		}
 	%>
 	<meta name="description" content="<%= description %>">
