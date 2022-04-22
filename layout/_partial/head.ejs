@@ -19,15 +19,28 @@
 	<%- js({ src: 'js/material.js', async: true }) %>
 	<%- css(['css/main.css']) %>
 	<%# Font Awesome %> 
-	<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="preload" crossorigin="crossorigin" href="https://cdn.bootcss.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font">
+	<% if (theme.include_font_awesome) { %>
+		<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.1.1/css/all.min.css" />
+		<link rel="preload" crossorigin="crossorigin" href="https://cdn.staticfile.org/font-awesome/6.1.1/webfonts/fa-solid-900.woff2" as="font">
+		<link rel="preload" crossorigin="crossorigin" href="https://cdn.staticfile.org/font-awesome/6.1.1/webfonts/fa-regular-400.woff2" as="font">
+		<link rel="preload" crossorigin="crossorigin" href="https://cdn.staticfile.org/font-awesome/6.1.1/webfonts/fa-brands-400.woff2" as="font">
+	<% } %>
 	<%# MDUI %>
-	<link rel="preload" crossorigin="crossorigin" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/icons/material-icons/MaterialIcons-Regular.woff2" as="font">
-	<link rel="preload" crossorigin="crossorigin" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Regular.woff2" as="font">
-	<link rel="preload" crossorigin="crossorigin" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Medium.woff2" as="font">
-	<link rel="preload" crossorigin="crossorigin" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Bold.woff2" as="font">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css?v=1.0.2" />
-	<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js?v=1.0.2" async></script>
+	<% if (theme.use_cdn) { %>
+		<link rel="stylesheet" href="https://cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css?v=1.0.2" />
+		<script src="https://cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js?v=1.0.2" async></script>
+		<link rel="preload" crossorigin="crossorigin" href="https://cdn.staticfile.org/mdui/1.0.2/fonts/roboto/Roboto-Regular.woff2" as="font">
+		<link rel="preload" crossorigin="crossorigin" href="https://cdn.staticfile.org/mdui/1.0.2/icons/material-icons/MaterialIcons-Regular.woff2" as="font">
+		<link rel="preload" crossorigin="crossorigin" href="https://cdn.staticfile.org/mdui/1.0.2/fonts/roboto/Roboto-Medium.woff2" as="font">
+		<link rel="preload" crossorigin="crossorigin" href="https://cdn.staticfile.org/mdui/1.0.2/fonts/roboto/Roboto-Bold.woff2" as="font">
+	<% } else { %>
+		<%- js({src: 'mdui/js/mdui.min.js?v=1.0.2', async: true}) %> 
+		<%- css(['mdui/css/mdui.min.css?v=1.0.2']) %>
+		<link rel="preload" crossorigin="crossorigin" href="mdui/fonts/roboto/Roboto-Regular.woff2" as="font">
+		<link rel="preload" crossorigin="crossorigin" href="mdui/fonts/roboto/Roboto-Medium.woff2" as="font">
+		<link rel="preload" crossorigin="crossorigin" href="mdui/icons/material-icons/MaterialIcons-Regular.woff2" as="font">
+		<link rel="preload" crossorigin="crossorigin" href="mdui/fonts/roboto/Roboto-Bold.woff2" as="font">
+	<% } %>
 	<title>
 		<% var title = page.title || page.category || page.tag || config.title %>
 		<%= title==config.title?title:title + ' - '+ config.title %>
