@@ -6,10 +6,18 @@
 			description = strip_html(page.excerpt);
 		} else if(truncate(strip_html(page.content), {length: 70})!='') {
 			description = truncate(strip_html(page.content), {length: 70});
-		} else if(page.category!='') {
+		} else if(is_category()) {
 			description = __('categories') + ' - ' + page.category + ' - '+ config.title;
-		} else if(page.tag!='') {
+		} else if(is_tag()) {
 			description = __('tags') + ' - ' + page.tag + ' - '+ config.title;
+		} else if(is_archive()) {
+			description = __('archives');
+			if (is_month()) {
+				description += ' - ' + page.year+__('archive.year') + page.month+  __('archive.month');
+			} else if (is_year()) {
+				description += ' - ' + page.year+  __('archive.year');
+			}
+			description += ' - ' + config.title;
 		}
 	%>
 	<meta name="description" content="<%= description %>">
@@ -43,24 +51,22 @@
 		<link rel="preload" crossorigin="crossorigin" href="mdui/fonts/roboto/Roboto-Bold.woff2" as="font">
 	<% } %>
 	<title>
-		<% var title = page.title || page.category || page.tag || config.title %>
-		<%= title==config.title?title:title + ' - '+ config.title %>
-		<%#
-			var title = page.title;
-			if (is_archive()) {
-				title = __('archive');
-				if (is_month()) {
-					title += ': ' + page.year + '/' + page.month;
-				} else if (is_year()) {
-					title += ': ' + page.year;
-				}
-			} else if (is_category()) {
-				title = __('category') + ': ' + page.category;
-			} else if (is_tag()) {
-				title = __('tag') + ': ' + page.tag;
+		<% let title = page.title || config.title%>
+		<% 
+		if(is_category()) {
+			title = __('categories') + ' - ' + page.category + ' - '+ config.title;
+		} else if(is_tag()) {
+			title = __('tags') + ' - ' + page.tag + ' - '+ config.title;
+		} else if(is_archive()) {
+			title = __('archives');
+			if (is_month()) {
+				title += ' - ' + page.year+__('archive.year') + page.month+  __('archive.month');
+			} else if (is_year()) {
+				title += ' - ' + page.year+  __('archive.year');
 			}
-			title += " - " + config.title
-		%>
-		<%# title ? title : config.title %>
+			title += ' - ' + config.title;
+		}
+		%> 
+		<%= title %>
 	</title>
 </head>

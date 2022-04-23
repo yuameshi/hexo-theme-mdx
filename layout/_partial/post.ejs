@@ -2,7 +2,7 @@
 	<%# 元信息 %>
 	<div class="postMeta mdui-card-media">
 		<%# 发布时间 %>
-		<div class="mdui-chip postDate" mdui-tooltip="{content: '发布时间'}">
+		<div class="mdui-chip postDate" mdui-tooltip="{content: '<%= __('post.post') %>'}">
 			<span class="mdui-chip-icon">
 			  <i class="mdui-icon material-icons">&#xe192;</i>
 			</span>
@@ -11,7 +11,7 @@
 			</span>
 		</div>
 		<%# 更新 %>
-		<div class="mdui-chip postDate" mdui-tooltip="{content: '更新时间'}">
+		<div class="mdui-chip postDate" mdui-tooltip="{content: '<%= __('post.updated') %>'}">
 			<span class="mdui-chip-icon">
 			  <i class="mdui-icon material-icons">&#xe923;</i>
 			</span>
@@ -21,7 +21,7 @@
 		</div>
 		<%# 分类 %>
 		<% if (type=='post') { %>
-			<div class="mdui-chip postCategories" mdui-tooltip="{content: '分类'}">
+			<div class="mdui-chip postCategories" mdui-tooltip="{content: '<%= __('post.categories') %>'}">
 				<span class="mdui-chip-icon">
 					<i class="mdui-icon material-icons">&#xe2c7;</i>
 				</span>

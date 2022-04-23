@@ -4,44 +4,24 @@ tags: 标签
 categories: 分类
 archives: 归档
 nightmode_switch: 切换日间/夜间模式
-gallery: 图集
 more: 阅读更多
-prev: 上一篇
-next: 下一篇
-permalink: 本文链接：
 
 post:
-  posted: 发布于
-  updated: 更新于
+  post: 发布时间
+  updated: 更新时间
   categories: 分类
   uncategorized: 未分类
-  untagged: 该文章无标签
-  views: 阅读次数
+  untagged: 无标签
+
+archive:
+  year: 年
+  month: 月
+  counter: 总计 %d 篇文章
 
 footer:
   hexo: "由 Hexo 强力驱动"
   theme: 由 MDx 主题装饰
   copyrights: "&copy; %s"
-
-sidebar:
-  menu_tab: 站点概览
-  toc: 文章目录
-  about: 关于
-  friend_links_tab: 友情链接
-
-counter:
-  tags:
-    zero: 暂无标签
-    one: 目前共计 1 个标签
-    other: "目前共计 %d 个标签"
-  categories:
-    zero: 暂无分类
-    one: 目前共计 1 个分类
-    other: "目前共计 %d 个分类"
-  archives:
-    zero: 暂无日志。
-    one: 目前共计 1 篇日志。
-    other: "目前共计 %d 篇日志"
 
 share:
   weibo: 分享到 Weibo

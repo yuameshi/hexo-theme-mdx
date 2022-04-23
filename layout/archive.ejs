@@ -1,7 +1,7 @@
 <main class="postList mdui-center">
 	<%var title_year = '0'%>
 	<div class="postCount">
-		<%=_p('counter.archives',site.posts.length)%>
+		<%=_p('archive.counter',site.posts.length)%>
 	</div>
 	<%page.posts.data.forEach(function(post) {%>
 		<%var item_year=date(post.date,'Y')%>

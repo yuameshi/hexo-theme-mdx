@@ -1,50 +1,27 @@
 home: Home
 about: About
-tags: Tags
-categories: Categories
-archives: Archives
-sitemap: Sitemap
-resources: Resources
-nightmode: Night Mode
-gallery: Gallery
-more: Read More
-prev: Prev
-next: Next
-permalink: "PermaLink: "
+tags: Tages
+categories: Category
+archives: Archive
+nightmode_switch: Switch Light/Dark Mode
+more: Read more
 
 post:
-  posted: Posted on
-  edited: Edited on
-  in: In
-  views: Views
+  post: Post Time
+  updated: Updated Time
+  categories: Categories
+  uncategorized: Uncategorized
+  untagged: Untagged
 
-sidebar:
-  overview: Overview
-  toc: Table of Contents
-  about: About
-  links: Links
+archive:
+  year: ' '
+  month: ' '
+  counter: Total %d posts
 
 footer:
-  powered: "Powered by %s"
-  theme: Theme
-  total_views: Total Views
-  total_visitors: Total Visitors
-  
-counter:
-  tags:
-    zero: No tags
-    one: 1 tag in total
-    other: "%d tags in total"
-
-  categories:
-    zero: No categories
-    one: 1 category in total
-    other: "%d categories in total"
-
-  archives:
-    zero: No posts.
-    one: 1 post.
-    other: "%d posts in total."
+  hexo: "Powered by Hexo"
+  theme: "Themed MDx"
+  copyrights: "&copy; %s"
 
 share:
   weibo: Share to Weibo
