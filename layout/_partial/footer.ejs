@@ -7,12 +7,13 @@
 			<div class="text">
 				<%-theme.footer.text%>
 				<% if (theme.footer.contact) { %>
-					&nbsp;&nbsp;
+					<% if (theme.footer.contact && theme.footer.text) { %>
+						&nbsp;&nbsp;
+					<% } %>
 					<div class="contact">
-						<% for(element in theme.footer.contact){%>
-							<%const str = theme.footer.contact[element].split(" || ")%>
-							<a href="<%= url_for(str[0]) %>">
-								<i class="<%=str[1]%>"></i>	
+						<% for(el in theme.footer.contact){%>
+							<a href="<%= url_for(theme.footer.contact[el]) %>">
+								<%=el%>
 							</a>
 						<%}%>
 					</div>

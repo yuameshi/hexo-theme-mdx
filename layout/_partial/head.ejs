@@ -27,13 +27,6 @@
 	<link rel="apple-touch-icon" href="<%= theme.favicon %>">
 	<%- js({ src: 'js/material.js', async: true }) %>
 	<%- css(['css/main.css']) %>
-	<%# Font Awesome %> 
-	<% if (theme.include_font_awesome) { %>
-		<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.1.1/css/fontawesome.min.css" />
-		<link rel="preload" crossorigin="crossorigin" href="https://cdn.staticfile.org/font-awesome/6.1.1/webfonts/fa-solid-900.woff2" as="font">
-		<link rel="preload" crossorigin="crossorigin" href="https://cdn.staticfile.org/font-awesome/6.1.1/webfonts/fa-regular-400.woff2" as="font">
-		<link rel="preload" crossorigin="crossorigin" href="https://cdn.staticfile.org/font-awesome/6.1.1/webfonts/fa-brands-400.woff2" as="font">
-	<% } %>
 	<%# MDUI %>
 	<% if (theme.use_cdn) { %>
 		<link rel="stylesheet" href="https://cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css?v=1.0.2" />
