@@ -1,0 +1,19 @@
+<div id="gitalk-container" class="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.css">
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js" id="gitalkScript" async></script>
+<script>
+	document.querySelector('#gitalkScript')
+		.onload=()=>{
+			console.log('Renderiing Gitalk...');
+			const gitalk = new Gitalk({
+				clientID: '<%= theme.comment.gitalk.clientID %>',
+				clientSecret: '<%= theme.comment.gitalk.clientSecret %>',
+				repo: '<%= theme.comment.gitalk.repo %>',
+				owner: '<%= theme.comment.gitalk.owner %>',
+				admin: ['<%= theme.comment.gitalk.admin %>'],
+				id: location.pathname,
+				distractionFreeMode: "<%= theme.comment.gitalk.admin %>"
+			});
+			gitalk.render('gitalk-container');
+		};
+</script>
