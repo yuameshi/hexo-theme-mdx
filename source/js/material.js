@@ -1,6 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
 	document
-		.querySelectorAll('#mainContent > div.pageInition > *')
+		.querySelector('button#goToTopBtn')
+		.addEventListener('click', function () {
+			window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+		});
+});
+
+window.addEventListener('load', function () {
+	document
+		.querySelectorAll('div#mainContent > div.pageInition > *')
 		.forEach(function (el) {
 			if (el.classList.contains('current') == false) {
 				if (el.classList.contains('space') == false) {
@@ -15,9 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		.addEventListener('click', function () {
 			window.scroll({ top: 0, left: 0, behavior: 'smooth' });
 		});
-});
-
-window.addEventListener('load', function () {
 	document.querySelector('#pageLoadProgressIndicator').remove();
 });
 	

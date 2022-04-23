@@ -1,7 +1,7 @@
 div#left-drawer{
 	div.drawerHeader{
 		div.drawerAbout{
-			height 250px
+			height 225px
 			width 100%
 			div.drawerAboutMain{
 				height 100%
@@ -14,16 +14,25 @@ div#left-drawer{
 				line-height 1.5rem
 				background var(--drawer-bg) center no-repeat
 				background-size cover
+				img.avatar{
+					width 50px
+					height 50px
+					border-radius 999px
+					margin 10px 20px
+					order 0
+				}
 				&:before{
 					content attr(data-name)
 					font-size 18px
-					margin 0 10px
+					margin 0 20px
+					order 1
 				}
 				&:after{
 					content attr(data-slogan)
 					color #ffffffb3
 					font-size 14px
-					margin 0 10px 10px 10px
+					margin 0 0 20px 20px
+					order 2
 				}
 			}
 		}
