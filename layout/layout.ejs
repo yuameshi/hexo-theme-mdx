@@ -18,5 +18,23 @@
 		<button id="goToTopBtn" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent" style="z-index:100;">
 			<i class="mdui-icon material-icons">&#xe316;</i>
 		</button>
+		<% if (theme.gdpr_cookie_alert.enable) { %>
+			<script>
+				if (localStorage.getItem('checkedGPDRCookieAlert') != 'true') {
+					window.addEventListener('load', function () {
+						mdui.snackbar({
+							message: `<%-theme.gdpr_cookie_alert.text%>`,
+							buttonText: "<%-__('gpdr_cookie_alert_ack_btn')%>",
+							timeout: 0,
+							position: 'right-bottom',
+							closeOnOutsideClick: false,
+							onButtonClick: function(){
+								localStorage.setItem('checkedGPDRCookieAlert','true');
+							},
+						});
+					});
+				}
+			</script>
+		<% } %>
 	</body>
 </html>

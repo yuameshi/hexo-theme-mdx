@@ -1,5 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
 	document
+		.querySelectorAll('div#mainContent > div.pageInition > *')
+		.forEach(function (el) {
+			if (el.classList.contains('current') == false) {
+				if (el.classList.contains('space') == false) {
+					el.classList.add('mdui-ripple');
+				}
+			} else {
+				el.classList.add('mdui-color-theme');
+			}
+		});
+	document
 		.querySelector('button#goToTopBtn')
 		.addEventListener('click', function () {
 			window.scroll({ top: 0, left: 0, behavior: 'smooth' });
