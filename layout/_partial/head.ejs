@@ -24,18 +24,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<% if (theme.favicon) { %>
-		<link rel="preload" crossorigin href="<%- theme.favicon %> " as="image">
-	<% } %>
-	<% if (theme.header_picture_link) { %>
-		<link rel="preload" crossorigin href="<%- theme.header_picture_link %> " as="image">
-	<% } %>
-	<% if (theme.drawer_about) { %>
-		<% if (theme.drawer_about.avatar) { %>
-			<link rel="preload" crossorigin href="<%- theme.drawer_about.avatar %> " as="image">
-		<% } %>
-		<% if (theme.drawer_about.background) { %>
-			<link rel="preload" crossorigin href="<%- theme.drawer_about.background %> " as="image">
-		<% } %>
+		<link rel="preload" href="<%- theme.favicon %> " as="image" crossorigin="anonymous">
+		<link rel="prefetch" href="<%- theme.favicon %> " as="image" crossorigin="anonymous">
 	<% } %>
 	<link rel="shortcut icon" href="<%= theme.favicon %>" type="image/x-icon">
 	<link rel="apple-touch-icon" href="<%= theme.favicon %>">
@@ -43,20 +33,28 @@
 	<%- css(['css/main.css']) %>
 	<%# MDUI %>
 	<% if (theme.use_cdn) { %>
-		<link rel="preconnect" crossorigin href="https://cdn.staticfile.org/">
-		<link rel="stylesheet" href="https://cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css?v=1.0.2">
-		<script src="https://cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js?v=1.0.2" async></script>
-		<link rel="preload" crossorigin href="https://cdn.staticfile.org/mdui/1.0.2/fonts/roboto/Roboto-Regular.woff2" as="font">
-		<link rel="preload" crossorigin href="https://cdn.staticfile.org/mdui/1.0.2/icons/material-icons/MaterialIcons-Regular.woff2" as="font">
-		<link rel="preload" crossorigin href="https://cdn.staticfile.org/mdui/1.0.2/fonts/roboto/Roboto-Medium.woff2" as="font">
-		<link rel="preload" crossorigin href="https://cdn.staticfile.org/mdui/1.0.2/fonts/roboto/Roboto-Bold.woff2" as="font">
+		<link rel="preconnect" href="https://cdn.jsdelivr.net/" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css" integrity="sha256-HC/aPArtOc7yw62YcBzG24sJXjXJu0atujZh9a4LtUw=" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js" integrity="sha256-pQMhrt4i+xYuZzfKboXTE2lnXDccZ8qI2Fh8gyGtX6Q=" crossorigin="anonymous"></script>
+		<link rel="preload" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Regular.woff2" as="font" crossorigin="anonymous">
+		<link rel="preload" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Medium.woff2" as="font" crossorigin="anonymous">
+		<link rel="preload" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Bold.woff2" as="font" crossorigin="anonymous">
+		<link rel="preload" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/icons/material-icons/MaterialIcons-Regular.woff2" as="font" crossorigin="anonymous">
+		<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Regular.woff2" as="font" crossorigin="anonymous">
+		<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Medium.woff2" as="font" crossorigin="anonymous">
+		<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Bold.woff2" as="font" crossorigin="anonymous">
+		<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/icons/material-icons/MaterialIcons-Regular.woff2" as="font" crossorigin="anonymous">
 	<% } else { %>
 		<%- js({src: 'mdui/js/mdui.min.js?v=1.0.2', async: true}) %> 
 		<%- css(['mdui/css/mdui.min.css?v=1.0.2']) %>
-		<link rel="preload" crossorigin href="mdui/fonts/roboto/Roboto-Regular.woff2" as="font">
-		<link rel="preload" crossorigin href="mdui/fonts/roboto/Roboto-Medium.woff2" as="font">
-		<link rel="preload" crossorigin href="mdui/icons/material-icons/MaterialIcons-Regular.woff2" as="font">
-		<link rel="preload" crossorigin href="mdui/fonts/roboto/Roboto-Bold.woff2" as="font">
+		<link rel="preload" href="mdui/fonts/roboto/Roboto-Regular.woff2" as="font" crossorigin="anonymous">
+		<link rel="preload" href="mdui/fonts/roboto/Roboto-Medium.woff2" as="font" crossorigin="anonymous">
+		<link rel="preload" href="mdui/fonts/roboto/Roboto-Bold.woff2" as="font" crossorigin="anonymous">
+		<link rel="preload" href="mdui/icons/material-icons/MaterialIcons-Regular.woff2" as="font" crossorigin="anonymous">
+		<link rel="prefetch" href="mdui/fonts/roboto/Roboto-Regular.woff2" as="font" crossorigin="anonymous">
+		<link rel="prefetch" href="mdui/fonts/roboto/Roboto-Medium.woff2" as="font" crossorigin="anonymous">
+		<link rel="prefetch" href="mdui/fonts/roboto/Roboto-Bold.woff2" as="font" crossorigin="anonymous">
+		<link rel="prefetch" href="mdui/icons/material-icons/MaterialIcons-Regular.woff2" as="font" crossorigin="anonymous">
 	<% } %>
 	<%- partial('_partial/_plugins/analytics/analytics') %> 
 	<title>
@@ -78,4 +76,16 @@
 		%> 
 		<%= title %>
 	</title>
+	<% if (theme.header_picture_link) { %>
+		<link rel="preload" href="<%- theme.header_picture_link %> " as="image" crossorigin="anonymous">
+		<link rel="prefetch" href="<%- theme.header_picture_link %> " as="image" crossorigin="anonymous">
+	<% } %>
+	<% if (theme.drawer_about) { %>
+		<% if (theme.drawer_about.avatar) { %>
+			<link rel="prefetch" href="<%- theme.drawer_about.avatar %> " as="image" crossorigin="anonymous">
+		<% } %>
+		<% if (theme.drawer_about.background) { %>
+			<link rel="prefetch" href="<%- theme.drawer_about.background %> " as="image" crossorigin="anonymous">
+		<% } %>
+	<% } %>
 </head>

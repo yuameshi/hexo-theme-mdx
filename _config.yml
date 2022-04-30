@@ -1,48 +1,80 @@
+# 主题设置
+use_cdn: true # 是否使用 CDN 加速（cdn.jsdelivr.net）
+
 # 主题颜色
 color:
   primary: indigo
   accent: pink
 
-header_picture_link: https://cdn.jsdelivr.net/gh/Yuameshi/Blog-CDN@main/background-pictures/87489781_p0.webp
-avatar: https://cdn.jsdelivr.net/gh/Yuameshi/Blog-CDN@main/background-pictures/Avatar.png
-favicon: https://cdn.jsdelivr.net/gh/Yuameshi/Blog-CDN@main/background-pictures/Avatar.png
-excerpt_length: 250 #自动生成的摘要长度 建议文章中手动使用 <!--more--> 效果更佳
+gdpr_cookie_alert:
+  enable: true
+  text: 此网站使用Cookie来改善您的体验。
 
-# 搜索（还没做呢）
+header_picture_link: 
+favicon: 
+excerpt_length: 250 #自动生成的摘要长度 建议文章中手动使用 <!--more--> 效果更佳  
+tag_page_count: true #Tag页是否计数
+
+# 搜索(还没做)
 search:
   local: true
   path: /search.xml
+
+# 抽屉菜单的关于
+drawer_about:
+  enable: true
+  avatar: 
+  name: 
+  slogan: 
+  background: 
+  is_dark: true
+
+# 抽屉菜单
+# 格式: 名称: 链接 || 前缀(图标)
+# 图标到找 https://www.mdui.org/docs/material_icon
+drawer:
+  主页: / || &#xe88a;
+  MDx: https://github.com/Yuameshi/hexo-theme-mdx || &#xe243;
+  GitHub: https://github.com/Yuameshi || &#xe149;
+  关于: /about || &#xe88e;
 
 # 文章末尾插入的文段，%title%表示文章标题，%link%表示文章链接
 passage_end_tag:
   enabled: true
   text: '全文完'
 
-# 抽屉菜单
-# 格式: 名称: 链接 || 前缀(图标)
-# 图标到这里找 https://www.mdui.org/docs/material_icon
-drawer:
-  主页: / || &#xe88a;
-  友情链接: /friends || &#xe7fb;
-  Yuameshi: https://www.yuameshi.top/ || &#xe869;
-  MDx: https://github.com/Yuameshi/hexo-theme-mdx || &#xe869;
-  关于: /about || &#xe88e;
+comment:
+  use: 
+  gitalk:
+    clientID: 
+    clientSecret: 
+    repo: 
+    owner: 
+    admin: ['']
+    distractionFreeMode: true
+  utteranc:
+    repo: 
+    issue_term: 
+    lable: 
+    theme: 
 
-drawer_about:
-  enable: true
-  name: Yuameshi
-  slogan: qwq
-  background: https://cdn.jsdelivr.net/gh/Yuameshi/Blog-CDN@main/background-pictures/87478484_p0.webp
-  is_dark: true
+
+analytics:
+  google:
+    enabled: false
+    tracking_id: 
+  cloudflare:
+    enabled: false
+    token: 
 
 footer:
-  since: 2022
+  since: 
   copyrights: true
   hexo: true
   theme: true
-  text: Hello World!
+  text: 
   contact:
-    Github: https://github.com/Yuameshi/ || fa fa-github
-    MDx: https://github.com/Yuameshi/hexo-theme-mdx || fa fa-about
+    MDx: https://github.com/Yuameshi/hexo-theme-mdx
+    GitHub: https://github.com/Yuameshi
   miit_icp: 
   moe_icp: 
