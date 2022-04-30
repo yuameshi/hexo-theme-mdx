@@ -2,7 +2,7 @@
 	<div class="drawerHeader">
 		<% if (theme.drawer_about.enable) { %>
 			<div class="drawerAbout mdui-color-theme">
-				<div class="drawerAboutMain mdui-text-color-<%=theme.drawer_about.is_dark?"white":"black" %>" style="--drawer-bg: url(<%= theme.drawer_about.background %>)"
+				<div class="drawerAboutMain mdui-text-color-<%=theme.drawer_about.is_dark?"white":"black" %>" style="background-image: url(<%= theme.drawer_about.background %>);"
 					data-name="<%= theme.drawer_about.name %>" data-slogan="<%= theme.drawer_about.slogan %>">
 					<img src="<%= theme.drawer_about.avatar%>" alt="avatar" class="avatar">
 				</div>
