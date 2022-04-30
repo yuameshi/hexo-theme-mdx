@@ -32,10 +32,14 @@ main.postList{
 				flex-direction row
 				justify-content space-between
 				align-items center
-				padding 0 10px
+				padding 0 0 0 10px
 				span.postItemInfo{
 					display flex
 					flex-direction row
+					max-width calc(100% - 100px)
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
 					div{
 						display flex
 						flex-direction row
@@ -43,9 +47,6 @@ main.postList{
 						justify-content start
 						margin-left 10px
 						color rgba(0,0,0,.87)
-						overflow: hidden;
-						white-space: nowrap;
-						text-overflow: ellipsis;
 						&:first-child{
 							margin-left 0
 						}
@@ -55,11 +56,13 @@ main.postList{
 						a.category-link{
 							color rgba(0,0,0,.87)
 							text-decoration none
+							flex-shrink 1
 						}
 					}
 				}
 				a.readMore{
 					justify-self flex-end
+					flex-shrink 0
 				}
 			}
 		}

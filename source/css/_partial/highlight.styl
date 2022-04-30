@@ -24,7 +24,51 @@ figure.highlight {
 						color #606
 					}
 				}
+				// highligh.js
+				code.hljs{
+					span.hljs-string,
+					span.hljs-attr{
+						color #d14
+					}
+					span.hljs-bullet,
+					span.hljs-comment{
+						color #999
+					}
+					span.hljs-keyword{
+						color #00f
+					}
+					span.hljs-built_in,
+					span.hljs-symbol,
+					span.hljs-literal,
+					span.hljs-tag{
+						color #606
+					}
+				}
+			}
 		}
+	}
+}
+// prism.js
+pre.line-numbers{
+	code{
+		span.token.function,
+		span.token.keyword,
+		span.token.key.atrule{
+			color #00f
+		}
+		span.token.punctuation,
+		span.token.comment{
+			color #999
+		}
+		span.token.scalar.string,
+		span.token.assign-left.variable,
+		span.token.string{
+			color #d14
+		}
+		span.token.operator,
+		span.token.builtin.class-name,
+		span.token.number{
+			color #606
 		}
 	}
 }
