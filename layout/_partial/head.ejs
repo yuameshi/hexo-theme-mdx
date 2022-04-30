@@ -23,25 +23,40 @@
 	<meta name="description" content="<%= description %>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<% if (theme.favicon) { %>
+		<link rel="preload" crossorigin href="<%- theme.favicon %> " as="image">
+	<% } %>
+	<% if (theme.header_picture_link) { %>
+		<link rel="preload" crossorigin href="<%- theme.header_picture_link %> " as="image">
+	<% } %>
+	<% if (theme.drawer_about) { %>
+		<% if (theme.drawer_about.avatar) { %>
+			<link rel="preload" crossorigin href="<%- theme.drawer_about.avatar %> " as="image">
+		<% } %>
+		<% if (theme.drawer_about.background) { %>
+			<link rel="preload" crossorigin href="<%- theme.drawer_about.background %> " as="image">
+		<% } %>
+	<% } %>
 	<link rel="shortcut icon" href="<%= theme.favicon %>" type="image/x-icon">
 	<link rel="apple-touch-icon" href="<%= theme.favicon %>">
 	<%- js({ src: 'js/material.js', async: true }) %>
 	<%- css(['css/main.css']) %>
 	<%# MDUI %>
 	<% if (theme.use_cdn) { %>
-		<link rel="stylesheet" href="https://cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css?v=1.0.2" />
+		<link rel="preconnect" crossorigin href="https://cdn.staticfile.org/">
+		<link rel="stylesheet" href="https://cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css?v=1.0.2">
 		<script src="https://cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js?v=1.0.2" async></script>
-		<link rel="preload" crossorigin="crossorigin" href="https://cdn.staticfile.org/mdui/1.0.2/fonts/roboto/Roboto-Regular.woff2" as="font">
-		<link rel="preload" crossorigin="crossorigin" href="https://cdn.staticfile.org/mdui/1.0.2/icons/material-icons/MaterialIcons-Regular.woff2" as="font">
-		<link rel="preload" crossorigin="crossorigin" href="https://cdn.staticfile.org/mdui/1.0.2/fonts/roboto/Roboto-Medium.woff2" as="font">
-		<link rel="preload" crossorigin="crossorigin" href="https://cdn.staticfile.org/mdui/1.0.2/fonts/roboto/Roboto-Bold.woff2" as="font">
+		<link rel="preload" crossorigin href="https://cdn.staticfile.org/mdui/1.0.2/fonts/roboto/Roboto-Regular.woff2" as="font">
+		<link rel="preload" crossorigin href="https://cdn.staticfile.org/mdui/1.0.2/icons/material-icons/MaterialIcons-Regular.woff2" as="font">
+		<link rel="preload" crossorigin href="https://cdn.staticfile.org/mdui/1.0.2/fonts/roboto/Roboto-Medium.woff2" as="font">
+		<link rel="preload" crossorigin href="https://cdn.staticfile.org/mdui/1.0.2/fonts/roboto/Roboto-Bold.woff2" as="font">
 	<% } else { %>
 		<%- js({src: 'mdui/js/mdui.min.js?v=1.0.2', async: true}) %> 
 		<%- css(['mdui/css/mdui.min.css?v=1.0.2']) %>
-		<link rel="preload" crossorigin="crossorigin" href="mdui/fonts/roboto/Roboto-Regular.woff2" as="font">
-		<link rel="preload" crossorigin="crossorigin" href="mdui/fonts/roboto/Roboto-Medium.woff2" as="font">
-		<link rel="preload" crossorigin="crossorigin" href="mdui/icons/material-icons/MaterialIcons-Regular.woff2" as="font">
-		<link rel="preload" crossorigin="crossorigin" href="mdui/fonts/roboto/Roboto-Bold.woff2" as="font">
+		<link rel="preload" crossorigin href="mdui/fonts/roboto/Roboto-Regular.woff2" as="font">
+		<link rel="preload" crossorigin href="mdui/fonts/roboto/Roboto-Medium.woff2" as="font">
+		<link rel="preload" crossorigin href="mdui/icons/material-icons/MaterialIcons-Regular.woff2" as="font">
+		<link rel="preload" crossorigin href="mdui/fonts/roboto/Roboto-Bold.woff2" as="font">
 	<% } %>
 	<%- partial('_partial/_plugins/analytics/analytics') %> 
 	<title>
