@@ -57,7 +57,7 @@
 		<% } %>
 		<div class="postTags">
 			<i class="mdui-icon material-icons mdui-text-color-theme-secondary">&#xe54e;</i>
-			<% if (page.tags.length) { %>
+			<% if (page.tags && page.tags.length) { %>
 				<%- list_tags(
 					page.tags,
 					{
