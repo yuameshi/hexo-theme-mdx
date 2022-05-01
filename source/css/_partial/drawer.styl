@@ -1,4 +1,8 @@
 div#left-drawer{
+	width 280px
+	&.mdui-drawer-close{
+		transform: translateX(-280px);
+	}
 	div.drawerHeader{
 		div.drawerAbout{
 			height 225px
@@ -39,8 +43,8 @@ div#left-drawer{
 		}
 		button.nightMode{
 			position absolute
-			top 0
-			right 0
+			top 5px
+			right 5px
 			padding 10px
 			color #000
 			font-size 20px
@@ -51,7 +55,6 @@ div#left-drawer{
 	nav div a{
 		border-top-right-radius: 999px;
 		border-bottom-right-radius: 999px;
-		color:rgba(0, 0, 0, 0.87)
 		width: 100%;
 		i.mdui-icon.material-icons{
 			margin 0 5px

@@ -5,12 +5,12 @@
 				<%= post.title %>
 			</h1>
 		</a>
-		<p class="mdui-text-color-black postExcerpt">
+		<p class="mdui-text-color-theme-secondary postExcerpt">
 			<%- strip_html(post.excerpt) || truncate(strip_html(post.content), {length: theme.excerpt_length}) %>
 		</p>
 		<div class="mdui-divider"></div>
 		<div class="postItemFooter">
-			<span class="postItemInfo">
+			<span class="postItemInfo mdui-text-color-theme-secondary">
 				<div class="postTime">
 					<i class="mdui-icon material-icons">&#xe192;</i>
 					<%= date(post.date) %>
@@ -28,6 +28,7 @@
 							show_count: false,
 							style: 'none' ,
 							separator: ' / ',
+							class: 'mdui-text-color-theme-secondary category',
 							depth: 1,
 						}) : __("post.uncategorized") %>
 				</div>

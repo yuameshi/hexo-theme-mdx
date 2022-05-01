@@ -1,6 +1,6 @@
 <div class="postPage mdui-card mdui-center">
 	<%# 元信息 %>
-	<div class="postMeta mdui-card-media">
+	<div class="postMeta mdui-card-media mdui-text-color-theme-text">
 		<%# 发布时间 %>
 		<div class="mdui-chip postDate" mdui-tooltip="{content: '<%= __('post.post') %>'}">
 			<span class="mdui-chip-icon">
@@ -27,7 +27,14 @@
 				</span>
 				<span class="mdui-chip-title">
 					<% if (list_categories(page.categories)) { %>
-						<%- list_categories(page.categories, {show_count: false, style: 'none', separator: ' / '}) %>
+						<%- list_categories(
+							page.categories,
+							{
+								show_count: false,
+								style: 'none',
+								separator: ' / ',
+								class: 'mdui-text-color-theme-text category'
+							}) %>
 					<% } else { %>
 						<%=__('post.uncategorized')%>
 					<% } %>
@@ -49,9 +56,18 @@
 			</div>
 		<% } %>
 		<div class="postTags">
-			<i class="mdui-icon material-icons">&#xe54e;</i>
+			<i class="mdui-icon material-icons mdui-text-color-theme-secondary">&#xe54e;</i>
 			<% if (page.tags.length) { %>
-				<%- list_tags(page.tags, {style: 'none',show_count:false, separator: ''}) %>
+				<%- list_tags(
+					page.tags,
+					{
+						style: 'none',
+						show_count:false,
+						separator: '',
+						class: 'mdui-text-color-theme-secondary tag'
+					}
+					) 
+				%>
 			<% } else { %>
 				<%=__('post.untagged')%>
 			<% } %>
@@ -59,13 +75,13 @@
 		<%# 底部文章前后导航 %>
 		<div class="nav">
 			<% if (page.prev) { %>
-				<a rel="prev" href="<%- url_for(page.prev.path) %>">
+				<a rel="prev" href="<%- url_for(page.prev.path) %>" class="mdui-text-color-theme-secondary">
 					<i class="mdui-icon material-icons">&#xe314;</i>
 					<span><%= page.prev.title %></span>
 				</a>
 			<% } %>
 			<% if (page.next) { %>
-				<a rel="next" href="<%- url_for(page.next.path) %>">
+				<a rel="next" href="<%- url_for(page.next.path) %>" class="mdui-text-color-theme-secondary">
 					<span><%= page.next.title %></span>
 					<i class="mdui-icon material-icons">&#xe315;</i>
 				</a>

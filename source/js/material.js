@@ -1,11 +1,36 @@
 document.addEventListener('DOMContentLoaded', function () {
+	window.dclSciptsLoaded = true;
 	paginationInit();
 	initBackToTopBtn();
+	if(
+		window.matchMedia('(prefers-color-scheme: dark)').matches
+		&& (localStorage.getItem('darkMode') || 'true') == 'true'
+	) {
+		document.body.classList.add('mdui-theme-layout-dark');
+	}
+	document.body.classList.remove('mdui-theme-layout-auto');
+	document.querySelector('#nightModeToggle').addEventListener('click', function () {
+		document.body.classList.toggle('mdui-theme-layout-dark');
+		localStorage.setItem('darkMode', document.body.classList.contains('mdui-theme-layout-dark'));
+	});
 });
 
 window.addEventListener('load', function () {
-	paginationInit();
-	initBackToTopBtn();
+	if (window.dclSciptsLoaded != true) {
+		paginationInit();
+		initBackToTopBtn();
+		if(
+			window.matchMedia('(prefers-color-scheme: dark)').matches
+			&& (localStorage.getItem('darkMode') || 'true') == 'true'
+		) {
+			document.body.classList.add('mdui-theme-layout-dark');
+		}
+		document.body.classList.remove('mdui-theme-layout-auto');
+		document.querySelector('#nightModeToggle').addEventListener('click', function () {
+			document.body.classList.toggle('mdui-theme-layout-dark');
+			localStorage.setItem('darkMode', document.body.classList.contains('mdui-theme-layout-dark'));
+		});
+	}
 	var pageLoadProgressIndicator = document.querySelector(
 		'#pageLoadProgressIndicator'
 	);
@@ -29,14 +54,11 @@ document.addEventListener('scroll', function () {
 });
 
 function initBackToTopBtn() {
-	if (!window.ifInitiatedGoToTopBtn) {
-		document
-			.querySelector('button#goToTopBtn')
-			.addEventListener('click', function () {
-				window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-			});
-		window.ifInitiatedGoToTopBtn = true;
-	}
+	document
+		.querySelector('button#goToTopBtn')
+		.addEventListener('click', function () {
+			window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+		});
 }
 
 function paginationInit() {
@@ -52,11 +74,16 @@ function paginationInit() {
 			} else {
 				paginations[i].classList.add('mdui-color-theme');
 			}
+			paginations[i].classList.add('mdui-text-color-theme-text');
 		}
 		document
 			.querySelector(
 				'div#mainContent > div.pagination > span.current.page-number'
 			)
-			.classList.add('mdui-ripple', 'mdui-color-theme');
+			.classList.add(
+				'mdui-ripple',
+				'mdui-color-theme',
+				'mdui-text-color-theme-text'
+			);
 	}
 }

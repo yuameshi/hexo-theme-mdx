@@ -11,15 +11,16 @@ div.postPage{
 			margin: 0 1rem;
 			span.mdui-chip-title{
 				a{
-					color #000
 					text-decoration none
 				}
 			}
 		}
 	}
 	div.mdui-card-content.mdui-typo{
+		img,
 		p img{
 			max-height 75vh
+			max-width 100%!important
 			width 100%
 			object-fit contain
 			object-position center
@@ -27,16 +28,14 @@ div.postPage{
 		@import "highlight"
 	}
 	div.pageEnd{
-		background-color: #ededed;
+		background-color #ededed
 		padding 25px 10px
 		div.postTags{
-			color rgba(0,0,0,.5)
 			i.mdui-icon{
 				font-size 18px
 			}
 			a.tag-none-link {
 				text-decoration none
-				color rgba(0,0,0,.5)
 				transition opacity .05s ease
 				&:before{
 					content " #"
@@ -56,7 +55,6 @@ div.postPage{
 			justify-content space-between
 			align-items center
 			a{
-				color rgba(0,0,0,.5)
 				display flex
 				justify-content center
 				align-items center
