@@ -7,12 +7,15 @@ nightmode_switch: 切换日间/夜间模式
 more: 阅读更多
 gpdr_cookie_alert_ack_btn: 了解
 
+
 post:
   post: 发布时间
   updated: 更新时间
   categories: 分类
   uncategorized: 未分类
   untagged: 无标签
+  toc: 目录
+  menu: 菜单
 
 archive:
   year: 年

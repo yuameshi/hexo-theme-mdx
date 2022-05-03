@@ -13,6 +13,8 @@ post:
   categories: Categories
   uncategorized: Uncategorized
   untagged: Untagged
+  toc: Contents
+  menu: Menu
 
 archive:
   year: ' '
