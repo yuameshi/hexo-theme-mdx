@@ -20,7 +20,7 @@
 		</button>
 		<% if (theme.gdpr_cookie_alert.enable) { %>
 			<script>
-				if (localStorage.getItem('checkedGPDRCookieAlert') != 'true') {
+				if (localStorage.getItem('checkedGPDRCookieAlert') !== 'true') {
 					window.addEventListener('load', function () {
 						mdui.snackbar({
 							message: `<%-theme.gdpr_cookie_alert.text%>`,

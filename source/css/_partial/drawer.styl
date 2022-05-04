@@ -2,7 +2,7 @@ div#left-drawer{
 	--drawerWidth 280px
 	width var(--drawerWidth)
 	&.mdui-drawer-close{
-		transform: translateX((calc(var(--drawerWidth) * -1)));
+		transform translateX((calc(var(--drawerWidth) * -1)))
 	}
 	div.drawerHeader{
 		div.drawerAbout{
@@ -55,7 +55,7 @@ div#left-drawer{
 		}
 	}
 	div.mdui-tab.mdui-tab-full-width.mdx-toc-tab{
-		max-height 48px
+		min-height 48px
 		max-height 72px
 		a{
 			min-height 0
@@ -79,7 +79,6 @@ div#left-drawer{
 	nav#drawer-toc ol{
 		pointer-events none
 		li{
-			pointer-events all
 			padding 0
 			display flex
 			flex-direction column

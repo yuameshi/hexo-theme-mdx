@@ -20,7 +20,7 @@
 			</span>
 		</div>
 		<%# 分类 %>
-		<% if (type=='post') { %>
+		<% if (type==='post') { %>
 			<div class="mdui-chip postCategories" mdui-tooltip="{content: '<%= __('post.categories') %>'}">
 				<span class="mdui-chip-icon">
 					<i class="mdui-icon material-icons">&#xe2c7;</i>
@@ -50,7 +50,7 @@
 	<%#文末结束语%>
 	<div class="mdui-divider"></div>
 	<div class="pageEnd">
-		<% if (theme.passage_end_tag.enabled == true) { %>
+		<% if (theme.passage_end_tag.enabled === true) { %>
 			<div class="pageEndText mdui-card-actions mdui-typo">
 				<%- theme.passage_end_tag.text.replace(/%link%/g,full_url_for(page.path)).replace(/%title%/g,page.title) %>
 			</div>

@@ -17,7 +17,7 @@
 			<i class="mdui-icon material-icons"></i>
 		</button>
 	</div>
-	<% if (toc(page.content || '')!='') { %>
+	<% if (toc(page.content || '')!=='') { %>
 		<div class="mdui-tab mdui-tab-full-width mdx-toc-tab" mdui-tab>
 			<a href="#drawer-menu" class="mdui-ripple mdui-text-color-theme-text">
 				<i class="mdui-icon material-icons">&#xe896;</i>
@@ -28,6 +28,12 @@
 				<label><%= __('post.toc') %></label>
 			</a>
 		</div>
+		<nav id="drawer-toc">
+			<%- toc(page.content,{
+				class: 'mdui-text-color-theme-text mdui-ripple mdui-list',
+				max_depth: 1
+			}) %>
+		</nav>
 	<% } %>
 	<nav id="drawer-menu">
 		<div class="mdui-list">
@@ -42,13 +48,4 @@
 			<%}%>
 		</div>
 	</nav>
-	
-	<% if (toc(page.content || '')!='') { %>
-		<nav id="drawer-toc">
-			<%- toc(page.content,{
-				class: 'mdui-text-color-theme-text mdui-ripple mdui-list',
-				max_depth: 1,
-			}) %> 
-		</nav>
-	<% } %>
 </div>
