@@ -18,11 +18,16 @@ window.addEventListener('load', function () {
 });
 
 document.addEventListener('scroll', function () {
-	if ((window.scrollY || window.pageYOffset) > window.screenY / 2) {
+	if (
+		(window.scrollY || window.pageYOffset) >
+		(window.innerHeight || window.screenY) / 2
+	) {
+		document.querySelector('#appBarTitle').innerText=document.querySelector('#pageTitle').innerText;
 		document
 			.querySelector('button#goToTopBtn')
 			.classList.remove('mdui-fab-hide');
 	} else {
+		document.querySelector('#appBarTitle').innerText=document.querySelector('#appBarTitle').getAttribute('data-original-title');
 		document
 			.querySelector('button#goToTopBtn')
 			.classList.add('mdui-fab-hide');
