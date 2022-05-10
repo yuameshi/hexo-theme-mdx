@@ -1,40 +1,84 @@
-<div class="mdui-card mdui-center mdui-hoverable postItem">
-	<div class="mdui-card-actions postItemContent">
-		<a href="<%= url_for(post.path) %>" class="mdui-text-color-theme postTitle">
-			<h1>
-				<%= post.title %>
-			</h1>
-		</a>
-		<p class="mdui-text-color-theme-secondary postExcerpt">
-			<%- strip_html(post.excerpt) || truncate(strip_html(post.content), {length: theme.excerpt_length}) %>
-		</p>
-		<div class="mdui-divider"></div>
-		<div class="postItemFooter">
-			<span class="postItemInfo mdui-text-color-theme-secondary">
-				<div class="postTime">
-					<i class="mdui-icon material-icons">&#xe192;</i>
-					<%= date(post.date) %>
-				</div>
-				<!--
-				<div class="updateTime">
-					<i class="mdui-icon material-icons">&#xe923;</i>
-					<%= date(post.updated) %>
-				</div>
-				-->
-				<div class="categories">
-					<i class="mdui-icon material-icons">&#xe2c7;</i>
-					<%- list_categories(post.categories)
-						? list_categories(post.categories, {
-							show_count: false,
-							style: 'none' ,
-							separator: ' / ',
-							class: 'mdui-text-color-theme-secondary category',
-							depth: 1
-						}) : __("post.uncategorized") %>
-				</div>
-			</span>
-			<a class="readMore mdui-btn mdui-ripple mdui-ripple-white mdui-text-color-theme-accent"
-				href="<%= url_for(post.path) %>"><%= __('more') %></a>
+<% if (post.headerPic) { %>
+		<div class="mdui-card postItem mdui-center mdui-hoverable">
+			<div class="mdui-card-media mdui-color-theme">
+				<a href="<%= url_for(post.path) %>">
+					<img
+						src="<%= url_for(post.headerPic)%>"
+						alt="<%= url_for(post.headerPic)%>"
+						title="<%= post.title %>"
+						class="mdui-color-theme mdui-text-color-theme">
+					<div class="mdui-card-media-covered mdui-card-media-covered-gradient">
+						<div class="mdui-card-primary">
+							<div class="mdui-card-primary-title">
+								<%= post.title %>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="mdui-card-actions postItemContent">
+				<p class="mdui-text-color-theme-secondary postExcerpt">
+					<%- strip_html(post.excerpt) || truncate(strip_html(post.content), {length: theme.excerpt_length}) %>
+				</p>
+				<div class="mdui-divider"></div>
+					<div class="postItemFooter">
+						<span class="postItemInfo mdui-text-color-theme-secondary">
+							<div class="postTime">
+								<i class="mdui-icon material-icons">&#xe192;</i>
+								<%= date(post.date) %>
+							</div>
+							<div class="categories">
+								<i class="mdui-icon material-icons">&#xe2c7;</i>
+								<%- list_categories(post.categories)
+									? list_categories(post.categories, {
+										show_count: false,
+										style: 'none' ,
+										separator: ' / ',
+										class: 'mdui-text-color-theme-secondary category',
+										depth: 1
+									}) : __("post.uncategorized") %>
+							</div>
+						</span>
+						<a class="readMore mdui-btn mdui-ripple mdui-ripple-white mdui-text-color-theme-accent"
+							href="<%= url_for(post.path) %>"><%= __('more') %>
+						</a>
+					</div>
+			</div>
+		</div>
+<% } else { %>
+	<div class="mdui-card mdui-center mdui-hoverable postItem">
+		<div class="mdui-card-actions postItemContent">
+			<a href="<%= url_for(post.path) %>" class="mdui-text-color-theme postTitle">
+				<h1>
+					<%= post.title %>
+				</h1>
+			</a>
+			<p class="mdui-text-color-theme-secondary postExcerpt">
+				<%- strip_html(post.excerpt) || truncate(strip_html(post.content), {length: theme.excerpt_length}) %>
+			</p>
+			<div class="mdui-divider"></div>
+			<div class="postItemFooter">
+				<span class="postItemInfo mdui-text-color-theme-secondary">
+					<div class="postTime">
+						<i class="mdui-icon material-icons">&#xe192;</i>
+						<%= date(post.date) %>
+					</div>
+					<div class="categories">
+						<i class="mdui-icon material-icons">&#xe2c7;</i>
+						<%- list_categories(post.categories)
+							? list_categories(post.categories, {
+								show_count: false,
+								style: 'none' ,
+								separator: ' / ',
+								class: 'mdui-text-color-theme-secondary category',
+								depth: 1
+							}) : __("post.uncategorized") %>
+					</div>
+				</span>
+				<a class="readMore mdui-btn mdui-ripple mdui-ripple-white mdui-text-color-theme-accent"
+					href="<%= url_for(post.path) %>"><%= __('more') %>
+				</a>
+			</div>
 		</div>
 	</div>
-</div>
+<% } %>
