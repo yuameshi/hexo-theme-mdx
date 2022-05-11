@@ -37,10 +37,31 @@ function initPost() {
 			behavior: 'smooth',
 		});
 	}
+	var postPage = document.querySelector('#mainContent > div.postPage');
 	// init table
-	const postPage = document.querySelector('#mainContent > div.postPage');
 	var tables = postPage.querySelectorAll('table');
-	for (let i = 0; i < tables.length; i++) {
+	for (var i = 0; i < tables.length; i++) {
 		tables[i].classList.add('mdui-table');
 	}
+	// init github info card
+	var githubInfoCards = postPage.querySelectorAll('div.mdx-github-card');
+	for (var j = 0; j < githubInfoCards.length; j++) {
+		initGHInfoCard(githubInfoCards[j]);
+	}
+}
+
+function initGHInfoCard(cardElement) {
+	console.log(cardElement);
+	var owner = cardElement.getAttribute('data-owner');
+	var repo = cardElement.getAttribute('data-repo');
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', `https://api.github.com/repos/${owner}/${repo}`, true);
+	xhr.onload = function () {
+		var data = JSON.parse(xhr.responseText);
+		var description = data.description;
+		var stars = data.stargazers_count;
+		cardElement.children[0].children[1].children[1].innerText = description;
+		cardElement.children[0].children[2].children[0].innerText = '★' + stars;
+	};
+	xhr.send();
 }
