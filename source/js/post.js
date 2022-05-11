@@ -11,7 +11,7 @@ window.addEventListener('load', function () {
 function initPost() {
 	document
 		.querySelector('#readOnOtherDeviceBtn')
-		.addEventListener('click', () => {
+		.addEventListener('click', function() {
 			var dom = document.querySelector('#mdx_read_on_other_device');
 			if (typeof QRCode !== 'function') {
 				dom.innerHTML = 'Error: QRCode.js is not loaded.';
@@ -55,7 +55,7 @@ function initGHInfoCard(cardElement) {
 	var owner = cardElement.getAttribute('data-owner');
 	var repo = cardElement.getAttribute('data-repo');
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', `https://api.github.com/repos/${owner}/${repo}`, true);
+	xhr.open('GET', 'https://api.github.com/repos/'+owner+'/'+repo, true);
 	xhr.onload = function () {
 		var data = JSON.parse(xhr.responseText);
 		var description = data.description;

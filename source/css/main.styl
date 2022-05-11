@@ -9,5 +9,29 @@ html{
 		button#goToTopBtn{
 			z-index 100
 		}
+		div#searchDialog{
+			padding 15px
+			overflow-y scroll
+			div#searchResultContainer{
+				height 500px
+				margin 0
+				div.searchResultItem{
+					margin 20px 0
+					a.searchResultItemTitle{
+						font-size 1.2em
+						font-weight bold
+						text-decoration none
+					}
+					div.searchResultItemContent{
+						font-size 0.8em
+						span.searchResultItemMatched{
+							font-weight bold
+							background #ff0
+							color #000
+						}
+					}
+				}
+			}
+		}
 	}
 }

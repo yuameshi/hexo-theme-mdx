@@ -15,9 +15,19 @@
 			<%- partial('_partial/pagination',{page:page}) %> 
 		</div>
 		<%- partial('_partial/footer.ejs') %>
+		<%# 搜索 %> 
+		<div class="mdui-dialog" id="searchDialog">
+			<div class="mdui-textfield mdui-textfield-floating-label">
+				<label class="mdui-textfield-label"><%- __('input_search_text') %></label>
+				<input class="mdui-textfield-input" type="text" id="searchInputBox" />
+			</div>
+			<div class="mdui-container" id="searchResultContainer"></div>
+		</div>
+		<%# 回到顶部 %> 
 		<button id="goToTopBtn" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent">
 			<i class="mdui-icon material-icons">&#xe316;</i>
 		</button>
+		<%# GPDR Cookie提示 %> 
 		<% if (theme.gdpr_cookie_alert.enable) { %>
 			<script>
 				if (localStorage.getItem('checkedGPDRCookieAlert') !== 'true') {

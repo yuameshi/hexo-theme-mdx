@@ -7,6 +7,7 @@ nightmode_switch: Switch Light/Dark Mode
 more: Read more
 gpdr_cookie_alert_ack_btn: Got it
 read_on_other_device_tooltip: Continue reading on other devices
+input_search_text: Search something...
 
 post:
   post: Post Time
