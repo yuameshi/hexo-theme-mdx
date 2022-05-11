@@ -1,14 +1,15 @@
 div.postPage{
 	margin-top -13.5vh
+	overflow unset
 	div.postMeta {
-		margin 1.5rem 0
+		padding 1.5rem 0
 		width 100%
 		height 2.5rem
 		display flex
 		justify-content center
 		align-items center
 		div.mdui-chip {
-			margin 0 1rem
+			margin 0 0.5rem
 			span.mdui-chip-title{
 				a{
 					text-decoration none
@@ -157,6 +158,21 @@ div.postPage{
 				&:hover{
 					opacity .7
 				}
+			}
+		}
+	}
+	button.mdui-fab.shareBtn{
+		transform: translate(-50%,-50%);
+	}
+	div#shareToWechatQRCodeDialog{
+		width 300px
+		div.mdui-container.shareToWechatQRCodeOuterContainer{
+			padding 25px
+			width 300px
+			height 315px
+			text-align center
+			img{
+				margin-bottom 15px
 			}
 		}
 	}

@@ -5,6 +5,7 @@ categories: 分类
 archives: 归档
 nightmode_switch: 切换日间/夜间模式
 more: 阅读更多
+close: 关闭
 gpdr_cookie_alert_ack_btn: 了解
 read_on_other_device_tooltip: 在其他设备上继续阅读
 input_search_text: 搜点什么...
@@ -29,10 +30,10 @@ footer:
   copyrights: "&copy; %s"
 
 share:
-  weibo: 分享到 Weibo
+  weibo: 分享到 微博
+  qq: 分享到 QQ
+  wechat: 分享到 微信
+  qzone: 分享到 QQ空间
+  telegram: 分享到 Telegram
   twitter: 分享到 Twitter
   facebook: 分享到 Facebook
-  google_plus: 分享到 Google+
-  linkedin: 分享到 LinkedIn
-  qq: 分享到 QQ
-  telegram: 分享到 Telegram

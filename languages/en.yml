@@ -5,6 +5,7 @@ categories: Category
 archives: Archive
 nightmode_switch: Switch Light/Dark Mode
 more: Read more
+close: Close
 gpdr_cookie_alert_ack_btn: Got it
 read_on_other_device_tooltip: Continue reading on other devices
 input_search_text: Search something...
@@ -30,9 +31,9 @@ footer:
 
 share:
   weibo: Share to Weibo
+  qq: Share to QQ
+  wechat: Share to WeChat
+  qzone: Share to QZone
   twitter: Share to Twitter
   facebook: Share to Facebook
-  google_plus: Share to Google+
-  linkedin: Share to LinkedIn
-  qq: Share to QQ
   telegram: Share to Telegram

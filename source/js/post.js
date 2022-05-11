@@ -11,7 +11,7 @@ window.addEventListener('load', function () {
 function initPost() {
 	document
 		.querySelector('#readOnOtherDeviceBtn')
-		.addEventListener('click', function() {
+		.addEventListener('click', function () {
 			var dom = document.querySelector('#mdx_read_on_other_device');
 			if (typeof QRCode !== 'function') {
 				dom.innerHTML = 'Error: QRCode.js is not loaded.';
@@ -38,6 +38,33 @@ function initPost() {
 		});
 	}
 	var postPage = document.querySelector('#mainContent > div.postPage');
+	// generate wechat share qrcode
+	document
+		.querySelector('#shareToWechatQRCodeDialog')
+		.addEventListener('open.mdui.dialog', function () {
+			postPage.querySelector(
+				'div#shareToWechatQRCodeContainer'
+			).innerHTML = '';
+			var url;
+			if (typeof URL === 'function') {
+				url = new URL(location.href);
+				url = url.origin + url.pathname;
+			} else {
+				url = location.href;
+			}
+			new QRCode(
+				postPage.querySelector('div#shareToWechatQRCodeContainer'),
+				{
+					text: url,
+					width: 250,
+					height: 250,
+					colorDark: '#000000',
+					colorLight: '#ffffff',
+					useSVG: true,
+					correctLevel: QRCode.CorrectLevel.H,
+				}
+			);
+		});
 	// init table
 	var tables = postPage.querySelectorAll('table');
 	for (var i = 0; i < tables.length; i++) {
@@ -55,7 +82,7 @@ function initGHInfoCard(cardElement) {
 	var owner = cardElement.getAttribute('data-owner');
 	var repo = cardElement.getAttribute('data-repo');
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', 'https://api.github.com/repos/'+owner+'/'+repo, true);
+	xhr.open('GET', 'https://api.github.com/repos/' + owner + '/' + repo, true);
 	xhr.onload = function () {
 		var data = JSON.parse(xhr.responseText);
 		var description = data.description;

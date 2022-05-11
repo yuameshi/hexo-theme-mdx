@@ -90,5 +90,41 @@
 			<% } %>
 		</div>
 	</div>
+	<button class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-theme-accent shareBtn" mdui-menu="{target: '#shareMenu', align: 'left' ,position: 'top'}">
+		<i class="mdui-icon material-icons">&#xe80d;</i>
+	</button>
+	<ul class="mdui-menu" id="shareMenu">
+		<li class="mdui-menu-item">
+			<a href="<%- encodeURI(`https://service.weibo.com/share/share.php?appkey=&title=${page.title}&url=${page.permalink}&pic=${page.headerPic}&searchPic=false&style=simple`) %>" target="_blank" rel="noopener noreferrer" class="mdui-ripple"><%- __('share.weibo') %> </a>
+		</li>
+		<li class="mdui-menu-item">
+			<a href="<%- encodeURI(`https://connect.qq.com/widget/shareqq/index.html?site=${config.title}&title=${page.title}&summary=${strip_html(page.excerpt) || truncate(strip_html(page.content), {length: theme.excerpt_length})}`) %>" target="_blank" rel="noopener noreferrer" class="mdui-ripple"><%- __('share.qq') %> </a>
+		</li>
+		<li class="mdui-menu-item">
+			<a href="javascript:void(0)" class="mdui-ripple" mdui-dialog="{target: '#shareToWechatQRCodeDialog'}"><%- __('share.wechat') %> </a>
+		</li>
+		<li class="mdui-menu-item">
+			<a href="<%- encodeURI(`https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=${page.permalink}&title=${page.title}&content=utf-8`) %>" target="_blank" rel="noopener noreferrer" class="mdui-ripple"><%- __('share.qzone') %> </a>
+		</li>
+		<li class="mdui-divider"></li>
+		<li class="mdui-menu-item">
+			<a href="<%- encodeURI(`https://telegram.me/share/url?url=${page.permalink}&text=${page.title}`) %>" target="_blank" rel="noopener noreferrer" class="mdui-ripple"><%- __('share.telegram') %> </a>
+		</li>
+		<li class="mdui-menu-item">
+			<a href="<%- encodeURI(`https://www.facebook.com/sharer.php?u=${page.permalink}`) %>" class="mdui-ripple"><%- __('share.facebook') %> </a>
+		</li>
+		<li class="mdui-menu-item">
+			<a href="<%- encodeURI(`https://twitter.com/intent/tweet?text=${page.title}&url=${page.permalink}`) %>" target="_blank" rel="noopener noreferrer" class="mdui-ripple"><%- __('share.twitter') %> </a>
+		</li>
+	</ul>
+	<div class="mdui-dialog" id="shareToWechatQRCodeDialog">
+		<div class="mdui-container mdui-text-color-gray mdui-color-white shareToWechatQRCodeOuterContainer">
+			<div id="shareToWechatQRCodeContainer"></div>
+			<i class="mdui-icon material-icons">&#xe80d;</i> 使用微信扫描后在微信内分享
+		</div>
+		<div class="mdui-container">
+			<button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-center" mdui-dialog-close><%- __('close') %></button>
+		</div>
+	</div>
 	<%- partial('_partial/_plugins/comments/comment') %> 
 </div>
