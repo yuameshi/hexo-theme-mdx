@@ -11,6 +11,17 @@
 				<%= config.title %>
 			</a>
 			<div class="mdui-toolbar-spacer"></div>
+			<% if (is_post() || is_page()) { %>
+				<button
+					class="mdui-btn mdui-btn-icon mdui-ripple"
+					mdui-tooltip="{content: '<%- __('read_on_other_device_tooltip') %> '}"
+					id="readOnOtherDeviceBtn"
+					mdui-menu="{target: '#mdx_read_on_other_device'}">
+					<i class="mdui-icon material-icons">&#xe1b1;</i>
+				</button>
+				<ul class="mdui-menu" id="mdx_read_on_other_device">
+				</ul>
+			<% } %>
 			<!-- 
 			<a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple">
 				<i class="mdui-icon material-icons">&#xe8b6;</i>
