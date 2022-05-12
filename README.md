@@ -1,4 +1,21 @@
-You are reading English documentation.[带我到中文文档](./README.zh.md)
+You are reading English documentation.
+
+[打开中文文档](./README.zh.md)
+
+# hexo-theme-mdx
+
+A hexo theme with material design.
+
+# Browser compatibility
+|Browser|Compatibility|
+|---|---|
+|Chrome|✔ Last 5 version|
+|Firefox|✔ Last 5 version
+|Edge Chromium|✔ Last 5 version|
+|Edge EdgeHTML|? Unknown|
+|Safari|✔ Last 5 version|
+|Internet Explorer 11|Partial support|
+|Internet Explorer 10|Basic support|
 
 # Getting Started
 ## Step 1: Install MDx
@@ -9,15 +26,15 @@ $ npm install hexo-theme-mdx --save
 # You can remove '-b' to get the latest development version(Unstable)
 # To get the full commit history of the repository, remove '--depth 1'
 $ git clone https://github.com/Yuameshi/hexo-theme-mdx.git themes/mdx -b <版本号> --depth 1
-# If you executed the previous command, this command does not need to be executed
+# If you executed the previous command, then this command does not need to be executed
 $ git submodule add https://github.com/Yuameshi/hexo-theme-mdx.git themes/mdx
 ```
-## Step 2: Enable theme
-You can use the Hexo command to modify the theme to MDx
+## Step 2: Enable MDx
+You can use the Hexo command to change the theme to MDx
 ```bash
 hexo config theme mdx
 ```
-You can also directly modify `_config.yml`
+You can also  change `_config.yml` directly
 ```diff yaml
 - theme: previous theme
 + theme: mdx
@@ -35,7 +52,9 @@ $ wget https://cdn.jsdelivr.net/gh/Yuameshi/hexo-theme-mdx@main/_config.yml -O _
 # PowerShell
 (New-Object System.Net.WebClient).DownloadFile("wget https://cdn.jsdelivr.net/gh/Yuameshi/hexo-theme-mdx@main/_config.yml", "_config.mdx.yml")
 ```
-or copy contents below
+or copy contents below to `_config.mdx.yml`
+
+WARNING: If you installed the theme via git, you should delete `_config.yml` in the theme directory.
 
 ## Step2: Edit configuration file to your needs
 ```yaml
@@ -82,7 +101,9 @@ drawer:
   GitHub: https://github.com/Yuameshi || &#xe149;
   About: /about || &#xe88e;
 
-# Text inserted at the end of the article, '%title%' refers to title link of current post, %link% refers to permalink link of current post
+# Text which will inserted at the end of the article.
+# '%title%' refers to title link of current post.
+# '%link%' refers to permalink link of current post
 passage_end_tag:
   enabled: true
   text: 'END'

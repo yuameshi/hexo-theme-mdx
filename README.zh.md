@@ -1,5 +1,20 @@
-你正在阅读中文文档。[Take me to the English documentation.](./README.md)
+你正在阅读中文文档。
 
+[Take me to the English documentation.](./README.md)
+
+# hexo-theme-mdx
+一个具有Material Design设计的Hexo主题
+
+# 浏览器兼容性
+|浏览器|兼容性|
+|---|---|
+|Chrome|✔ 最近5个版本|
+|Firefox|✔ 最近5个版本
+|Edge Chromium|✔ 最近5个版本|
+|Edge EdgeHTML|？未知|
+|Safari|✔ 最近5个版本|
+|Internet Explorer 11|部分支持|
+|Internet Explorer 10|基本支持|
 # 开始使用
 ## 1.安装MDx
 ```bash
@@ -35,7 +50,9 @@ $ wget https://cdn.jsdelivr.net/gh/Yuameshi/hexo-theme-mdx@main/_config.yml -O _
 # PowerShell
 (New-Object System.Net.WebClient).DownloadFile("wget https://cdn.jsdelivr.net/gh/Yuameshi/hexo-theme-mdx@main/_config.yml", "_config.mdx.yml")
 ```
-or copy contents below
+或者拷贝下方的内容到`_config.yml`中
+
+注意：如果您是通过 git 安装的主题，那么您应该删除主题目录中的 `_config.yml`。
 
 ## 2.根据个人需求编辑配置文件
 ```yaml
