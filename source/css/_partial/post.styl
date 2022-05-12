@@ -176,4 +176,18 @@ div.postPage{
 			}
 		}
 	}
+	svg#mdxReadProgress{
+		pointer-events: none
+		z-index 200
+		circle#mdxReadProgressRing{
+			transition all .1s ease
+			stroke-dasharray 166.5
+			stroke-dashoffset 166.5
+			transform rotateZ(-270deg) rotateY(180deg)
+			transform-origin center
+		}
+		&.hide{
+			opacity 0
+		}
+	}
 }

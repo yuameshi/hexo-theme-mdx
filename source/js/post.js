@@ -92,3 +92,26 @@ function initGHInfoCard(cardElement) {
 	};
 	xhr.send();
 }
+
+document.addEventListener('scroll', function () {
+	if (
+		(window.scrollY || window.pageYOffset) >
+		(window.innerHeight || window.screenY) / 2
+	) {
+		document.querySelector('svg#mdxReadProgress').classList.remove('hide');
+		var strokeDashOffset =
+			166.5 +
+			(166.5 * (window.scrollY || window.pageYOffset)) /
+				document.querySelector(
+					'#mainContent > div > div.mdui-card-content.mdui-typo'
+				).clientHeight;
+		document
+			.querySelector('circle#mdxReadProgressRing')
+			.style.setProperty(
+				'stroke-dashoffset',
+				Math.min(strokeDashOffset, 333)
+			);
+	} else {
+		document.querySelector('svg#mdxReadProgress').classList.add('hide');
+	}
+});
