@@ -23,8 +23,10 @@ document.addEventListener('scroll', function () {
 		(window.innerHeight || window.screenY) / 2
 	) {
 		if (
-			document.querySelector('#appBarTitle').innerText !=
-			document.querySelector('#pageTitle').innerText
+			!(
+				document.querySelector('#appBarTitle').innerText ===
+				document.querySelector('#pageTitle').innerText
+			)
 		) {
 			document.querySelector('#appBarTitle').innerText =
 				document.querySelector('#pageTitle').innerText;
@@ -40,10 +42,12 @@ document.addEventListener('scroll', function () {
 		}
 	} else {
 		if (
-			document.querySelector('#appBarTitle').innerText !=
-			document
-				.querySelector('#appBarTitle')
-				.getAttribute('data-original-title')
+			!(
+				document.querySelector('#appBarTitle').innerText ===
+				document
+					.querySelector('#appBarTitle')
+					.getAttribute('data-original-title')
+			)
 		) {
 			document.querySelector('#appBarTitle').innerText = document
 				.querySelector('#appBarTitle')
@@ -62,8 +66,35 @@ document.addEventListener('scroll', function () {
 });
 
 function pageInit() {
-	paginationInit();
-	initBackToTopBtn();
+	document
+		.querySelector('button#goToTopBtn')
+		.addEventListener('click', function () {
+			window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+		});
+	if (document.querySelector('div.pagination')) {
+		var paginations = document.querySelectorAll(
+			'div#mainContent > div.pagination > *'
+		);
+		for (var i = 0; i < paginations.length; i++) {
+			if (paginations[i].classList.contains('current') === false) {
+				if (paginations[i].classList.contains('space') === false) {
+					paginations[i].classList.add('mdui-ripple');
+				}
+			} else {
+				paginations[i].classList.add('mdui-color-theme');
+			}
+			paginations[i].classList.add('mdui-text-color-theme-text');
+		}
+		document
+			.querySelector(
+				'div#mainContent > div.pagination > span.current.page-number'
+			)
+			.classList.add(
+				'mdui-ripple',
+				'mdui-color-theme',
+				'mdui-text-color-theme-text'
+			);
+	}
 	if (
 		window.matchMedia('(prefers-color-scheme: dark)').matches &&
 		(localStorage.getItem('darkMode') || 'true') === 'true'
@@ -113,12 +144,15 @@ function pageInit() {
 			);
 			searchResultContainer.innerHTML = '';
 			for (var i = 0; i < window._mdxSearchDatabase.length; i++) {
+				var searchInputRegExp = new RegExp(searchInput, 'im');
+				var searchInputRegExpGlobal = new RegExp(searchInput, 'gim');
 				if (
-					window._mdxSearchDatabase[i].content.indexOf(
-						searchInput
-					) !== -1 ||
-					window._mdxSearchDatabase[i].title.indexOf(searchInput) !==
-						-1
+					window._mdxSearchDatabase[i].content.match(
+						searchInputRegExp
+					) !== null ||
+					window._mdxSearchDatabase[i].title.match(
+						searchInputRegExp
+					) !== null
 				) {
 					var searchResultItem = document.createElement('div');
 					searchResultItem.classList.add('searchResultItem');
@@ -137,64 +171,40 @@ function pageInit() {
 						'mdui-text-color-theme-secondary'
 					);
 					var firstMatchedContent = Math.max(
-						window._mdxSearchDatabase[i].content.indexOf(
-							searchInput
-						) - 5,
+						window._mdxSearchDatabase[i].content.match(
+							searchInputRegExp
+						).index - 10,
 						0
 					);
 					searchResultContent.innerText = window._mdxSearchDatabase[
 						i
-					].content.substr(firstMatchedContent, 50);
+					].content.substr(firstMatchedContent, 150);
 					searchResultContent.innerHTML =
 						searchResultContent.innerHTML.replace(
-							new RegExp(searchInput, 'gim'),
+							searchInputRegExpGlobal,
 							'<span class="searchResultItemMatched">' +
-								searchInput +
+								searchInputRegExpGlobal.exec(
+									searchResultContent.innerHTML
+								) +
 								'</span>'
+						);
+					searchResultContent.innerHTML =
+						searchResultContent.innerHTML.replace(
+							/<br>|<br\/>/gims,
+							''
 						);
 					searchResultItem.appendChild(searchResultContent);
 					searchResultContainer.appendChild(searchResultItem);
 				}
-				if (searchResultContainer.childElementCount === 0) {
-					searchResultContainer.innerHTML =
-						'No results found for "' + searchInput + '"<br />'+
-						"没有找到与“" + searchInput + "”相关的结果";
-				}
+			}
+			if (searchResultContainer.childElementCount === 0) {
+				searchResultContainer.innerHTML =
+					'No results found for "' +
+					searchInput +
+					'"<br />' +
+					'没有找到与“' +
+					searchInput +
+					'”相关的结果';
 			}
 		});
-}
-
-function initBackToTopBtn() {
-	document
-		.querySelector('button#goToTopBtn')
-		.addEventListener('click', function () {
-			window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-		});
-}
-
-function paginationInit() {
-	if (document.querySelector('div.pagination')) {
-		var paginations = document.querySelectorAll(
-			'div#mainContent > div.pagination > *'
-		);
-		for (var i = 0; i < paginations.length; i++) {
-			if (paginations[i].classList.contains('current') === false) {
-				if (paginations[i].classList.contains('space') === false) {
-					paginations[i].classList.add('mdui-ripple');
-				}
-			} else {
-				paginations[i].classList.add('mdui-color-theme');
-			}
-			paginations[i].classList.add('mdui-text-color-theme-text');
-		}
-		document
-			.querySelector(
-				'div#mainContent > div.pagination > span.current.page-number'
-			)
-			.classList.add(
-				'mdui-ripple',
-				'mdui-color-theme',
-				'mdui-text-color-theme-text'
-			);
-	}
 }

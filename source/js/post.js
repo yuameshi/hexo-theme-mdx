@@ -71,7 +71,7 @@ function initPost() {
 	for (var i = 0; i < tables.length; i++) {
 		tables[i].classList.add('mdui-table');
 	}
-	// init github info card
+	// init GitHub info card
 	var githubInfoCards = postPage.querySelectorAll('div.mdx-github-card');
 	for (var j = 0; j < githubInfoCards.length; j++) {
 		initGHInfoCard(githubInfoCards[j]);

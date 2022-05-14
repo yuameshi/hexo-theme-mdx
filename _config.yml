@@ -46,7 +46,7 @@ drawer_about:
   slogan: # 标语（个性签名）
   # Link to background image
   background: # 背景图片链接
-  # Whether the background is dark colored or not
+  # Whether the background is dark-colored or not
   is_dark: true # 背景图是不是深色的
 
 # Drawer menu list (Nested lists are not supported)
@@ -61,7 +61,9 @@ drawer:
   GitHub: https://github.com/Yuameshi || &#xe149;
   关于: /about || &#xe88e;
 
-# Text inserted at the end of the article, '%title%' refers to title link of current post, %link% refers to permalink link of current post
+# Text which will inserted at the end of the article.
+# '%title%' refers to title link of current post.
+# '%link%' refers to permalink link of current post
 # 文章末尾插入的文段，%title%表示文章标题，%link%表示文章链接
 passage_end_tag:
   enabled: true
@@ -82,7 +84,7 @@ comment:
     distractionFreeMode: true
   # utterance configuration refers to https://utteranc.es/
   # utteranc配置文档：https://utteranc.es/
-  utteranc:
+  utterances:
     repo: 
     issue_term: 
     lable: 

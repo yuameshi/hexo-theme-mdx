@@ -1,6 +1,6 @@
 {
 	"name": "hexo-theme-mdx",
-	"version": "0.3.7-alpha",
+	"version": "0.3.8-alpha",
 	"description": "A hexo theme with material design",
 	"author": "Yuameshi",
 	"license": "MIT",
@@ -25,6 +25,7 @@
 	"peerDependencies": {
 		"hexo-renderer-ejs": "^2.0.0",
 		"hexo-renderer-marked": "^5.0.0",
-		"hexo-renderer-stylus": "^2.0.0"
+		"hexo-renderer-stylus": "^2.0.0",
+		"hexo-generator-search": "^2.4.3"
 	}
 }

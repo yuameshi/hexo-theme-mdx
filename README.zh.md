@@ -6,15 +6,15 @@
 一个具有Material Design设计的Hexo主题
 
 # 浏览器兼容性
-|浏览器|兼容性|
-|---|---|
-|Chrome|✔ 最近5个版本|
-|Firefox|✔ 最近5个版本
-|Edge Chromium|✔ 最近5个版本|
-|Edge EdgeHTML|？未知|
-|Safari|✔ 最近5个版本|
-|Internet Explorer 11|部分支持|
-|Internet Explorer 10|基本支持|
+| 浏览器                  | 兼容性      |
+|----------------------|----------|
+| Chrome               | ✔ 最近5个版本 |
+| Firefox              | ✔ 最近5个版本 |
+| Edge Chromium        | ✔ 最近5个版本 |
+| Edge EdgeHTML        | ？未知      |
+| Safari               | ✔ 最近5个版本 |
+| Internet Explorer 11 | 部分支持     |
+| Internet Explorer 10 | 基本支持     |
 # 开始使用
 ## 1.安装MDx
 ```bash
@@ -115,8 +115,8 @@ comment:
     owner: 
     admin: ['']
     distractionFreeMode: true
-  # utteranc配置文档：https://utteranc.es/
-  utteranc:
+  # utterances配置文档：https://utteranc.es/
+  utterances:
     repo: 
     issue_term: 
     lable: 

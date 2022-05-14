@@ -2,9 +2,9 @@
 	<meta charset="UTF-8">
 	<% 
 		let description = config.description;
-		if(strip_html(page.excerpt)!=''){
+		if(strip_html(page.excerpt)!==''){
 			description = strip_html(page.excerpt);
-		} else if(truncate(strip_html(page.content), {length: 70})!='') {
+		} else if(truncate(strip_html(page.content), {length: 70})!=='') {
 			description = truncate(strip_html(page.content), {length: 70});
 		} else if(is_category()) {
 			description = __('categories') + ' - ' + page.category + ' - '+ config.title;
@@ -76,6 +76,8 @@
 		%> 
 		<%= title %>
 	</title>
+	<link rel="preload" href="/search.json" as="fetch" crossorigin="anonymous">
+	<link rel="prefetch" href="/search.json" as="fetch" crossorigin="anonymous">
 	<% if (theme.header_picture_link) { %>
 		<link rel="preload" href="<%- theme.header_picture_link %> " as="image" crossorigin="anonymous">
 		<link rel="prefetch" href="<%- theme.header_picture_link %> " as="image" crossorigin="anonymous">

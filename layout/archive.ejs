@@ -5,7 +5,7 @@
 	</div>
 	<%page.posts.data.forEach(function(post) {%>
 		<%var item_year=date(post.date,'Y')%>
-		<%if(item_year != title_year){%>
+		<%if(!(item_year === title_year)){%>
 			<a href="<%- url_for('/archives/' + item_year) %>" class="archiveTitle mdui-text-color-theme">
 				<h2>
 					<%-__('archives')%>:<%=item_year%>

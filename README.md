@@ -7,15 +7,15 @@ You are reading English documentation.
 A hexo theme with material design.
 
 # Browser compatibility
-|Browser|Compatibility|
-|---|---|
-|Chrome|✔ Last 5 version|
-|Firefox|✔ Last 5 version
-|Edge Chromium|✔ Last 5 version|
-|Edge EdgeHTML|? Unknown|
-|Safari|✔ Last 5 version|
-|Internet Explorer 11|Partial support|
-|Internet Explorer 10|Basic support|
+| Browser              | Compatibility    |
+|----------------------|------------------|
+| Chrome               | ✔ Last 5 version |
+| Firefox              | ✔ Last 5 version |
+| Edge Chromium        | ✔ Last 5 version |
+| Edge EdgeHTML        | ? Unknown        |
+| Safari               | ✔ Last 5 version |
+| Internet Explorer 11 | Partial support  |
+| Internet Explorer 10 | Basic support    |
 
 # Getting Started
 ## Step 1: Install MDx
@@ -90,7 +90,7 @@ drawer_about:
   name: # Name
   slogan: # Slogan
   background: # Link to background image
-  is_dark: true # Whether the background is dark colored or not
+  is_dark: true # Whether the background is dark-colored or not
 
 # Drawer menu list (Nested lists are not supported)
 # Format: Link name: Link || Icon
@@ -119,8 +119,8 @@ comment:
     owner: 
     admin: ['']
     distractionFreeMode: true
-  # utterance configuration refers to https://utteranc.es/
-  utteranc:
+  # configuration of utterances refers to https://utteranc.es/
+  utterances:
     repo: 
     issue_term: 
     lable: 
