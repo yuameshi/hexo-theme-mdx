@@ -17,7 +17,7 @@
 			<i class="mdui-icon material-icons"></i>
 		</button>
 	</div>
-	<% if (toc(page.content || '')!=='') { %>
+	<% if (toc(page.content || '',{max_depth:1})!=='') { %>
 		<div class="mdui-tab mdui-tab-full-width mdx-toc-tab" mdui-tab>
 			<a href="#drawer-menu" class="mdui-ripple mdui-text-color-theme-text">
 				<i class="mdui-icon material-icons">&#xe896;</i>

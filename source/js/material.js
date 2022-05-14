@@ -22,15 +22,27 @@ document.addEventListener('scroll', function () {
 		(window.scrollY || window.pageYOffset) >
 		(window.innerHeight || window.screenY) / 2
 	) {
-		document.querySelector('#appBarTitle').innerText =
-			document.querySelector('#pageTitle').innerText;
+		if (
+			document.querySelector('#appBarTitle').innerText !=
+			document.querySelector('#pageTitle').innerText
+		) {
+			document.querySelector('#appBarTitle').innerText =
+				document.querySelector('#pageTitle').innerText;
+		}
 		document
 			.querySelector('button#goToTopBtn')
 			.classList.remove('mdui-fab-hide');
 	} else {
-		document.querySelector('#appBarTitle').innerText = document
-			.querySelector('#appBarTitle')
-			.getAttribute('data-original-title');
+		if (
+			document.querySelector('#appBarTitle').innerText !=
+			document
+				.querySelector('#appBarTitle')
+				.getAttribute('data-original-title')
+		) {
+			document.querySelector('#appBarTitle').innerText = document
+				.querySelector('#appBarTitle')
+				.getAttribute('data-original-title');
+		}
 		document
 			.querySelector('button#goToTopBtn')
 			.classList.add('mdui-fab-hide');
@@ -78,6 +90,11 @@ function pageInit() {
 	document
 		.querySelector('input#searchInputBox')
 		.addEventListener('change', function () {
+			if (typeof window._mdxSearchDatabase !== 'object') {
+				document.querySelector('#searchResultContainer').innerHTML =
+					"It seemed that MDx's search database is not loading properly, try refreshing the page<br />看上去MDx的搜索数据库并未正确加载，请尝试刷新页面";
+				return;
+			}
 			var searchInput = this.value;
 			var searchResultContainer = document.querySelector(
 				'div#searchResultContainer'

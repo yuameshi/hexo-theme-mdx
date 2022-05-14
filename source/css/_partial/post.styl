@@ -119,6 +119,25 @@ div.postPage{
 	div.pageEnd{
 		background-color #ededed
 		padding 25px 10px
+		max-width 90vw
+		margin 20px 0
+		overflow unset
+		button.mdui-fab.shareBtn{
+			transform translate(-65%,-100%)
+			position absolute
+		}
+		div#shareToWechatQRCodeDialog{
+			width 300px
+			div.mdui-container.shareToWechatQRCodeOuterContainer{
+				padding 25px
+				width 300px
+				height 315px
+				text-align center
+				img{
+					margin-bottom 15px
+				}
+			}
+		}
 		div.postTags{
 			i.mdui-icon{
 				font-size 18px
@@ -158,21 +177,6 @@ div.postPage{
 				&:hover{
 					opacity .7
 				}
-			}
-		}
-	}
-	button.mdui-fab.shareBtn{
-		transform: translate(-50%,-50%);
-	}
-	div#shareToWechatQRCodeDialog{
-		width 300px
-		div.mdui-container.shareToWechatQRCodeOuterContainer{
-			padding 25px
-			width 300px
-			height 315px
-			text-align center
-			img{
-				margin-bottom 15px
 			}
 		}
 	}

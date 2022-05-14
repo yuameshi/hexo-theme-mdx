@@ -19,15 +19,16 @@ function initPost() {
 			}
 			dom.innerHTML = '';
 			var url = new URL(location.href);
-			new QRCode(dom, {
+			new window.QRCode(dom, {
 				text: url.origin + url.pathname + '?pos=' + window.scrollY,
 				width: 128,
 				height: 128,
 				colorDark: '#000000',
 				colorLight: '#ffffff',
 				useSVG: true,
-				correctLevel: QRCode.CorrectLevel.H,
+				correctLevel: window.QRCode.CorrectLevel.H,
 			});
+			dom.querySelector('canvas').style.padding = '20px 20px 0 20px';
 			dom.querySelector('img').style.padding = '20px';
 		});
 	if (new URL(location.href).searchParams.get('pos') !== null) {
@@ -52,7 +53,7 @@ function initPost() {
 			} else {
 				url = location.href;
 			}
-			new QRCode(
+			new window.QRCode(
 				postPage.querySelector('div#shareToWechatQRCodeContainer'),
 				{
 					text: url,
@@ -61,7 +62,7 @@ function initPost() {
 					colorDark: '#000000',
 					colorLight: '#ffffff',
 					useSVG: true,
-					correctLevel: QRCode.CorrectLevel.H,
+					correctLevel: window.QRCode.CorrectLevel.H,
 				}
 			);
 		});
