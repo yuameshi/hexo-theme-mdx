@@ -29,9 +29,15 @@ document.addEventListener('scroll', function () {
 			document.querySelector('#appBarTitle').innerText =
 				document.querySelector('#pageTitle').innerText;
 		}
-		document
-			.querySelector('button#goToTopBtn')
-			.classList.remove('mdui-fab-hide');
+		if (
+			document
+				.querySelector('button#goToTopBtn')
+				.classList.contains('mdui-fab-hide')
+		) {
+			document
+				.querySelector('button#goToTopBtn')
+				.classList.remove('mdui-fab-hide');
+		}
 	} else {
 		if (
 			document.querySelector('#appBarTitle').innerText !=
@@ -43,9 +49,15 @@ document.addEventListener('scroll', function () {
 				.querySelector('#appBarTitle')
 				.getAttribute('data-original-title');
 		}
-		document
-			.querySelector('button#goToTopBtn')
-			.classList.add('mdui-fab-hide');
+		if (
+			!document
+				.querySelector('button#goToTopBtn')
+				.classList.contains('mdui-fab-hide')
+		) {
+			document
+				.querySelector('button#goToTopBtn')
+				.classList.add('mdui-fab-hide');
+		}
 	}
 });
 

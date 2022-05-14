@@ -1,14 +1,18 @@
 html{
 	width 100%
 	body {
-		div.appBar div.mdui-appbar.mdui-appbar-fixed{
-			z-index 100000
-		}
 		@import "_partial/drawer.styl"
 		@import "_partial/title.styl"
 		@import "_partial/mainContent"
 		@import "_partial/footer"
-		@import "_partial/dark"
+		&.mdui-theme-layout-dark{
+			@import "_partial/dark"
+		}
+		&.mdui-theme-layout-auto{
+			@media (prefers-color-scheme: dark) {
+				@import "_partial/dark"
+			}
+		}
 		button#goToTopBtn{
 			z-index 100
 		}
