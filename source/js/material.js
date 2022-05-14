@@ -155,6 +155,11 @@ function pageInit() {
 					searchResultItem.appendChild(searchResultContent);
 					searchResultContainer.appendChild(searchResultItem);
 				}
+				if (searchResultContainer.childElementCount === 0) {
+					searchResultContainer.innerHTML =
+						'No results found for "' + searchInput + '"<br />'+
+						"没有找到与“" + searchInput + "”相关的结果";
+				}
 			}
 		});
 }

@@ -12,15 +12,6 @@
 				<%= date(page.date) %>
 			</span>
 		</div>
-		<%# 更新 %>
-		<div class="mdui-chip postDate" mdui-tooltip="{content: '<%= __('post.updated') %>'}">
-			<span class="mdui-chip-icon">
-			  <i class="mdui-icon material-icons">&#xe923;</i>
-			</span>
-			<span class="mdui-chip-title">
-				<%= date(page.updated) %>
-			</span>
-		</div>
 		<%# 分类 %>
 		<% if (type==='post') { %>
 			<div class="mdui-chip postCategories" mdui-tooltip="{content: '<%= __('post.categories') %>'}">
