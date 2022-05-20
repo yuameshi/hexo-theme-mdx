@@ -1,0 +1,33 @@
+<div class="postPage mdui-card mdui-center">
+	<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@master/qrcode.min.js" async></script>
+	<%# 正文 %>
+	<div class="mdui-card-content mdui-typo">
+		<%- page.content %>
+		<div class="friendLinks">
+			<%- css(['css/friends.css']) %> 
+			<% for (let link in site.data.friends) { %>
+				<div class="mdui-card friendLinkItem">
+					<div class="mdui-card-media">
+						<img src="<%-site.data.friends[link].avatar%>" alt="<%- link %>"/>
+						<div class="mdui-card-media">
+							<div class="mdui-card-primary">
+								<div class="mdui-card-primary-title">
+									<%-link%>
+								</div>
+								<div class="mdui-card-primary-subtitle">
+									<%-site.data.friends[link].description%>
+								</div>
+							</div>
+							<div class="mdui-card-actions">
+								<a class="mdui-btn mdui-ripple mdui-ripple-white" href="<%-site.data.friends[link].link%>">
+									访问
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			<% } %>
+		</div>
+	</div>
+	<%- partial('_partial/_plugins/comments/comment') %> 
+</div>

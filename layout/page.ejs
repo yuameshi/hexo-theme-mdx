@@ -1,14 +1,11 @@
 <% if (page.layout==='friends') { %>
-	<div class="postPage mdui-card mdui-center">
-		<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@master/qrcode.min.js" async></script>
-		<%# 正文 %>
-		<div class="mdui-card-content mdui-typo">
-			<%- page.content %>
-			<%- partial('_partial/friends') %> 
-		</div>
-		<%- partial('_partial/_plugins/comments/comment') %> 
-	</div>
-<% } else { %><%- 
+	<%-
+	partial('_partial/pages/friends',{
+		page:page,
+	})
+	%>
+<% } else { %>
+	<%-
 	partial('_partial/post',{
 		page:page,
 		type:'page'
