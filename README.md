@@ -17,6 +17,8 @@ A hexo theme with material design.
 | Internet Explorer 11 | Partial support  |
 | Internet Explorer 10 | Basic support    |
 
+### Note: All MDx releases(including alpha/beta versions) after June 15, 2022 will no longer support Internet Explorer due to the upcoming end of support for Internet Explorer on June 15, 2022.
+
 # Getting Started
 ## Step 1: Install MDx
 ```bash
@@ -34,7 +36,7 @@ You can use the Hexo command to change the theme to MDx
 ```bash
 hexo config theme mdx
 ```
-You can also  change `_config.yml` directly
+You can also modify `_config.yml` directly
 ```diff yaml
 - theme: previous theme
 + theme: mdx
@@ -58,6 +60,14 @@ WARNING: If you installed the theme via git, you should delete `_config.yml` in 
 
 ## Step2: Edit configuration file to your needs
 ```yaml
+# Theme settings
+# use CDN to boost your site(CDN Providers:true(use jsdelivr)/cdnjs/jsdelivr/staticfile/bootcdn/bytedance/unpkg/false(won't use CDN))
+cdn_provider: 'cdnjs'
+
+# Use a specific MIUI version(default:1.0.2, you can modify it to other versions manually)
+# Note: Please leave this blank or fill in 1.0.2 when not using CDN, otherwise an error will occur
+mdui_version:  
+
 # Theme settings
 use_cdn: true # use CDN to boost your site(CDN Provider:cdn.jsdelivr.net)
 

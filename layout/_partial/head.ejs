@@ -31,31 +31,58 @@
 	<link rel="apple-touch-icon" href="<%= theme.favicon %>">
 	<%- js({ src: 'js/material.js', async: true }) %>
 	<%- css(['css/main.css']) %>
-	<%# MDUI %>
-	<% if (theme.use_cdn) { %>
-		<link rel="preconnect" href="https://cdn.jsdelivr.net/" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css" integrity="sha256-HC/aPArtOc7yw62YcBzG24sJXjXJu0atujZh9a4LtUw=" crossorigin="anonymous">
-		<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js" integrity="sha256-pQMhrt4i+xYuZzfKboXTE2lnXDccZ8qI2Fh8gyGtX6Q=" crossorigin="anonymous"></script>
-		<link rel="preload" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Regular.woff2" as="font" crossorigin="anonymous">
-		<link rel="preload" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Medium.woff2" as="font" crossorigin="anonymous">
-		<link rel="preload" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Bold.woff2" as="font" crossorigin="anonymous">
-		<link rel="preload" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/icons/material-icons/MaterialIcons-Regular.woff2" as="font" crossorigin="anonymous">
-		<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Regular.woff2" as="font" crossorigin="anonymous">
-		<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Medium.woff2" as="font" crossorigin="anonymous">
-		<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Bold.woff2" as="font" crossorigin="anonymous">
-		<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/icons/material-icons/MaterialIcons-Regular.woff2" as="font" crossorigin="anonymous">
-	<% } else { %>
-		<%- js({src: 'mdui/js/mdui.min.js?v=1.0.2', async: true}) %> 
-		<%- css(['mdui/css/mdui.min.css?v=1.0.2']) %>
-		<link rel="preload" href="mdui/fonts/roboto/Roboto-Regular.woff2" as="font" crossorigin="anonymous">
-		<link rel="preload" href="mdui/fonts/roboto/Roboto-Medium.woff2" as="font" crossorigin="anonymous">
-		<link rel="preload" href="mdui/fonts/roboto/Roboto-Bold.woff2" as="font" crossorigin="anonymous">
-		<link rel="preload" href="mdui/icons/material-icons/MaterialIcons-Regular.woff2" as="font" crossorigin="anonymous">
-		<link rel="prefetch" href="mdui/fonts/roboto/Roboto-Regular.woff2" as="font" crossorigin="anonymous">
-		<link rel="prefetch" href="mdui/fonts/roboto/Roboto-Medium.woff2" as="font" crossorigin="anonymous">
-		<link rel="prefetch" href="mdui/fonts/roboto/Roboto-Bold.woff2" as="font" crossorigin="anonymous">
-		<link rel="prefetch" href="mdui/icons/material-icons/MaterialIcons-Regular.woff2" as="font" crossorigin="anonymous">
-	<% } %>
+	<%
+	let linkPrefix = 'https://cdn.jsdelivr.net/npm/mdui@%version%/dist/';
+	switch (theme.cdn_provider) {
+		case 'cdnjs':
+			linkPrefix = 'https://cdnjs.cloudflare.com/ajax/libs/mdui/%version%/';
+			break;
+		case 'jsdelivr':
+			linkPrefix = 'https://cdn.jsdelivr.net/npm/mdui@%version%/dist/';
+			break;
+		case 'staticfile':
+			linkPrefix = 'https://cdn.staticfile.org/mdui/%version%/';
+			break;
+		case 'bootcdn':
+			linkPrefix = 'https://cdn.bootcdn.net/ajax/libs/mdui/%version%/';
+			break;
+		case 'bytedance':
+			linkPrefix = 'https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/mdui/%version%/';
+			break;
+		case 'unpkg':
+			linkPrefix = 'https://unpkg.com/mdui@%version%/dist/';
+			break;
+		case 'baomitu':
+			linkPrefix = 'https://lib.baomitu.com/mdui/%version%/';
+			break;
+		case 'true':
+			linkPrefix = 'https://cdn.jsdelivr.net/npm/mdui@%version%/dist/';
+			break;
+		case true:
+			linkPrefix = 'https://cdn.jsdelivr.net/npm/mdui@%version%/dist/';
+			break;
+		case 'false':
+			linkPrefix = '../mdui/';
+			break;
+		case false:
+			linkPrefix = '../mdui/';
+			break;
+		default:
+			break;
+	}
+	linkPrefix = linkPrefix.replace(/%version%/g, (theme.mdui_version || '1.0.2'));
+	%> 
+	<link rel="preconnect" href="https://cdn.jsdelivr.net/" crossorigin="anonymous">
+	<link rel="stylesheet" href="<%- linkPrefix + 'css/mdui.min.css?v=' + (theme.mdui_version || '1.0.2') %>" crossorigin="anonymous">
+	<script src="<%- linkPrefix + 'js/mdui.min.js?v=' + (theme.mdui_version || '1.0.2') %>" crossorigin="anonymous"></script>
+	<link rel="preload" href="<%- linkPrefix + 'fonts/roboto/Roboto-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<link rel="preload" href="<%- linkPrefix + 'fonts/roboto/Roboto-Medium.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<link rel="preload" href="<%- linkPrefix + 'fonts/roboto/Roboto-Bold.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<link rel="preload" href="<%- linkPrefix + 'icons/material-icons/MaterialIcons-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<link rel="prefetch" href="<%- linkPrefix + 'fonts/roboto/Roboto-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<link rel="prefetch" href="<%- linkPrefix + 'fonts/roboto/Roboto-Medium.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<link rel="prefetch" href="<%- linkPrefix + 'fonts/roboto/Roboto-Bold.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<link rel="prefetch" href="<%- linkPrefix + 'icons/material-icons/MaterialIcons-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
 	<%- partial('_partial/_plugins/analytics/analytics') %> 
 	<title>
 		<% let title = page.title || config.title%>

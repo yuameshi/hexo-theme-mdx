@@ -15,6 +15,9 @@
 | Safari               | ✔ 最近5个版本 |
 | Internet Explorer 11 | 部分支持     |
 | Internet Explorer 10 | 基本支持     |
+
+### 注意：由于Internet Explorer即将在2022年6月15日停止支持，所以在2022年6月15日之后所有的MDx版本（包括alpha和beta版本）将不再支持Internet Explorer。
+
 # 开始使用
 ## 1.安装MDx
 ```bash
@@ -56,6 +59,14 @@ $ wget https://cdn.jsdelivr.net/gh/Yuameshi/hexo-theme-mdx@main/_config.yml -O _
 
 ## 2.根据个人需求编辑配置文件
 ```yaml
+# 主题设置
+# 使用CDN加速前端载入(CDN提供商:true(使用默认的jsdelivr)/cdnjs/jsdelivr/staticfile/bootcdn/bytedance/unpkg/false(不使用CDN))
+cdn_provider: 'cdnjs'
+
+# 使用特定的MDUI库版本(默认1.0.2，您可以手动修改为其他版本)
+# 注意：不使用CDN时请将这项留空或者填写1.0.2，否则会出现错误
+mdui_version:  
+
 # 主题设置
 use_cdn: true # 使用CDN加速前端载入(CDN提供商:cdn.jsdelivr.net)
 

@@ -1,7 +1,14 @@
 # Theme settings
 # 主题设置
-# use CDN to boost your site(CDN Provider:cdn.jsdelivr.net)
-use_cdn: true # 使用CDN加速前端载入(CDN提供商:cdn.jsdelivr.net)
+# use CDN to boost your site(CDN Providers:true(use jsdelivr)/cdnjs/jsdelivr/staticfile/bootcdn/bytedance/unpkg/false(won't use CDN))
+# 使用CDN加速前端载入(CDN提供商:true(使用默认的jsdelivr)/cdnjs/jsdelivr/staticfile/bootcdn/bytedance/unpkg/false(不使用CDN))
+cdn_provider: 'cdnjs'
+
+# 使用特定的MDUI库版本(默认1.0.2，您可以手动修改为其他版本)
+# Use a specific MIUI version(default:1.0.2, you can modify it to other versions manually)
+# 注意：不使用CDN时请将这项留空或者填写1.0.2，否则会出现错误
+# Note: Please leave this blank or fill in 1.0.2 when not using CDN, otherwise an error will occur
+mdui_version:  
 
 # Theme colors
 # Check out all the colors here: https://www.mdui.org/docs/color
