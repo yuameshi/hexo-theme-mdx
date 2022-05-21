@@ -72,13 +72,13 @@
 	}
 	linkPrefix = linkPrefix.replace(/%version%/g, (theme.mdui_version || '1.0.2'));
 	%> 
-	<link rel="preconnect" href="https://cdn.jsdelivr.net/" crossorigin="anonymous">
-	<link rel="stylesheet" href="<%- linkPrefix + 'css/mdui.min.css?v=' + (theme.mdui_version || '1.0.2') %>" crossorigin="anonymous">
-	<script src="<%- linkPrefix + 'js/mdui.min.js?v=' + (theme.mdui_version || '1.0.2') %>" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="<%- (new URL(linkPrefix)).origin %>" crossorigin="anonymous">
 	<link rel="preload" href="<%- linkPrefix + 'fonts/roboto/Roboto-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
 	<link rel="preload" href="<%- linkPrefix + 'fonts/roboto/Roboto-Medium.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
 	<link rel="preload" href="<%- linkPrefix + 'fonts/roboto/Roboto-Bold.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
 	<link rel="preload" href="<%- linkPrefix + 'icons/material-icons/MaterialIcons-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<link rel="stylesheet" href="<%- linkPrefix + 'css/mdui.min.css?v=' + (theme.mdui_version || '1.0.2') %>" crossorigin="anonymous">
+	<script src="<%- linkPrefix + 'js/mdui.min.js?v=' + (theme.mdui_version || '1.0.2') %>" async crossorigin="anonymous"></script>
 	<link rel="prefetch" href="<%- linkPrefix + 'fonts/roboto/Roboto-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
 	<link rel="prefetch" href="<%- linkPrefix + 'fonts/roboto/Roboto-Medium.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
 	<link rel="prefetch" href="<%- linkPrefix + 'fonts/roboto/Roboto-Bold.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
