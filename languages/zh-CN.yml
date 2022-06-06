@@ -9,16 +9,16 @@ close: 关闭
 
 search:
   placeholder: 搜点什么...
-  no_results: 没有找到与“$txt$”相关的结果
+  no_result: 没有找到与“$txt$”相关的结果
   db_undefined: MDx的搜索数据库似乎未正确加载，请尝试刷新页面
 
-gpdr_gookie_alert:
-  text: 本网站使用 Cookies 来确保您获得最佳的体验。
+gpdr_cookie_alert:
+  msg: 此网站使用Cookie来改善您的体验。
   ack_btn: 了解
 
 online_check:
-  offlineText: 您似乎处于离线状态，某些功能无法使用，请检查您的网络连接。
-  onlineText: 网络连接已恢复！
+  offline_text: 您似乎处于离线状态，某些功能无法使用，请检查您的网络连接。
+  online_text: 网络连接已恢复！
   ack_btn: 了解
 
 post:

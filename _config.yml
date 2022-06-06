@@ -24,11 +24,13 @@ color:
 # 效果是页面右下角显示一个Snackbar
 gdpr_cookie_alert:
   enable: true
+  # 如需享受MDx的i18n功能，请将下面两个选项留空
+  # If you want to use MDx's i18n feature, please leave them blank
   # 提示文字
   text: 此网站使用Cookie来改善您的体验。
   # 按钮文字
   # Button text
-  ack_btn: 了解
+  ack_btn: Got it
 
 # Check user's online status
 # If you use Service-Worker, etc. in offline mode, you can still read articles, but cannot comment, etc, then this option will be very useful
@@ -38,6 +40,8 @@ gdpr_cookie_alert:
 # 启用后MDx会每隔5秒检测一次网络连接，并在丢失网络连接时显示一条提示。
 online_check:
   enable: true
+  # 如需享受MDx的i18n功能，请将下面两个选项留空
+  # If you want to use MDx's i18n feature, please leave them blank
   # Offline alert text(optional)
   # 离线时提示的文字(可选)
   offlineText: 您似乎处于离线状态，某些功能无法使用，请检查您的网络连接。
@@ -64,6 +68,8 @@ search:
   # Search database path(default: './search.json')
   # 搜索数据库路径(默认为'/search.json')
   path: /search.json
+  # 如需享受MDx的i18n功能，请将下面留空
+  # If you want to use MDx's i18n feature, please leave them blank
   # Search box placeholder text(optional)
   # 搜索框提示文字(可选)
   placeholder: 搜点什么...

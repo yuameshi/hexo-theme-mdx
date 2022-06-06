@@ -128,22 +128,22 @@
 	<script async>
 		<% if (theme.gdpr_cookie_alert.enable) { %>
 			window.gpdrCookieAlert = {
-				msg: `<%-theme.gdpr_cookie_alert.text||__('online_check.offlineText') %>`,
-				btnTxt: "<%-theme.gdpr_cookie_alert.ack_btn||__('gpdr_cookie_alert_ack_btn')%>",
+				msg: `<%-theme.gdpr_cookie_alert.text||__('gpdr_cookie_alert.msg') %>`,
+				btnTxt: "<%-theme.gdpr_cookie_alert.ack_btn||__('gpdr_cookie_alert.ack_btn')%>",
 			}
 		<% } %>
 		<% if (theme.online_check.enable) { %>
 			var offlineAlertSnackbar;
 			window.onlineCheck = {
-				offMsg: "<%-theme.online_check.offlineText||__('online_check.offlineText')%>",
-				onMsg: "<%-theme.online_check.onlineText||__('online_check.onlineText')%>",
+				offMsg: "<%-theme.online_check.offlineText||__('online_check.offline_text')%>",
+				onMsg: "<%-theme.online_check.onlineText||__('online_check.online_text')%>",
 				btnTxt: "<%-theme.online_check.ack_btn||__('online_check.ack_btn')%>",
 			}
 		<% } %>
 		<% if (theme.search.enable !== false) { %>
 			window.search = {
 				path: "<%-theme.search.path %>",
-				noResult: "<%-theme.search.no_result||__('search.no_results')%>",
+				noResult: "<%-theme.search.no_result||__('search.no_result')%>",
 				error: "<%-theme.search.error||__('search.db_undefined')%>",
 			}
 		<% } %>

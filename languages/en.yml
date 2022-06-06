@@ -9,16 +9,16 @@ close: Close
 
 search:
   placeholder: Search something...
-  no_results: No results found for "$txt$"
+  no_result: No results found for "$txt$"
   db_undefined: It seemed that MDx's search database is not loading properly, try refreshing the page
 
 gpdr_gookie_alert:
-  text: This website uses cookies to ensure you get the best experience on our website.
+  msg: This website uses cookies to improve your experience.
   ack_btn: Got it
 
 online_check:
-  offlineText: It seems you are offline, some features are unavailable, please check your network connection.
-  onlineText: You are online, enjoy!
+  offline_text: It seems you are offline, some features are unavailable, please check your network connection.
+  online_text: You are online, enjoy!
   ack_btn: Got it
 
 post:

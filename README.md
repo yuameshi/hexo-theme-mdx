@@ -1,4 +1,4 @@
-You are reading English documentation.
+﻿You are reading English documentation.
 
 [打开中文文档](./README.zh.md)
 
@@ -87,11 +87,12 @@ color:
 # This will show a snackbar at the right bottom of the page
 gdpr_cookie_alert:
   enable: false # default: false
+  # If you want to use MDx's i18n feature, please leave them blank
   # 提示文字
-  text: 此网站使用Cookie来改善您的体验。
+  text: This website uses cookies to improve your experience.
   # 按钮文字
   # Button text
-  ack_btn: 了解
+  ack_btn: Got it
 
 # Check user's online status
 # If you use Service-Worker, etc. in offline mode, you can still read articles, but cannot comment, etc, then this option will be very useful
@@ -99,10 +100,11 @@ gdpr_cookie_alert:
 online_check:
   enable: false # default: false
   # Offline alert text(optional)
-  offlineText: 您似乎处于离线状态，某些功能无法使用，请检查您的网络连接。
+  # If you want to use MDx's i18n feature, please leave them blank
+  offlineText: It seems you are offline, some features are unavailable, please check your network connection.
   # Online alert text(optional)
-  onlineText: 网络连接已恢复！
-  ack_btn: 了解
+  onlineText: You are online, enjoy!
+  ack_btn: Got it
 
 # Link to header picture
 header_picture_link:
@@ -118,12 +120,13 @@ search:
   enable: true
   # Search database path(default: './search.json')
   path: /search.json
+  # If you want to use MDx's i18n feature, please leave them blank
   # Search box placeholder text(optional)
-  placeholder: 搜点什么...
+  placeholder: Search something...
   # No result text($txt$ will be replaced with the search content)(optional)
-  no_result: 没有找到与“%txt%”相关文章
+  no_result: No results found for "$txt$"
   # Search database load error text(optional)
-  error: MDx的搜索数据库似乎未正确加载，请尝试刷新页面
+  error: It seemed that MDx's search database is not loading properly, try refreshing the page
 
 # About field at the drawer menu
 drawer_about:
