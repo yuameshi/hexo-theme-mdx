@@ -1,8 +1,8 @@
 {
 	"name": "hexo-theme-mdx",
-	"version": "0.4.1-alpha",
+	"version": "0.4.2-alpha",
 	"description": "A hexo theme with material design",
-	"author": "Yuameshi",
+	"author": "Yuameshi <64469437+Yuameshi@users.noreply.github.com> (https://www.yuameshi.top/)",
 	"license": "MIT",
 	"keywords": [
 		"hexo",
@@ -19,12 +19,11 @@
 	},
 	"homepage": "https://github.com/Yuameshi/hexo-theme-mdx",
 	"engines": {
-		"node": ">=14.6.0"
+		"node": ">=12.14.0"
 	},
 	"scripts": {},
 	"peerDependencies": {
 		"hexo-renderer-ejs": "^2.0.0",
-		"hexo-renderer-marked": "^5.0.0",
 		"hexo-renderer-stylus": "^2.0.0",
 		"hexo-generator-search": "^2.4.3"
 	}

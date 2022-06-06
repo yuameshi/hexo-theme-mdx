@@ -6,6 +6,12 @@ You are reading English documentation.
 
 A hexo theme with material design.
 
+# Preview(Links submitting are welcomed)
+
+[Yuameshiの窝](https://www.yuameshi.top/)
+
+[AyaneYeの随手记](https://drbstore.yuameshi.top/)
+
 # Browser compatibility
 | Browser              | Compatibility    |
 |----------------------|------------------|

@@ -5,6 +5,12 @@
 # hexo-theme-mdx
 一个具有Material Design设计的Hexo主题
 
+# 预览(欢迎提交链接)
+
+[Yuameshiの窝](https://www.yuameshi.top/)
+
+[AyaneYeの随手记](https://drbstore.yuameshi.top/)
+
 # 浏览器兼容性
 | 浏览器                  | 兼容性      |
 |----------------------|----------|

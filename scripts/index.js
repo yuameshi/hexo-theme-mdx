@@ -9,8 +9,9 @@ hexo.extend.filter.register(
 	'before_exit',
 	function () {
 		if (hexo.config.theme.cdn_provider !== false && hexo.config.theme.cdn_provider !== 'false') {
-			console.log('CDN enabled, deleting mdui folder.');
+			console.log('CDN enabled, deleting mdui/qrcodejs folder.');
 			fs.rmSync(path.join(hexo.config.public_dir, 'mdui'), { recursive: true, force: true });
+			fs.rmSync(path.join(hexo.config.public_dir, 'qrcodejs'), { recursive: true, force: true });
 		}
 	},
 	0
