@@ -21,7 +21,7 @@
 				</button>
 				<ul class="mdui-menu mdui-color-white" id="mdx_read_on_other_device"></ul>
 			<% } %>
-			<% if (theme.search.enable) { %>
+			<% if (theme.search.enable !== false) { %>
 				<button class="mdui-btn mdui-btn-icon mdui-ripple" mdui-dialog="{target: '#searchDialog'}">
 					<i class="mdui-icon material-icons">&#xe8b6;</i>
 				</button>

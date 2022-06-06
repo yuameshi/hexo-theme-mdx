@@ -16,7 +16,7 @@
 		</div>
 		<%- partial('_partial/footer.ejs') %>
 		<%# 搜索 %> 
-		<% if (theme.search.enable) { %>
+		<% if (theme.search.enable !== false) { %>
 			<div class="mdui-dialog" id="searchDialog">
 				<div class="mdui-textfield mdui-textfield-floating-label">
 					<label class="mdui-textfield-label" for="searchInputBox"><%-theme.search.placeholder||__('search.placeholder') %></label>
