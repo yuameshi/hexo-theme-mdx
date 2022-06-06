@@ -86,18 +86,44 @@ color:
 # GPDR Cookie alert(HTML Tag supported)
 # This will show a snackbar at the right bottom of the page
 gdpr_cookie_alert:
-  enable: true
-  text: This site uses cookies to improve your experience.
+  enable: false # default: false
+  # 提示文字
+  text: 此网站使用Cookie来改善您的体验。
+  # 按钮文字
+  # Button text
+  ack_btn: 了解
 
-header_picture_link: # Link to header picture
-favicon: # Link to favicon.ico
-excerpt_length: 250 # Auto-generated excerpt length, <!-- more --> is supported
+# Check user's online status
+# If you use Service-Worker, etc. in offline mode, you can still read articles, but cannot comment, etc, then this option will be very useful
+# MDx will check network connection each 5 secs, and show an alert when network is disconnected.
+online_check:
+  enable: false # default: false
+  # Offline alert text(optional)
+  offlineText: 您似乎处于离线状态，某些功能无法使用，请检查您的网络连接。
+  # Online alert text(optional)
+  onlineText: 网络连接已恢复！
+  ack_btn: 了解
+
+# Link to header picture
+header_picture_link:
+# Link to favicon.ico
+favicon: 
+# Auto-generated excerpt length, <!-- more --> is supported
+excerpt_length: 250 
 
 # Search settings(depends on "hexo-generator-search")
 # Need to be configured in JSON format, the path is '/search.json'
-# Currently this setting is useless
 search:
+  # Enable search(default: true)
+  enable: true
+  # Search database path(default: './search.json')
   path: /search.json
+  # Search box placeholder text(optional)
+  placeholder: 搜点什么...
+  # No result text($txt$ will be replaced with the search content)(optional)
+  no_result: 没有找到与“%txt%”相关文章
+  # Search database load error text(optional)
+  error: MDx的搜索数据库似乎未正确加载，请尝试刷新页面
 
 # About field at the drawer menu
 drawer_about:

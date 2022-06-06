@@ -6,9 +6,20 @@ archives: Archive
 nightmode_switch: Switch Light/Dark Mode
 more: Read more
 close: Close
-gpdr_cookie_alert_ack_btn: Got it
-read_on_other_device_tooltip: Continue reading on other devices
-input_search_text: Search something...
+
+search:
+  placeholder: Search something...
+  no_results: No results found for "$txt$"
+  db_undefined: It seemed that MDx's search database is not loading properly, try refreshing the page
+
+gpdr_gookie_alert:
+  text: This website uses cookies to ensure you get the best experience on our website.
+  ack_btn: Got it
+
+online_check:
+  offlineText: It seems you are offline, some features are unavailable, please check your network connection.
+  onlineText: You are online, enjoy!
+  ack_btn: Got it
 
 post:
   post: Post Time
@@ -18,6 +29,7 @@ post:
   untagged: Untagged
   toc: Contents
   menu: Menu
+  read_on_other_device_tooltip: Continue reading on other devices
 
 archive:
   year: ' '

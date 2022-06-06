@@ -16,35 +16,18 @@
 		</div>
 		<%- partial('_partial/footer.ejs') %>
 		<%# 搜索 %> 
-		<div class="mdui-dialog" id="searchDialog">
-			<div class="mdui-textfield mdui-textfield-floating-label">
-				<label class="mdui-textfield-label" for="searchInputBox"><%- __('input_search_text') %></label>
-				<input class="mdui-textfield-input" type="text" id="searchInputBox" />
+		<% if (theme.search.enable) { %>
+			<div class="mdui-dialog" id="searchDialog">
+				<div class="mdui-textfield mdui-textfield-floating-label">
+					<label class="mdui-textfield-label" for="searchInputBox"><%-theme.search.placeholder||__('search.placeholder') %></label>
+					<input class="mdui-textfield-input" type="text" id="searchInputBox" />
+				</div>
+				<div class="mdui-container" id="searchResultContainer"></div>
 			</div>
-			<div class="mdui-container" id="searchResultContainer"></div>
-		</div>
+		<% } %>
 		<%# 回到顶部 %> 
 		<button id="goToTopBtn" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent">
 			<i class="mdui-icon material-icons">&#xe316;</i>
 		</button>
-		<%# GPDR Cookie提示 %> 
-		<% if (theme.gdpr_cookie_alert.enable) { %>
-			<script>
-				if (localStorage.getItem('checkedGPDRCookieAlert') !== 'true') {
-					window.addEventListener('load', function () {
-						mdui.snackbar({
-							message: `<%-theme.gdpr_cookie_alert.text%>`,
-							buttonText: "<%-__('gpdr_cookie_alert_ack_btn')%>",
-							timeout: 0,
-							position: 'right-bottom',
-							closeOnOutsideClick: false,
-							onButtonClick: function(){
-								localStorage.setItem('checkedGPDRCookieAlert','true');
-							},
-						});
-					});
-				}
-			</script>
-		<% } %>
 	</body>
 </html>

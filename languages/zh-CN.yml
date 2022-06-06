@@ -6,9 +6,20 @@ archives: 归档
 nightmode_switch: 切换日间/夜间模式
 more: 阅读更多
 close: 关闭
-gpdr_cookie_alert_ack_btn: 了解
-read_on_other_device_tooltip: 在其他设备上继续阅读
-input_search_text: 搜点什么...
+
+search:
+  placeholder: 搜点什么...
+  no_results: 没有找到与“$txt$”相关的结果
+  db_undefined: MDx的搜索数据库似乎未正确加载，请尝试刷新页面
+
+gpdr_gookie_alert:
+  text: 本网站使用 Cookies 来确保您获得最佳的体验。
+  ack_btn: 了解
+
+online_check:
+  offlineText: 您似乎处于离线状态，某些功能无法使用，请检查您的网络连接。
+  onlineText: 网络连接已恢复！
+  ack_btn: 了解
 
 post:
   post: 发布时间
@@ -18,6 +29,7 @@ post:
   untagged: 无标签
   toc: 目录
   menu: 菜单
+  read_on_other_device_tooltip: 在其他设备上继续阅读
 
 archive:
   year: 年

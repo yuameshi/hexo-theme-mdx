@@ -82,21 +82,51 @@ color:
   primary: indigo
   accent: pink
 
+# GPDR Cookie alert(HTML Tag supported)
+# This will show a snackbar at the right bottom of the page
 # GPDR Cookie提示(支持HTML标签)
 # 效果是页面右下角显示一个Snackbar
 gdpr_cookie_alert:
-  enable: true
+  enable: true # 是否启用(默认关闭)
+  # 提示文字
   text: 此网站使用Cookie来改善您的体验。
+  # 按钮文字
+  ack_btn: 了解
 
+# Check user's online status
+# If you use Service-Worker, etc. in offline mode, you can still read articles, but cannot comment, etc, then this option will be very useful
+# MDx will check network connection each 5 secs, and show an alert when network is disconnected.
+# 检查用户在线状态
+# 如果您用了Service-Worker等技术在无网络时也能阅读文章，但是无法进行评论等操作，那么此选项将非常有用
+# 启用后MDx会每隔5秒检测一次网络连接，并在丢失网络连接时显示一条提示。
+online_check:
+  enable: false # 是否启用(默认关闭)
+  # 离线时提示的文字(可选)
+  offlineText: 您似乎处于离线状态，某些功能无法使用，请检查您的网络连接。
+  # 网络连接恢复时提示的文字(可选)
+  onlineText: 网络连接已恢复！
+  ack_btn: 了解
+
+# Link to header picture
 header_picture_link: # 头图链接
+# Link to favicon.ico
 favicon: # 网站图标链接
+# Auto-generated excerpt length, <!-- more --> is supported
 excerpt_length: 250 # 自动生成的摘要长度，<!-- more -->也支持
 
 # 搜索设置(依赖 "hexo-generator-search")
 # 需配置为JSON格式，路径为'/search.json'
-# 目前这个设置项没什么用
 search:
+  # 是否启用搜索功能(默认打开)
+  enable: true
+  # 搜索数据库路径(默认为'/search.json')
   path: /search.json
+  # 搜索框提示文字(可选)
+  placeholder: 搜点什么...
+  # 无结果时显示的文字($txt$会被替换为搜索的内容)(可选)
+  no_result: 没有找到与“%txt%”相关文章
+  # 搜索数据库加载错误时显示的文字(可选)
+  error: MDx的搜索数据库似乎未正确加载，请尝试刷新页面
 
 # 抽屉菜单的关于栏
 drawer_about:

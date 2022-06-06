@@ -80,7 +80,7 @@
 	<link rel="preload" href="<%- mdui + 'fonts/roboto/Roboto-Medium.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
 	<link rel="preload" href="<%- mdui + 'fonts/roboto/Roboto-Bold.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
 	<link rel="preload" href="<%- mdui + 'icons/material-icons/MaterialIcons-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
-	<% if (is_post()) { %>
+	<% if (is_post() || is_page()) { %>
 		<script src="<%- qrcodejs %>" async></script>
 	<% } %>	
 	<link rel="stylesheet" href="<%- mdui + 'css/mdui.min.css?v=' + (theme.mdui_version || '1.0.2') %>" crossorigin="anonymous">
@@ -124,4 +124,28 @@
 			<link rel="prefetch" href="<%- theme.drawer_about.background %> " as="image" crossorigin="anonymous">
 		<% } %>
 	<% } %>
+	<%# GPDR Cookie提示 %> 
+	<script async>
+		<% if (theme.gdpr_cookie_alert.enable) { %>
+			window.gpdrCookieAlert = {
+				msg: `<%-theme.gdpr_cookie_alert.text||__('online_check.offlineText') %>`,
+				btnTxt: "<%-theme.gdpr_cookie_alert.ack_btn||__('gpdr_cookie_alert_ack_btn')%>",
+			}
+		<% } %>
+		<% if (theme.online_check.enable) { %>
+			var offlineAlertSnackbar;
+			window.onlineCheck = {
+				offMsg: "<%-theme.online_check.offlineText||__('online_check.offlineText')%>",
+				onMsg: "<%-theme.online_check.onlineText||__('online_check.onlineText')%>",
+				btnTxt: "<%-theme.online_check.ack_btn||__('online_check.ack_btn')%>",
+			}
+		<% } %>
+		<% if (theme.search.enable !== false) { %>
+			window.search = {
+				path: "<%-theme.search.path %>",
+				noResult: "<%-theme.search.no_result||__('search.no_results')%>",
+				error: "<%-theme.search.error||__('search.db_undefined')%>",
+			}
+		<% } %>
+	</script>
 </head>
