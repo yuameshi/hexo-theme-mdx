@@ -133,13 +133,40 @@ div.postPage{
 		div#shareToWechatQRCodeDialog{
 			width 300px
 			div.mdui-container.shareToWechatQRCodeOuterContainer{
-				padding 25px
 				width 300px
 				height 315px
 				text-align center
-				img{
-					margin-bottom 15px
+				div#shareToWechatQRCodeContainer{
+					display flex
+					justify-content center
+					align-items center
+					img {
+						margin-bottom 15px
+					}
 				}
+			}
+		}
+		div#generateSharePictureDialog{
+			min-height 620px !important
+			display flex!important
+			flex-direction column
+			justify-content space-between
+			div.mdui-container.generateSharePictureDialogOuterContainer{
+				text-align center
+				width 100%
+				padding 0
+				div#generateSharePictureDialogContainer{
+					width 100%
+					canvas{
+						width 100%
+						max-height 500px
+						object-fit contain
+					}
+				}
+			}
+			div.generateSharePictureDialogActionBar{
+				display flex
+				flex-direction row
 			}
 		}
 		div.postTags{

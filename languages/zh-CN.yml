@@ -6,6 +6,7 @@ archives: 归档
 nightmode_switch: 切换日间/夜间模式
 more: 阅读更多
 close: 关闭
+save: 保存
 
 search:
   placeholder: 搜点什么...
@@ -42,9 +43,13 @@ footer:
   copyrights: "&copy; %s"
 
 share:
+  gen_sharepic: 生成分享图
+  save_sharepic: 长按或右键保存图片
+  scan_qr_to_read: 扫描二维码继续阅读
   weibo: 分享到 微博
   qq: 分享到 QQ
   wechat: 分享到 微信
+  scan_with_wechat: 使用微信扫描后在微信内分享
   qzone: 分享到 QQ空间
   telegram: 分享到 Telegram
   twitter: 分享到 Twitter

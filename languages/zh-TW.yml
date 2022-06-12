@@ -1,0 +1,56 @@
+home: 主頁
+about: 關於
+tags: 標籤
+categories: 分類
+archives: 歸檔
+nightmode_switch: 切換日間/夜間模式
+more: 閱讀更多
+close: 關閉
+save: 儲存
+
+search:
+  placeholder: 搜點什麼...
+  no_result: 沒有找到與“$txt$”相關的結果
+  db_undefined: MDx的搜尋資料庫似乎未正確載入，請嘗試重新整理頁面
+
+gpdr_cookie_alert:
+  msg: 此網站使用Cookie來改善您的體驗。
+  ack_btn: 瞭解
+
+online_check:
+  offline_text: 您似乎處於離線狀態，某些功能無法使用，請檢查您的網路連線。
+  online_text: 網路連線已恢復！
+  ack_btn: 瞭解
+
+post:
+  post: 釋出時間
+  updated: 更新時間
+  categories: 分類
+  uncategorized: 未分類
+  untagged: 無標籤
+  toc: 目錄
+  menu: 選單
+  read_on_other_device_tooltip: 在其他裝置上繼續閱讀
+
+archive:
+  year: 年
+  month: 月
+  counter: 總計 %d 篇文章
+
+footer:
+  hexo: "由 Hexo 強力驅動"
+  theme: 由 MDx 主題裝飾
+  copyrights: "&copy; %s"
+
+share:
+  gen_sharepic: 生成分享圖
+  save_sharepic: 長按或右鍵儲存圖片
+  scan_qr_to_read: 掃描二維碼繼續閱讀
+  weibo: 分享到 微博
+  qq: 分享到 QQ
+  wechat: 分享到 微信
+  scan_with_wechat: 使用微信掃描後在微信內分享
+  qzone: 分享到 QQ空間
+  telegram: 分享到 Telegram
+  twitter: 分享到 Twitter
+  facebook: 分享到 Facebook

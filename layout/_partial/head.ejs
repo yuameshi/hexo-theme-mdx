@@ -147,5 +147,13 @@
 				error: "<%-theme.search.error||__('search.db_undefined')%>",
 			}
 		<% } %>
+		window.shareMetadata = {
+			title: '<%= title %>',
+			description: '<%= description %>',
+			url: '<%= page.url %>',
+			blogName : '<%= config.title %>',
+			postDate: '<%= date(page.date) %>',
+			scan: '<%= __('share.scan_qr_to_read') %>',
+		}
 	</script>
 </head>

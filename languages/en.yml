@@ -6,6 +6,7 @@ archives: Archive
 nightmode_switch: Switch Light/Dark Mode
 more: Read more
 close: Close
+save: Save
 
 search:
   placeholder: Search something...
@@ -42,9 +43,13 @@ footer:
   copyrights: "&copy; %s"
 
 share:
+  gen_sharepic: Generate a shared image
+  save_sharepic: Long press or right click to save the image
+  scan_qr_to_read: Scan the QR code to continue reading
   weibo: Share to Weibo
   qq: Share to QQ
   wechat: Share to WeChat
+  scan_with_wechat: Use WeChat to scan and share within WeChat
   qzone: Share to QZone
   twitter: Share to Twitter
   facebook: Share to Facebook

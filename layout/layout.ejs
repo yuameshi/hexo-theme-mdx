@@ -7,7 +7,7 @@
 		<%- partial('_partial/title.ejs',{
 			props:{
 				title: (page.title || page.category || page.tag ||config.title),
-				background: (theme.header_picture_link)
+				background: (page.headerPic || theme.header_picture_link)
 			}
 		}) %>
 		<div class="mainContent mdui-center" id="mainContent">

@@ -47,6 +47,9 @@
 		</button>
 		<ul class="mdui-menu" id="shareMenu">
 			<li class="mdui-menu-item">
+				<a href="javascript:void(0)" class="mdui-ripple" mdui-dialog="{target: '#generateSharePictureDialog'}"><%- __('share.gen_sharepic') %></a>
+			</li>
+			<li class="mdui-menu-item">
 				<a href="<%- encodeURI(`https://service.weibo.com/share/share.php?appkey=&title=${page.title}&url=${page.permalink}&pic=${page.headerPic}&searchPic=false&style=simple`) %>" target="_blank" rel="noopener noreferrer" class="mdui-ripple"><%- __('share.weibo') %> </a>
 			</li>
 			<li class="mdui-menu-item">
@@ -69,13 +72,23 @@
 				<a href="<%- encodeURI(`https://twitter.com/intent/tweet?text=${page.title}&url=${page.permalink}`) %>" target="_blank" rel="noopener noreferrer" class="mdui-ripple"><%- __('share.twitter') %> </a>
 			</li>
 		</ul>
+		<div class="mdui-dialog" id="generateSharePictureDialog">
+			<div class="mdui-container mdui-text-color-gray mdui-color-white generateSharePictureDialogOuterContainer">
+				<div id="generateSharePictureDialogContainer"></div>
+				<i class="mdui-icon material-icons">&#xe161;</i> <%- __('share.save_sharepic') %>
+			</div>
+			<div class="mdui-container generateSharePictureDialogActionBar">
+				<button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-center mdui-m-a-2" id="saveSharePic"><%- __('save') %></button>
+				<button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-center mdui-m-a-2" mdui-dialog-close><%- __('close') %></button>
+			</div>
+		</div>
 		<div class="mdui-dialog" id="shareToWechatQRCodeDialog">
-			<div class="mdui-container mdui-text-color-gray mdui-color-white shareToWechatQRCodeOuterContainer">
+			<div class="mdui-container mdui-text-color-gray mdui-color-white mdui-m-t-2 shareToWechatQRCodeOuterContainer">
 				<div id="shareToWechatQRCodeContainer"></div>
-				<i class="mdui-icon material-icons">&#xe80d;</i> 使用微信扫描后在微信内分享
+				<i class="mdui-icon material-icons">&#xe80d;</i> <%- __('share.scan_with_wechat') %>
 			</div>
 			<div class="mdui-container">
-				<button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-center" mdui-dialog-close><%- __('close') %></button>
+				<button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-center mdui-m-a-1" mdui-dialog-close><%- __('close') %></button>
 			</div>
 		</div>
 		<% if (theme.passage_end_tag.enabled === true) { %>
