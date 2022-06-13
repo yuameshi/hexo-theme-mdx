@@ -148,12 +148,12 @@
 			}
 		<% } %>
 		window.shareMetadata = {
-			title: '<%= title %>',
-			description: '<%= description %>',
-			url: '<%= page.url %>',
-			blogName : '<%= config.title %>',
-			postDate: '<%= date(page.date) %>',
-			scan: '<%= __('share.scan_qr_to_read') %>',
+			title: '<%- title.replace(/'/g,"\\'") %>',
+			description: '<%- description.replace(/\n/g,'').replace(/'/g,"\\'") %>',
+			url: '<%- page.url %>',
+			blogName : '<%- config.title.replace(/'/g,"\\'") %>',
+			postDate: '<%- date(page.date) %>',
+			scan: '<%- __('share.scan_qr_to_read') %>',
 		}
 	</script>
 </head>

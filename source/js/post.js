@@ -58,7 +58,6 @@ function initPost() {
 		});
 	});
 
-	// generate wechat share qrcode
 	document.querySelector('#generateSharePictureDialog').addEventListener('open.mdui.dialog', function () {
 		postPage.querySelector('div#generateSharePictureDialogContainer').innerHTML = '';
 		var qrCodeContainer = document.querySelector('#mdx_read_on_other_device');
