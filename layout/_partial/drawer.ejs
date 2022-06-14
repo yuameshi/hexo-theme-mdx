@@ -4,7 +4,7 @@
 			<div class="drawerAbout mdui-color-theme">
 				<div class="drawerAboutMain mdui-text-color-<%=theme.drawer_about.is_dark?"white":"black light" %>" style="background-image: url(<%= theme.drawer_about.background %>);"
 					data-name="<%= theme.drawer_about.name %>" data-slogan="<%= theme.drawer_about.slogan %>">
-					<img src="<%= theme.drawer_about.avatar%>" alt="avatar" class="avatar">
+					<img src="<%= theme.drawer_about.avatar%>" alt="avatar" class="avatar mdui-img-circle">
 				</div>
 			</div>
 		<% } %>
@@ -39,7 +39,7 @@
 		<div class="mdui-list">
 			<% for(element in theme.drawer){%>
 				<%const str=theme.drawer[element].split(" || ")%>
-				<a href="<%= url_for(str[0]) %>" class="mdui-list-item mdui-ripple mdui-text-color-theme-text">
+				<a href="<%= url_for(str[0]) %>" class="mdui-list-item mdui-ripple mdui-valign <%- is_current(url_for(str[0]))? 'current mdui-text-color-theme':'mdui-text-color-theme-text' %>">
 					<i class="mdui-list-item-icon mdui-icon material-icons">
 						<%- str[1] %>
 					</i>

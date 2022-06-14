@@ -1,6 +1,6 @@
 <head>
 	<meta charset="UTF-8">
-	<% 
+	<%
 		let description = config.description;
 		if(strip_html(page.excerpt)!==''){
 			description = strip_html(page.excerpt);
@@ -18,9 +18,10 @@
 				description += ' - ' + page.year+  __('archive.year');
 			}
 			description += ' - ' + config.title;
+			description = description.replace(/\n/g,'');
 		}
 	%>
-	<meta name="description" content="<%= description %>">
+	<meta name="description" content="<%= description.replace(/\n/g,'') %>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<% if (theme.favicon) { %>
@@ -29,6 +30,23 @@
 	<% } %>
 	<link rel="shortcut icon" href="<%= theme.favicon %>" type="image/x-icon">
 	<link rel="apple-touch-icon" href="<%= theme.favicon %>">
+	<%	let title = page.title || config.title
+		if(is_category()) {
+			title = __('categories') + ' - ' + page.category + ' - '+ config.title;
+		} else if(is_tag()) {
+			title = __('tags') + ' - ' + page.tag + ' - '+ config.title;
+		} else if(is_archive()) {
+			title = __('archives');
+			if (is_month()) {
+				title += ' - ' + page.year+__('archive.year') + page.month+  __('archive.month');
+			} else if (is_year()) {
+				title += ' - ' + page.year+  __('archive.year');
+			}
+			title += ' - ' + config.title;
+		}
+		title=title.replace(/\n/g,'');
+	%>
+	<title><%= title %></title>
 	<%- js({ src: 'js/material.js', async: true }) %>
 	<%- css(['css/main.css']) %>
 	<%
@@ -82,7 +100,7 @@
 	<link rel="preload" href="<%- mdui + 'icons/material-icons/MaterialIcons-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
 	<% if (is_post() || is_page()) { %>
 		<script src="<%- qrcodejs %>" async></script>
-	<% } %>	
+	<% } %>
 	<link rel="stylesheet" href="<%- mdui + 'css/mdui.min.css?v=' + (theme.mdui_version || '1.0.2') %>" crossorigin="anonymous">
 	<script src="<%- mdui + 'js/mdui.min.js?v=' + (theme.mdui_version || '1.0.2') %>" async crossorigin="anonymous"></script>
 	<link rel="prefetch" href="<%- mdui + 'fonts/roboto/Roboto-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
@@ -90,26 +108,7 @@
 	<link rel="prefetch" href="<%- mdui + 'fonts/roboto/Roboto-Bold.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
 	<link rel="prefetch" href="<%- mdui + 'icons/material-icons/MaterialIcons-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
 	<link rel="prefetch" href="<%- qrcodejs %>" as="script" crossorigin="anonymous">
-	<%- partial('_partial/_plugins/analytics/analytics') %> 
-	<title>
-		<% let title = page.title || config.title%>
-		<% 
-		if(is_category()) {
-			title = __('categories') + ' - ' + page.category + ' - '+ config.title;
-		} else if(is_tag()) {
-			title = __('tags') + ' - ' + page.tag + ' - '+ config.title;
-		} else if(is_archive()) {
-			title = __('archives');
-			if (is_month()) {
-				title += ' - ' + page.year+__('archive.year') + page.month+  __('archive.month');
-			} else if (is_year()) {
-				title += ' - ' + page.year+  __('archive.year');
-			}
-			title += ' - ' + config.title;
-		}
-		%> 
-		<%= title %>
-	</title>
+	<%- partial('_partial/_plugins/analytics/analytics') %>
 	<link rel="preload" href="/search.json" as="fetch" crossorigin="anonymous">
 	<link rel="prefetch" href="/search.json" as="fetch" crossorigin="anonymous">
 	<% if (theme.header_picture_link) { %>
@@ -124,36 +123,41 @@
 			<link rel="prefetch" href="<%- theme.drawer_about.background %> " as="image" crossorigin="anonymous">
 		<% } %>
 	<% } %>
-	<%# GPDR Cookie提示 %> 
-	<script async>
-		<% if (theme.gdpr_cookie_alert.enable) { %>
-			window.gpdrCookieAlert = {
-				msg: `<%-theme.gdpr_cookie_alert.text||__('gpdr_cookie_alert.msg') %>`,
-				btnTxt: "<%-theme.gdpr_cookie_alert.ack_btn||__('gpdr_cookie_alert.ack_btn')%>",
-			}
-		<% } %>
-		<% if (theme.online_check.enable) { %>
-			var offlineAlertSnackbar;
-			window.onlineCheck = {
-				offMsg: "<%-theme.online_check.offlineText||__('online_check.offline_text')%>",
-				onMsg: "<%-theme.online_check.onlineText||__('online_check.online_text')%>",
-				btnTxt: "<%-theme.online_check.ack_btn||__('online_check.ack_btn')%>",
-			}
-		<% } %>
-		<% if (theme.search.enable !== false) { %>
-			window.search = {
-				path: "<%-theme.search.path %>",
-				noResult: "<%-theme.search.no_result||__('search.no_result')%>",
-				error: "<%-theme.search.error||__('search.db_undefined')%>",
-			}
-		<% } %>
-		window.shareMetadata = {
-			title: '<%- title.replace(/'/g,"\\'") %>',
-			description: '<%- description.replace(/\n/g,'').replace(/'/g,"\\'") %>',
-			url: '<%- page.url %>',
-			blogName : '<%- config.title.replace(/'/g,"\\'") %>',
-			postDate: '<%- date(page.date) %>',
-			scan: '<%- __('share.scan_qr_to_read') %>',
+	<%
+		function trimStr(str) {
+			return str.replace(/\n/g,'').replace(/'/g,"\\'").replace(/"/g,'\\"');
 		}
-	</script>
+		let injectScript = '';
+		injectScript += `window.shareMetadata = {`;
+		injectScript+=`title: '${trimStr(title)}',`
+		injectScript+=`description: '${trimStr(description)}',`
+		injectScript+=`url: '${page.url}',`
+		injectScript+=`blogName : '${trimStr(config.title)}',`
+		injectScript+=`postDate: '${date(page.date)}',`
+		injectScript+=`scan: '${__('share.scan_qr_to_read')}',`
+		injectScript+=`};`;
+		if (theme.gdpr_cookie_alert.enable) {
+			injectScript+='window.gpdrCookieAlert = {';
+			injectScript+=`msg: \'${trimStr(theme.gdpr_cookie_alert.text||__('gpdr_cookie_alert.msg'))}',`;
+			injectScript+=`btnTxt: "${trimStr(theme.gdpr_cookie_alert.ack_btn||__('gpdr_cookie_alert.ack_btn'))}",`;
+			injectScript+='};';
+		}
+		if (theme.online_check.enable) {
+			injectScript+=`var offlineAlertSnackbar;`;
+			injectScript+=`window.onlineCheck = {`;
+				injectScript+=`offMsg: "${trimStr(theme.online_check.offlineText||__('online_check.offline_text'))}",`;
+				injectScript+=`onMsg: "${trimStr(theme.online_check.onlineText||__('online_check.online_text'))}",`;
+				injectScript+=`btnTxt: "${trimStr(theme.online_check.ack_btn||__('online_check.ack_btn'))}",`;
+			injectScript+=`};`;
+		}
+		if (theme.search.enable !== false) {
+			injectScript+=`window.search = {`;
+				injectScript+=`path: "${trimStr(theme.search.path)}",`;
+				injectScript+=`noResult: "${trimStr(theme.search.no_result||__('search.no_result'))}",`;
+				injectScript+=`error: "${trimStr(theme.search.error||__('search.db_undefined'))}",`;
+			injectScript+=`};`;
+		}
+		injectScript = '<script async>'+injectScript+'</script>';
+	%>
+	<%- injectScript %> 
 </head>

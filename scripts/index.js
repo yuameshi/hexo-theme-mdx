@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-console.log('Checking configurations...');
+console.log('[MDx]	[INFO]	Checking configurations...');
 
 if (hexo.config.theme_config.search.path && hexo.config.search.path !== hexo.config.theme_config.search.path) {
 	console.log('[MDx]	[ERROR]	Search Database is not configured properly. Please chech your settings.');
