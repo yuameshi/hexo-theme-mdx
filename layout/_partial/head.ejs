@@ -152,7 +152,7 @@
 		}
 		if (theme.search.enable !== false) {
 			injectScript+=`window.search = {`;
-				injectScript+=`path: "${trimStr(theme.search.path)}",`;
+				injectScript+=`path: "${trimStr(theme.search.path || '/search.json')}",`;
 				injectScript+=`noResult: "${trimStr(theme.search.no_result||__('search.no_result'))}",`;
 				injectScript+=`error: "${trimStr(theme.search.error||__('search.db_undefined'))}",`;
 			injectScript+=`};`;
