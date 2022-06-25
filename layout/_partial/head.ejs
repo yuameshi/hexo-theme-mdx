@@ -49,6 +49,8 @@
 	<title><%= title %></title>
 	<%- js({ src: 'js/material.js', async: true }) %>
 	<%- css(['css/main.css']) %>
+	<link rel="prefetch" href="/css/post.css" as="fetch" crossorigin="anonymous">
+	<link rel="prefetch" href="/css/friends.css" as="fetch" crossorigin="anonymous">
 	<%
 	let linkPrefix = 'https://cdn.jsdelivr.net/npm/%package%@%version%/dist/';
 	switch (theme.cdn_provider) {
@@ -100,6 +102,8 @@
 	<link rel="preload" href="<%- mdui + 'icons/material-icons/MaterialIcons-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
 	<% if (is_post() || is_page()) { %>
 		<script src="<%- qrcodejs %>" async></script>
+		<%- css(['css/post.css']) %>
+		<%- js({ src: 'js/post.js', async: true }) %>
 	<% } %>
 	<link rel="stylesheet" href="<%- mdui + 'css/mdui.min.css?v=' + (theme.mdui_version || '1.0.2') %>" crossorigin="anonymous">
 	<script src="<%- mdui + 'js/mdui.min.js?v=' + (theme.mdui_version || '1.0.2') %>" async crossorigin="anonymous"></script>
