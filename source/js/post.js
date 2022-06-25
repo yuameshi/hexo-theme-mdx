@@ -29,6 +29,22 @@ function initPost() {
 		dom.querySelector('canvas').style.padding = '20px 20px 0 20px';
 		dom.querySelector('img').style.padding = '20px';
 	});
+	var imgs = document.querySelectorAll('div.postPage img');
+	for (var i = 0; i < imgs.length; i++) {
+		imgs[i].addEventListener('click', function (e) {
+			document.querySelector('#imgBox').classList.add('show');
+			document.querySelector('#imgBoxImageLink').setAttribute('href', e.target.getAttribute('src'));
+			document.querySelector('#imgBoxImage').setAttribute('src', e.target.getAttribute('src'));
+			document.querySelector('#imgBoxImage').setAttribute('alt', e.target.getAttribute('alt') || '');
+			document.querySelector('#imgBoxDescription').innerText = e.target.getAttribute('alt') || '';
+		});
+	}
+	document.querySelector('#imgBox').addEventListener('click', function (e) {
+		if (e.target == document.querySelector('#imgBoxImage')) {
+			return;
+		}
+		document.querySelector('#imgBox').classList.remove('show');
+	});
 	if (new URL(location.href).searchParams.get('pos') !== null) {
 		window.scroll({
 			top: Number(new URL(location.href).searchParams.get('pos')),
@@ -178,8 +194,8 @@ function initPost() {
 	});
 	// init table
 	var tables = postPage.querySelectorAll('table');
-	for (var i = 0; i < tables.length; i++) {
-		tables[i].classList.add('mdui-table');
+	for (var k = 0; k < tables.length; k++) {
+		tables[k].classList.add('mdui-table');
 	}
 	// init GitHub info card
 	var githubInfoCards = postPage.querySelectorAll('div.mdx-github-card');
