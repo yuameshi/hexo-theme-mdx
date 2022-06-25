@@ -240,15 +240,25 @@ div.postPage{
 		background-color #000000bf
 		&.show{
 			display flex
+			animation imgBoxFadeIn .15s linear
+			@keyframes imgBoxFadeIn {
+				0%{
+					opacity 0
+				}
+				100%{
+					opacity 1
+				}
+			}
 		}
 		img#imgBoxImage{
-			max-height: 90vh;
-			max-width: 90vw;
+			max-height 90vh
+			max-width 90vw
+			cursor zoom-out !important
 		}
 		div#imgBoxDescription{
-			margin: 10px;
-			color: #FFF;
-			font-size: 20px;
+			margin 10px
+			color #FFF
+			font-size 20px
 		}
 	}
 }

@@ -31,18 +31,15 @@ function initPost() {
 	});
 	var imgs = document.querySelectorAll('div.postPage img');
 	for (var i = 0; i < imgs.length; i++) {
+		imgs[i].style.cursor = 'zoom-in';
 		imgs[i].addEventListener('click', function (e) {
 			document.querySelector('#imgBox').classList.add('show');
-			document.querySelector('#imgBoxImageLink').setAttribute('href', e.target.getAttribute('src'));
 			document.querySelector('#imgBoxImage').setAttribute('src', e.target.getAttribute('src'));
 			document.querySelector('#imgBoxImage').setAttribute('alt', e.target.getAttribute('alt') || '');
 			document.querySelector('#imgBoxDescription').innerText = e.target.getAttribute('alt') || '';
 		});
 	}
-	document.querySelector('#imgBox').addEventListener('click', function (e) {
-		if (e.target == document.querySelector('#imgBoxImage')) {
-			return;
-		}
+	document.querySelector('#imgBox').addEventListener('click', function () {
 		document.querySelector('#imgBox').classList.remove('show');
 	});
 	if (new URL(location.href).searchParams.get('pos') !== null) {
