@@ -52,7 +52,11 @@
 	<link rel="prefetch" href="/css/post.css" as="fetch" crossorigin="anonymous">
 	<link rel="prefetch" href="/css/friends.css" as="fetch" crossorigin="anonymous">
 	<%
-	const mdui = site.linkPrefix.replace(/%version%/g, (theme.mdui_version || '1.0.2')).replace(/%package%/g, 'mdui');
+	let linkPrefix = site.linkPrefix;
+	if (theme.cdn_provider==='jsdelivr' || theme.cdn_provider==='unpkg'  || theme.cdn_provider==='true' || theme.cdn_provider===true){
+		linkPrefix += 'dist/'
+	}
+	const mdui = linkPrefix.replace(/%version%/g, (theme.mdui_version || '1.0.2')).replace(/%package%/g, 'mdui');
 	const qrcodejs = site.linkPrefix.replace(/%version%/g, '1.0.0').replace(/%package%/g, 'qrcodejs') + 'qrcode.min.js';
 	%>
 	<% if (theme.cdn_provider != 'false' && theme.cdn_provider!=false) { %>
@@ -75,8 +79,6 @@
 	<link rel="prefetch" href="<%- mdui + 'icons/material-icons/MaterialIcons-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
 	<link rel="prefetch" href="<%- qrcodejs %>" as="script" crossorigin="anonymous">
 	<%- partial('_partial/_plugins/analytics/analytics') %>
-	<link rel="preload" href="/search.json" as="fetch" crossorigin="anonymous">
-	<link rel="prefetch" href="/search.json" as="fetch" crossorigin="anonymous">
 	<% if (theme.header_picture_link) { %>
 		<link rel="preload" href="<%- theme.header_picture_link %> " as="image" crossorigin="anonymous">
 		<link rel="prefetch" href="<%- theme.header_picture_link %> " as="image" crossorigin="anonymous">
@@ -125,5 +127,7 @@
 		}
 		injectScript = '<script async>'+injectScript+'</script>';
 	%>
-	<%- injectScript %> 
+	<%- injectScript %>
+    <link rel="preload" href="<%- trimStr(theme.search.path || '/search.json') %>" as="fetch" crossorigin="anonymous">
+    <link rel="prefetch" href="<%- trimStr(theme.search.path || '/search.json') %>" as="fetch" crossorigin="anonymous">
 </head>
