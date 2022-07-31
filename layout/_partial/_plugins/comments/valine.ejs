@@ -1,6 +1,6 @@
 <%
 	let valineLink = site.linkPrefix;
-	if (theme.cdn_providor === 'bytedance') {
+	if (theme.cdn_provider === 'bytedance') {
 		valineLink = 'https://cdn.jsdelivr.net/npm/%package%@%version%/';
 	}
 	if (theme.cdn_provider === 'jsdelivr' || theme.cdn_provider === 'unpkg' || theme.cdn_provider === 'true' || theme.cdn_provider === true) {
