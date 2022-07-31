@@ -67,6 +67,7 @@ $ wget https://cdn.jsdelivr.net/gh/Yuameshi/hexo-theme-mdx@main/_config.yml -O _
 ```yaml
 # 主题设置
 # 使用CDN加速前端载入(CDN提供商:true(使用默认的jsdelivr)/cdnjs/jsdelivr/staticfile/bootcdn/bytedance/unpkg/false(不使用CDN))
+# 注意：对于Waline和Valine评论客户端，使用bytedance CDN将自动转为JSDelivr(此CDN的库版本过旧且不好接入)
 cdn_provider: 'cdnjs'
 
 # 使用特定的MDUI库版本(默认1.0.2，您可以手动修改为其他版本)
@@ -166,6 +167,26 @@ comment:
     issue_term: 
     lable: 
     theme: 
+  # Valine配置参考 https://valine.js.org/configuration.html
+  valine:
+    app_id:
+    app_key:
+    placeholder:
+    avatar:
+    page_size:
+    lang:
+    server_urls:
+    emoji_cdn:
+    # emoji_maps请填入JSON字符串（可以使用JSON.stringify来生成，要能在现代浏览器内正常用JSON.parse解析)
+    emoji_maps:
+    # 请使用逗号分割meta和required_fields中的字符串
+    meta:
+    required_fields:
+    visitor:
+    highlight:
+    avatar_force:
+    record_ip:
+    enable_qq:
 
 # 网页分析
 analytics:

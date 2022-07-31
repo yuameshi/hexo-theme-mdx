@@ -68,6 +68,7 @@ WARNING: If you installed the theme via git, you should delete `_config.yml` in 
 ```yaml
 # Theme settings
 # use CDN to boost your site(CDN Providers:true(use jsdelivr)/cdnjs/jsdelivr/staticfile/bootcdn/bytedance/unpkg/false(won't use CDN))
+# Note: For Waline and Valine comment systems, using bytedance CDN will automatically fallback to JSDelivr (the library version of this CDN is out of date and not easy to use)
 cdn_provider: 'cdnjs'
 
 # Use a specific MIUI version(default:1.0.2, you can modify it to other versions manually)
@@ -170,6 +171,26 @@ comment:
     issue_term: 
     lable: 
     theme: 
+  # Valine configuration refers to https://valine.js.org/configuration.html
+  valine:
+    app_id:
+    app_key:
+    placeholder:
+    avatar:
+    page_size:
+    lang:
+    server_urls:
+    emoji_cdn:
+    # Please fill in standard JSON string in emoji_maps (You can use 'JSON.stringify' to generate it, and the string must can be parsed by JSON.parse in modern browsers)
+    emoji_maps:
+    # Please use commas to separate keys in 'meta' and 'required_fields'
+    meta:
+    required_fields:
+    visitor:
+    highlight:
+    avatar_force:
+    record_ip:
+    enable_qq:
 
 # Analytics settings
 analytics:
