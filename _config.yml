@@ -180,6 +180,11 @@ comment:
     highlighter:
     text_renderer:
     copyright:
+  # Twikoo 配置参考以下链接
+  # Twikoo configuration refers to links below
+  # https://twikoo.js.org/quick-start.html
+  twikoo:
+    envId:
 
 # 网页分析
 analytics:
