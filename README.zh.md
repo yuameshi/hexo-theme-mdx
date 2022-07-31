@@ -187,6 +187,24 @@ comment:
     avatar_force:
     record_ip:
     enable_qq:
+  # Waline配置参考以下链接
+  # https://waline.js.org/reference/client.html#init
+  # https://waline.js.org/reference/component.html
+  waline: 
+    server_url: 
+    lang: 
+    dark: 
+    # 请使用逗号分割meta、required_meta和emoji中的字符串
+    meta:
+    required_meta:
+    emoji:
+    login:
+    word_limit:
+    page_size:
+    image_uploader:
+    highlighter:
+    text_renderer:
+    copyright:
 
 # 网页分析
 analytics:

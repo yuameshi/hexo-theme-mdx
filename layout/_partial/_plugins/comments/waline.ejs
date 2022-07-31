@@ -1,0 +1,68 @@
+<% 
+let walineLink = site.linkPrefix;
+if(theme.cdn_provider === 'bytedance'){
+	walineLink = 'https://cdn.jsdelivr.net/npm/%package%@%version%/';
+}
+if(theme.cdn_provider === 'unpkg' || theme.cdn_provider === 'jsdelivr' || theme.cdn_provider === 'true' || theme.cdn_provider === true){
+	walineLink = walineLink.replace(/%package%/g, '@waline/client');
+	walineLink += 'dist/';
+}else{
+	walineLink=walineLink.replace(/%package%/g, 'waline');
+}
+walineLink=walineLink.replace(/%version%/g, '2.6.2');
+%>
+<script src="<%- walineLink + 'waline.js' %>" id="walineScript" async></script>
+<link rel="stylesheet" href="<%- walineLink + 'waline.css' %>">
+<div id="walineCommentContainer"></div>
+<%
+let script='';
+if(typeof theme.comment.waline.comment!=="undefined" && theme.comment.waline.comment!==null){
+	if(typeof theme.comment.waline.comment==='boolean'){
+		script+=`window.walineCommentProp=${theme.comment.waline.comment};`;
+	} else {
+		script+=`window.walineCommentProp="${theme.comment.waline.comment}";`;
+	}
+}
+if(typeof theme.comment.waline.pageview!=="undefined" && theme.comment.waline.pageview !== null){
+	if(typeof theme.comment.waline.pageview==='boolean'){
+		script+=`window.walinePageviewProp=${theme.comment.waline.pageview};`;
+	} else {
+		script+=`window.walinePageviewProp="${theme.comment.waline.pageview}";`;
+	}
+}
+if(typeof theme.comment.waline.image_uploader !== 'undefined' && theme.comment.waline.image_uploader !== null){
+	script+=`window.walineImageUploaderHandler=${theme.comment.waline.image_uploader};`;
+}
+if(typeof theme.comment.waline.highlighter !== 'undefined' && theme.comment.waline.highlighter !== null){
+	script+=`window.walineHighlighterHandler=${theme.comment.waline.highlighter};`;
+}
+if(typeof theme.comment.waline.text_renderer !== 'undefined' && theme.comment.waline.text_renderer !== null){
+	script+=`window.walineTextRenderer=${theme.comment.waline.text_renderer};`;
+}
+script = `<script async>${script}</script>`;
+%>
+<%- script %> 
+<script async>
+	document.querySelector('#walineScript').addEventListener('load',function(){
+		const walineInitOption = {
+			el: '#walineCommentContainer',
+			serverURL: '<%- theme.comment.waline.server_url %>',
+			comment: window.walineCommentProp,
+			pageview: window.walinePageviewProp,
+			lang: '<%- theme.comment.waline.lang || "zh-CN" %>',
+			dark: '<%- theme.comment.waline.dark || false %>' === 'false',
+			emoji: '<%- (theme.comment.waline.emoji || "https://unpkg.com/@waline/emojis@1.0.1/weibo") %>'.split(','),
+			meta: '<%- (theme.comment.waline.meta || "nick,mail,link") %>'.split(','),
+			requiredMeta: '<%- theme.comment.waline.required_meta || ""%>'.split(','),
+			login: '<%- theme.comment.waline.login || "enable" %>',
+			wordLimit: '<%- theme.comment.waline.word_limit || 0 %>',
+			pageSize: '<%- theme.comment.waline.page_size || 10 %>',
+			imageUploader: window.walineImageUploaderHandler,
+			highlighter: window.walineHighlighterHandler,
+			textRenderer: window.walineTextRenderer,
+			copyright: '<%- theme.comment.waline.copyright || "true" %>' === 'true',
+		};
+		console.log(walineInitOption)
+		Waline.init(walineInitOption);
+	});
+</script>

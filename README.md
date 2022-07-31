@@ -191,6 +191,24 @@ comment:
     avatar_force:
     record_ip:
     enable_qq:
+  # Waline configuration refers to links below
+  # https://waline.js.org/reference/client.html#init
+  # https://waline.js.org/reference/component.html
+  waline: 
+    server_url: 
+    lang: 
+    dark: 
+    # Please use commas to separate keys in 'meta' , 'required_meta' and 'emoji'
+    meta:
+    required_meta:
+    emoji:
+    login:
+    word_limit:
+    page_size:
+    image_uploader:
+    highlighter:
+    text_renderer:
+    copyright:
 
 # Analytics settings
 analytics:
