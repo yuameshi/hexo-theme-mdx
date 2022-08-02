@@ -68,7 +68,7 @@ WARNING: If you installed the theme via git, you should delete `_config.yml` in 
 ```yaml
 # Theme settings
 # use CDN to boost your site(CDN Providers:true(use jsdelivr)/cdnjs/jsdelivr/staticfile/bootcdn/bytedance/unpkg/false(won't use CDN))
-# Note: For Waline and Valine comment systems, using bytedance CDN will automatically fallback to JSDelivr (the library version of this CDN is out of date and not easy to use)
+# Note: For Waline , Valine and Twikoo comment systems, using bytedance CDN will automatically fallback to JSDelivr (the library version of this CDN is out of date and not easy to use)
 cdn_provider: 'cdnjs'
 
 # Use a specific MIUI version(default:1.0.2, you can modify it to other versions manually)
@@ -209,6 +209,13 @@ comment:
     highlighter:
     text_renderer:
     copyright:
+  # Twikoo configuration refers to links below
+  # https://twikoo.js.org/quick-start.html
+  # https://twikoo.js.org/quick-start.html#%E9%80%9A%E8%BF%87-cdn-%E5%BC%95%E5%85%A5
+  twikoo:
+    envId:
+    region:
+    lang:
 
 # Analytics settings
 analytics:

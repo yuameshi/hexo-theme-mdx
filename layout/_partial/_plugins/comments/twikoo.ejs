@@ -1,0 +1,29 @@
+<% 
+let linkPrefix = site.linkPrefix;
+if (theme.cdn_provider === 'bytedance') {
+	linkPrefix = 'https://cdn.jsdelivr.net/npm/%package%@%version%/';
+}
+if (theme.cdn_provider === 'jsdelivr' || theme.cdn_provider === 'unpkg'  || theme.cdn_provider === 'true' || theme.cdn_provider === true){
+	linkPrefix += 'dist/'
+}
+let twikooLinkPath=linkPrefix.replace(/%package%/g, 'twikoo').replace(/%version%/g, '1.6.0');
+let script = ''
+if(theme.comment.twikoo.region){
+	script+=`window.twikooRegion=${theme.comment.twikoo.region};`
+}
+if(theme.comment.twikoo.lang){
+	script+=`window.twikooLang=${theme.comment.twikoo.lang};`
+}
+%>
+<div id="twikooCommentContainer"></div>
+<script src="<%- twikooLinkPath + 'twikoo.min.js' %>" id="twikoo" async></script>
+<script async>
+	document.querySelector('#twikooScript').addEventListener('load',()=>{
+		twikoo.init({
+			envId: '<%- theme.comment.twikoo.envId %>',
+			el: '#twikooCommentContainer',
+			region: window.twikooRegion,
+			lang: window.twikooLang,
+		});
+	});
+</script>

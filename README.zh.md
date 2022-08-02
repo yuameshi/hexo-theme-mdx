@@ -67,7 +67,7 @@ $ wget https://cdn.jsdelivr.net/gh/Yuameshi/hexo-theme-mdx@main/_config.yml -O _
 ```yaml
 # 主题设置
 # 使用CDN加速前端载入(CDN提供商:true(使用默认的jsdelivr)/cdnjs/jsdelivr/staticfile/bootcdn/bytedance/unpkg/false(不使用CDN))
-# 注意：对于Waline和Valine评论客户端，使用bytedance CDN将自动转为JSDelivr(此CDN的库版本过旧且不好接入)
+# 注意：对于Waline、Valine和Twikoo评论客户端，使用bytedance CDN将自动转为JSDelivr(此CDN的库版本过旧且不好接入)
 cdn_provider: 'cdnjs'
 
 # 使用特定的MDUI库版本(默认1.0.2，您可以手动修改为其他版本)
@@ -205,6 +205,13 @@ comment:
     highlighter:
     text_renderer:
     copyright:
+  # Twikoo 配置参考以下链接
+  # https://twikoo.js.org/quick-start.html
+  # https://twikoo.js.org/quick-start.html#%E9%80%9A%E8%BF%87-cdn-%E5%BC%95%E5%85%A5
+  twikoo:
+    envId:
+    region:
+    lang:
 
 # 网页分析
 analytics:
