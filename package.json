@@ -19,7 +19,7 @@
 	},
 	"homepage": "https://github.com/Yuameshi/hexo-theme-mdx",
 	"engines": {
-		"node": ">=12.14.0"
+		"node": ">=14"
 	},
 	"scripts": {},
 	"peerDependencies": {
