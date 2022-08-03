@@ -1,5 +1,5 @@
 /* global hexo */
-// Usage: {% mdx_warn Title isOpen %} Something {% endmdx_warn %}
+// Usage: {% mdx_warn Title %} Something {% endmdx_warn %}
 //
 function warn(args, content) {
 	const title = args[0];

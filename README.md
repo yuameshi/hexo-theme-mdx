@@ -240,3 +240,45 @@ footer:
   miit_icp: # Link to MIIT ICP
   moe_icp: # Link to MOE ICP
 ```
+# Special features
+
+## Tags
+
+### Folded content
+Usage: {% mdx_fold Title isOpen %} Something {% endmdx_fold %}
+
+Example:
+
+```markdown
+Here are some folded content
+
+{% mdx_fold "A folded content which is opened by default" true %}
+Something are folded. Something are folded. Something are folded. Something are folded. 
+{% endmdx_fold %}
+
+{% mdx_fold "A folded content which is closed by default" false %}
+Something are folded. Something are folded. Something are folded. Something are folded. 
+{% endmdx_fold %}
+```
+### GitHub Info Card
+Usage: {% mdx_github_info_card repoOwner repoName %}
+
+Example
+
+```markdown
+I'll introduce you guys a github repo:
+
+{% mdx_github_info_card Yuameshi hexo-theme-mdx %}
+```
+### Warn
+Usage: {% mdx_warn Title %} Something {% endmdx_warn %}
+
+Example
+
+```markdown
+Here are some warning messages
+
+{% mdx_warn "This is the title of the warning message" %}
+Here is a warning message. Here is a warning message. Here is a warning message. Here is a warning message. 
+{% endmdx_warn %}
+```

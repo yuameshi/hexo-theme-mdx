@@ -37,7 +37,7 @@ $ git clone https://github.com/Yuameshi/hexo-theme-mdx.git themes/mdx -b <版本
 $ git submodule add https://github.com/Yuameshi/hexo-theme-mdx.git themes/mdx
 ```
 ## 2.启用主题
-您可以使用Hexo命令修改主题为为
+您可以使用Hexo命令修改主题为
 ```bash
 hexo config theme mdx
 ```
@@ -235,4 +235,46 @@ footer:
     GitHub: https://github.com/Yuameshi
   miit_icp: # 会在页脚显示备案号
   moe_icp: # 会在页脚显示萌备
+```
+
+# 主题特有功能
+
+## 特有标签
+
+### 折叠内容
+用法: {% mdx_fold Title isOpen %} Something {% endmdx_fold %}
+
+示例
+
+```markdown
+以下是折叠内容
+
+{% mdx_fold 这是一个默认打开的折叠内容的标题 true %}
+这是折叠内容这是折叠内容这是折叠内容
+{% endmdx_fold %}
+{% mdx_fold 这是一个默认关闭的折叠内容的标题 false %}
+这是折叠内容这是折叠内容这是折叠内容
+{% endmdx_fold %}
+```
+### GitHub信息卡
+用法: {% mdx_github_info_card repoOwner repoName %}
+
+示例
+
+```markdown
+下面来介绍一个GitHub仓库：
+
+{% mdx_github_info_card Yuameshi hexo-theme-mdx %}
+```
+### 警告内容
+用法: {% mdx_warn Title %} Something {% endmdx_warn %}
+
+示例
+
+```markdown
+以下是警告内容
+
+{% mdx_warn 这是一个警告内容的标题 %}
+这里是一段警告这里是一段警告这里是一段警告这里是一段警告这里是一段警告
+{% endmdx_warn %}
 ```
