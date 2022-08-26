@@ -1,14 +1,14 @@
 <div 
-	class="pageTitle mdui-color-theme mdui-color-theme"
-	id="pageTitleContainer"
-	style="background-image: url('<%- props.background || theme.header_picture_link %>'); ">
-	<% if (is_post() || is_page()) { %>
-	  <h1 id="pageTitle">
-		<%= props.title %>
-	  </h1>
-	<% } else { %>
-	  <h1>
-        <%= config.subtitle %>
-	  </h1>
-	<% } %>
+  class="pageTitle mdui-color-theme mdui-color-theme"
+  id="pageTitleContainer"
+  style="background-image: url('<%- props.background || theme.header_picture_link %>'); ">
+  <% if (is_post() || is_page()) { %>
+    <h1 id="pageTitle">
+      <%= props.title %>
+    </h1>
+  <% } else { %>
+    <h1>
+      <%= config.subtitle||config.title %>
+    </h1>
+   <% } %>
 </div>
