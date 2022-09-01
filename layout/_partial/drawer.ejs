@@ -4,7 +4,9 @@
 			<div class="drawerAbout mdui-color-theme">
 				<div class="drawerAboutMain mdui-text-color-<%=theme.drawer_about.is_dark?"white":"black light" %>" style="background-image: url(<%= theme.drawer_about.background %>);"
 					data-name="<%= theme.drawer_about.name %>" data-slogan="<%= theme.drawer_about.slogan %>">
-					<img src="<%= theme.drawer_about.avatar%>" alt="avatar" class="avatar mdui-img-circle">
+					<% if (theme.drawer_about.avatar) { %>
+						<img src="<%= theme.drawer_about.avatar %>" alt="avatar" class="avatar mdui-img-circle">
+					<% } %>
 				</div>
 			</div>
 		<% } %>
