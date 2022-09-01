@@ -1,8 +1,8 @@
 <div 
 	class="pageTitle mdui-color-theme mdui-color-theme"
 	id="pageTitleContainer"
-	style="background-image: url('<%- props.background || theme.header_picture_link %>'); ">
+	style="background-image: url('<%- page.headerPic || theme.header_picture_link %>'); ">
 	<h1 id="pageTitle">
-		<%= props.title %>
+		<%= page.title || page.category || page.tag ||config.title %>
 	</h1>
 </div>

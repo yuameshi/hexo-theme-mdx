@@ -4,12 +4,7 @@
 	<body class="mdui-theme-primary-<%= theme.color.primary %> mdui-theme-accent-<%= theme.color.accent %> mdui-theme-layout-auto">
 		<%- partial('_partial/appBar.ejs') %>
 		<%- partial('_partial/drawer.ejs') %>
-		<%- partial('_partial/title.ejs',{
-			props:{
-				title: (page.title || page.category || page.tag ||config.title),
-				background: (page.headerPic || theme.header_picture_link)
-			}
-		}) %>
+		<%- partial('_partial/title.ejs') %>
 		<div class="mainContent mdui-center" id="mainContent">
 			<%- body %>
 			<%- partial('_partial/pagination',{page:page}) %> 
