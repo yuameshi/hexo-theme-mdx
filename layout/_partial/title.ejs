@@ -1,8 +1,14 @@
-<div 
+<%
+let title = page.title || page.category || page.tag || config.title;
+if(is_home()){
+	title = config.subtitle || title;
+}
+%>
+<div
 	class="pageTitle mdui-color-theme mdui-color-theme"
 	id="pageTitleContainer"
 	style="background-image: url('<%- page.headerPic || theme.header_picture_link %>'); ">
 	<h1 id="pageTitle">
-		<%= page.title || page.category || page.tag ||config.title %>
+		<%= title %>
 	</h1>
 </div>
