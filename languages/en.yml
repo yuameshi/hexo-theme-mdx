@@ -37,6 +37,11 @@ archive:
   month: ' '
   counter: Total %d posts
 
+subtitles:
+  yearly_archive: Yearly Archive
+  monthly_archive: Monthly Archive
+  article_archive: Article Archive
+
 footer:
   hexo: "Powered by Hexo"
   theme: "Themed MDx"

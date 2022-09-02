@@ -37,6 +37,11 @@ archive:
   month: 月
   counter: 總計 %d 篇文章
 
+subtitles:
+  yearly_archive: 年度歸檔
+  monthly_archive: 月度歸檔
+  article_archive: 文章歸檔
+
 footer:
   hexo: "由 Hexo 強力驅動"
   theme: 由 MDx 主題裝飾
