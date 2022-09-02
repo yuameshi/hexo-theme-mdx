@@ -12,6 +12,8 @@ A hexo theme with material design.
 
 [AyaneYeの随手记](https://drbstore.yuameshi.top/)
 
+[Galaxy City](https://blog.restent.win/) & [Neko3327's Blog](https://neko3327.restent.win)
+
 # Browser compatibility
 | Browser              | Compatibility    |
 |----------------------|------------------|
