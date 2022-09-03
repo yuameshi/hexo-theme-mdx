@@ -41,6 +41,7 @@ subtitles:
   yearly_archive: Yearly Archive
   monthly_archive: Monthly Archive
   article_archive: Article Archive
+  tag_archive: Tag Archive
 
 footer:
   hexo: "Powered by Hexo"

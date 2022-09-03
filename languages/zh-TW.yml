@@ -41,6 +41,7 @@ subtitles:
   yearly_archive: 年度歸檔
   monthly_archive: 月度歸檔
   article_archive: 文章歸檔
+  tag_archive: 標籤歸檔
 
 footer:
   hexo: "由 Hexo 強力驅動"

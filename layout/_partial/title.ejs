@@ -4,7 +4,7 @@ let subtitle = null;
 if(is_home()){
 	title = config.subtitle || title;
 }
-if(is_archive()){
+if(is_archive() || is_category()){
 	subtitle = __('subtitles.articles_archive');
 }
 if(is_year()){
@@ -13,8 +13,8 @@ if(is_year()){
 if(is_month()){
 	subtitle = __('subtitles.monthly_archive');
 }
-if(is_category()){
-	subtitle = __('subtitles.article_archive');
+if(is_tag()){
+	subtitle = __('subtitles.tag_archive');
 }
 %>
 <div
