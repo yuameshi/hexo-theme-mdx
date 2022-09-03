@@ -11,6 +11,10 @@
 
 [AyaneYeの随手记](https://drbstore.yuameshi.top/)
 
+[Galaxy City](https://blog.restent.win/)
+
+[Neko3327's Blog](https://neko3327.restent.win)
+
 # 浏览器兼容性
 | 浏览器                  | 兼容性      |
 |----------------------|----------|
