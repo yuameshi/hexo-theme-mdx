@@ -201,6 +201,11 @@ analytics:
   cloudflare:
     enabled: false
     token: 
+advertisement:
+  google:
+    # Gooele AdSense refers to https://www.google.com/adsense
+    # Google AdSense 参见此网站 https://www.google.com/adsense
+    client_ca_pub:
 
 footer:
   # When the site was launched
