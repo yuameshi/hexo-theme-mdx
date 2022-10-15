@@ -232,6 +232,11 @@ analytics:
     enabled: false
     token: 
 
+advertisement:
+  google:
+    # Google AdSense 参见 https://www.google.com/adsense
+    client_ca_pub:
+
 footer:
   since: # When the site was launched
   copyrights: true # Show '© %SITE_NAME%' in footer

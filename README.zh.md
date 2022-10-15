@@ -228,6 +228,11 @@ analytics:
     enabled: false
     token: 
 
+advertisement:
+  google:
+    # Gooele AdSense refers to https://www.google.com/adsense
+    client_ca_pub:
+
 footer:
   since: # 站点开始运营时间
   copyrights: true # 会在页脚显示 '© %SITE_NAME%'
