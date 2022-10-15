@@ -127,6 +127,11 @@
 		}
 		injectScript = '<script async>'+injectScript+'</script>';
 	%>
+	<% if (theme.advertisement.google.client_ca_pub) { %>
+		<script async src="https://pagead2。googlesyndication. com/ pagead/ js/ adsbygoogle.js?
+		client=ca-pub-4103172601 745047"
+		crossorigin=" anonymous"></script>	
+	<% } %>
 	<%- injectScript %>
     <link rel="preload" href="<%- trimStr(theme.search.path || '/search.json') %>" as="fetch" crossorigin="anonymous">
     <link rel="prefetch" href="<%- trimStr(theme.search.path || '/search.json') %>" as="fetch" crossorigin="anonymous">
