@@ -6,7 +6,7 @@ if (hexo.config.theme_config.search.path && hexo.config.search.path !== hexo.con
 	console.log('[MDx]	[ERROR]	Search Database is not configured properly. Please chech your settings.');
 }
 
-hexo.locals.set('linkPrefix', ()=>{
+hexo.locals.set('linkPrefix', () => {
 	let linkPrefix = 'https://cdn.jsdelivr.net/npm/%package%@%version%/';
 	switch (hexo.config.theme_config.cdn_provider) {
 		case 'cdnjs':
@@ -46,7 +46,7 @@ hexo.locals.set('linkPrefix', ()=>{
 });
 
 hexo.extend.filter.register(
-	'before_exit',
+	'after_generate',
 	function () {
 		if (hexo.config.theme_config.cdn_provider !== false && hexo.config.theme.cdn_provider !== 'false') {
 			console.log('[MDx]	[INFO]	CDN Provider is enabled, deleting mdui & qrcodejs.');
@@ -60,4 +60,3 @@ hexo.extend.filter.register(
 	},
 	1
 );
-
