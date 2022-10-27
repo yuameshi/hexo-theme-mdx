@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs/promises');
 const path = require('path');
 console.log('[MDx]	[INFO]	Checking configurations...');
 
@@ -47,15 +47,15 @@ hexo.locals.set('linkPrefix', () => {
 
 hexo.extend.filter.register(
 	'after_generate',
-	function () {
+	async function () {
 		if (hexo.config.theme_config.cdn_provider !== false && hexo.config.theme.cdn_provider !== 'false') {
 			console.log('[MDx]	[INFO]	CDN Provider is enabled, deleting mdui & qrcodejs.');
-			fs.rmSync(path.join(hexo.config.public_dir, 'mdui'), { recursive: true, force: true });
-			fs.rmSync(path.join(hexo.config.public_dir, 'qrcodejs'), { recursive: true, force: true });
+			await fs.rm(path.join(hexo.config.public_dir, 'mdui'), { recursive: true, force: true });
+			await fs.rm(path.join(hexo.config.public_dir, 'qrcodejs'), { recursive: true, force: true });
 		}
 		if (hexo.config.theme_config.online_check.enable !== true) {
 			console.log('[MDx]	[INFO]	Online Check is disabled, deleting ping file.');
-			fs.rmSync(path.join(hexo.config.public_dir, 'ping'), { recursive: true, force: true });
+			await fs.rm(path.join(hexo.config.public_dir, 'ping'), { recursive: true, force: true });
 		}
 	},
 	1
