@@ -1,4 +1,10 @@
-﻿You are reading English documentation.
+﻿# WARNING: 🚧 Under construction 🚧
+
+This project is under development and might meet some bugs. Please use it with caution.
+
+If you find any bug, please open an issue.
+
+You are reading English documentation.
 
 [打开中文文档](./README.zh.md)
 

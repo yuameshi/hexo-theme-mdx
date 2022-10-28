@@ -1,3 +1,7 @@
+# 警告: 🚧 项目施工中 🚧
+
+还没做好，小心点用，出Bug及时反馈
+
 你正在阅读中文文档。
 
 [Take me to the English documentation.](./README.md)
