@@ -16,15 +16,15 @@
 			<% } %>
 		</div>
 		<div class="rightArea mdui-float-right">
-			<% if (theme.footer.simple_show==='copyrights') { %>
+			<% if (theme.footer.show==='copyrights') { %>
 				<div class="copyrights">
 					<%- _p('footer.copyrights',`${theme.footer.since || (new Date()).getFullYear()} - ${(new Date()).getFullYear()} ${config.author}`) %>
 				</div>
-			<% } else if (theme.footer.simple_show==='miit_icp') { %>
+			<% } else if (theme.footer.show==='miit_icp') { %>
 			<a href="https://beian.miit.gov.cn/" class="mdui-text-color-theme-secondary"><%= theme.footer.miit_icp %></a>
-			<% } else if (theme.footer.simple_show==='moe_icp') { %>
+			<% } else if (theme.footer.show==='moe_icp') { %>
 			<a href="https://icp.gov.moe/?keyword=<%= theme.footer.moe_icp %>" class="mdui-text-color-theme-secondary">萌ICP备<%= theme.footer.moe_icp %>号</a>
-			<% } else if (theme.footer.simple_show==='hexo') { %>
+			<% } else if (theme.footer.show==='hexo') { %>
 				<% if (theme.footer.hexo) { %>
 					<a href="https://hexo.io" class="mdui-text-color-theme-secondary" target="_blank"><%- __('footer.hexo') %></a>
 				<% } %>
