@@ -1,9 +1,9 @@
-<% if ((theme.footer.style || 'modern')=='modern') { %>
+<% if ((theme.footer?.style || 'modern')=='modern') { %>
 	<%- partial('footer/modern') %> 
 <% } %>
-<% if (theme.footer.style==='simple') { %>
+<% if (theme.footer?.style==='simple') { %>
 	<%- partial('footer/simple') %>
 <% } %>
-<% if (theme.footer.style==='traditional') { %>
+<% if (theme.footer?.style==='traditional') { %>
 	<%- partial('footer/traditional') %>
 <% } %>

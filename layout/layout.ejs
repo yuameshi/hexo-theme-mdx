@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<%= config.language %>">
 	<%- partial('_partial/head.ejs') %>
-	<body class="mdui-theme-primary-<%= theme.color.primary %> mdui-theme-accent-<%= theme.color.accent %> mdui-theme-layout-auto">
+	<body class="mdui-theme-primary-<%= theme.color?.primary %> mdui-theme-accent-<%= theme.color?.accent %> mdui-theme-layout-auto">
 		<%- partial('_partial/appBar.ejs') %>
 		<%- partial('_partial/drawer.ejs') %>
 		<%- partial('_partial/title.ejs') %>
@@ -11,10 +11,10 @@
 		</div>
 		<%- partial('_partial/footer.ejs') %>
 		<%# 搜索 %> 
-		<% if (theme.search.enable !== false) { %>
+		<% if (theme.search?.enable !== false) { %>
 			<div class="mdui-dialog" id="searchDialog">
 				<div class="mdui-textfield mdui-textfield-floating-label">
-					<label class="mdui-textfield-label" for="searchInputBox"><%-theme.search.placeholder||__('search.placeholder') %></label>
+					<label class="mdui-textfield-label" for="searchInputBox"><%-theme.search?.placeholder||__('search.placeholder') %></label>
 					<input class="mdui-textfield-input" type="text" id="searchInputBox" />
 				</div>
 				<div class="mdui-container" id="searchResultContainer"></div>

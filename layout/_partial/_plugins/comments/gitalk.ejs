@@ -12,13 +12,13 @@ let gitalkLink=linkPrefix.replace(/%package%/g, 'gitalk').replace(/%version%/g, 
 	document.querySelector('#gitalkScript').addEventListener('load',()=>{
 		console.log('Renderiing Gitalk...');
 		const gitalk = new Gitalk({
-			clientID: '<%= theme.comment.gitalk.clientID %>',
-			clientSecret: '<%= theme.comment.gitalk.clientSecret %>',
-			repo: '<%= theme.comment.gitalk.repo %>',
-			owner: '<%= theme.comment.gitalk.owner %>',
-			admin: ['<%= theme.comment.gitalk.admin %>'],
+			clientID: '<%= theme.comment?.gitalk?.clientID %>',
+			clientSecret: '<%= theme.comment?.gitalk?.clientSecret %>',
+			repo: '<%= theme.comment?.gitalk?.repo %>',
+			owner: '<%= theme.comment?.gitalk?.owner %>',
+			admin: ['<%= theme.comment?.gitalk?.admin %>'],
 			id: location.pathname,
-			distractionFreeMode: '<%= theme.comment.gitalk.admin %>',
+			distractionFreeMode: '<%= theme.comment?.gitalk?.admin %>',
 		});
 		gitalk.render('gitalk-container');
 	})
