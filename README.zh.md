@@ -238,6 +238,11 @@ advertisement:
     client_ca_pub:
 
 footer:
+  style: 'modern' # 三种选择：现代(modern)、简洁(simple)、传统(traditional)
+  # 在传统和简洁模式下不会显示全部，您仅能从以下几个选一个显示：版权(copyrights)、同时显示两个备案号(icp)、仅显示工信部备案(miit_icp)、仅显示萌备(moe_icp)、展示网站由Hexo驱动(powered_by)
+  # 注意：选择'powered_by'会遵循您对'hexo'和'theme'的设置
+  # 注意：仅在您选择简洁和传统主题时需要设置这一项
+  show: 'powered_by'
   since: # 站点开始运营时间
   copyrights: true # 会在页脚显示 '© %SITE_NAME%'
   hexo: true # 会在页脚显示 'Powered by Hexo'

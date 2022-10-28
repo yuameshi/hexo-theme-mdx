@@ -208,16 +208,23 @@ advertisement:
     client_ca_pub:
 
 footer:
+  # Three choices: modern, simple, traditional
+  style: 'modern' # 三种选择：现代(modern)、简洁(simple)、传统(traditional)
+  # 在传统和简洁模式下不会显示全部，您仅能从以下几个选一个显示：版权(copyrights)、同时显示两个备案号(icp)、仅显示工信部备案(miit_icp)、仅显示萌备(moe_icp)、展示网站由Hexo驱动(powered_by)
+  # 注意：选择'powered_by'会遵循您对'hexo'和'theme'的设置
+  # In traditional and simple mode, you can only choose one of the following to display: copyrights, icp, miit_icp, moe_icp, powered_by
+  # Note: the choice 'powered_by' will follow your settings of 'hexo' and 'theme'
+  show: 'powered_by'
   # When the site was launched
   since: # 站点开始运营时间
   # Show '© %SITE_NAME%' in footer
   copyrights: true # 会在页脚显示 '© %SITE_NAME%'
   # Show "Powered by Hexo" in the footer
-  hexo: true # 会在页脚显示 'Powered by Hexo'
+  hexo: true # 会在页脚显示 '由Hexo强力驱动'
   # Show "Themed MDx" in footer
   theme: true # 会在页脚显示 '由 MDx 主题装饰'（球球了开开吧）
   # Text to show on the footer
-  text: # 会在页脚显示 '自定义的文字'
+  text: aaasf # 会在页脚显示 '自定义的文字'
   # Social media links
   contact: # 会在页脚显示链接
     MDx: https://github.com/Yuameshi/hexo-theme-mdx

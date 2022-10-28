@@ -244,6 +244,12 @@ advertisement:
     client_ca_pub:
 
 footer:
+  # Three choices: modern, simple, traditional
+  style: 'modern'
+  # In traditional and simple mode, you can only choose one of the following to display: copyrights, icp, miit_icp, moe_icp, powered_by
+  # Note: the choice 'powered_by' will follow your settings of 'hexo' and 'theme'
+  # Note: You only need to fillin this box when you chose 'traditional' or 'simple'
+  show: 'powered_by'
   since: # When the site was launched
   copyrights: true # Show '© %SITE_NAME%' in footer
   hexo: true # Show "Powered by Hexo" in the footer
