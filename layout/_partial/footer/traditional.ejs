@@ -1,0 +1,46 @@
+<footer class="footer traditional mdui-p-y-3 mdui-text-center mdui-text-color-theme-secondary">
+	<div class="contact">
+		<% for(el in theme.footer.contact){%>
+			<a href="<%= url_for(theme.footer.contact[el]) %>" class="mdui-text-color-theme-secondary">
+				<%=el%>
+			</a>
+		<%}%>
+	</div>
+	<br />
+	<div class="middleLayer mdui-m-y-2">
+		<% if (theme.footer.simple_show==='copyrights') { %>
+			<%- _p('footer.copyrights',`${theme.footer.since || (new Date()).getFullYear()} - ${(new Date()).getFullYear()} ${config.author}`) %>
+		
+		<% } else if (theme.footer.simple_show==='miit_icp') { %>
+			<a href="https://beian.miit.gov.cn/" class="mdui-text-color-theme-secondary"><%= theme.footer.miit_icp %></a>
+		
+		<% } else if (theme.footer.simple_show==='moe_icp') { %>
+			<a href="https://icp.gov.moe/?keyword=<%= theme.footer.moe_icp %>" class="mdui-text-color-theme-secondary">萌ICP备<%= theme.footer.moe_icp %>号</a>
+		
+		<% } else if ((theme.footer.simple_show || 'icp')==='icp') { %>
+			<% if (theme.footer.miit_icp) { %>
+				<a href="https://beian.miit.gov.cn/" class="mdui-text-color-theme-secondary"><%= theme.footer.miit_icp %></a>
+			<% } %>
+			<% if (theme.footer.miit_icp && theme.footer.moe_icp) { %>
+				&nbsp;/&nbsp;
+			<% } %>
+			<% if (theme.footer.moe_icp) { %>
+				<a href="https://icp.gov.moe/?keyword=<%= theme.footer.moe_icp %>" class="mdui-text-color-theme-secondary">萌ICP备<%= theme.footer.moe_icp %>号</a>
+			<% } %>
+		<% } else if (theme.footer.simple_show === 'powered_by') { %>
+			<% if (theme.footer.hexo) { %>
+				<a href="https://hexo.io" class="mdui-text-color-theme-secondary" target="_blank"><%- __('footer.hexo') %></a>
+			<% } %>
+
+			<% if (theme.footer.hexo && theme.footer.theme) { %>
+				&nbsp;&&nbsp;
+			<% } %>
+			<% if (theme.footer.theme) { %>
+				<a href="https://github.com/Yuameshi/hexo-theme-mdx" class="mdui-text-color-theme-secondary" target="_blank"><%- __('footer.theme') %></a>
+			<% } %>
+		<% } %>
+	</div>
+	<div class="customText">
+		<%- theme.footer.text %> 
+	</div>
+</footer>
