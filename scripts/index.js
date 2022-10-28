@@ -46,7 +46,7 @@ hexo.locals.set('linkPrefix', () => {
 });
 
 hexo.extend.filter.register(
-	'after_generate',
+	'before_exit',
 	async function () {
 		if (hexo.config.theme_config.cdn_provider !== false && hexo.config.theme.cdn_provider !== 'false') {
 			console.log('[MDx]	[INFO]	CDN Provider is enabled, deleting mdui & qrcodejs.');
