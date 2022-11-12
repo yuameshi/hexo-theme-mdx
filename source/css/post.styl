@@ -250,6 +250,18 @@ div.postPage{
 				}
 			}
 		}
+		&.removing{
+			display flex
+			animation imgBoxFadeOut .15s linear
+			@keyframes imgBoxFadeOut {
+				0%{
+					opacity 1
+				}
+				100%{
+					opacity 0
+				}
+			}
+		}
 		img#imgBoxImage{
 			max-height 90vh
 			max-width 90vw
