@@ -2,7 +2,7 @@
 
 This project is under development and might meet some bugs. Please use it with caution.
 
-If you find any bug, please open an issue.
+If you find any bugs, please open an [issue](https://github.com/Yuameshi/hexo-theme-mdx/issues).
 
 You are reading English documentation.
 
@@ -23,15 +23,14 @@ A hexo theme with material design.
 [Neko3327's Blog](https://neko3327.restent.win)
 
 # Browser compatibility
-| Browser              | Compatibility    |
-|----------------------|------------------|
-| Chrome               | ✔ Last 5 version |
-| Firefox              | ✔ Last 5 version |
-| Edge Chromium        | ✔ Last 5 version |
-| Edge EdgeHTML        | ? Unknown        |
-| Safari               | ✔ Last 5 version |
-| Internet Explorer 11 | Partial support  |
-| Internet Explorer 10 | Basic support    |
+| Browser								| Compatibility			|
+|-											|-									|
+| Chrome								|	✔ Last 5 versions	|
+| Firefox								|	✔ Last 5 versions	|
+| Edge Chromium					|	✔ Last 5 versions	|
+| Edge EdgeHTML					|	❔ Unknown					|
+| Safari								|	✔ Last 5 versions	|
+| Internet Explorer 11	|	❌ Basic Supported	|
 
 ### Note: All MDx releases(including alpha/beta versions) after June 15, 2022 will no longer support Internet Explorer due to the upcoming end of support for Internet Explorer on June 15, 2022.
 
