@@ -30,25 +30,22 @@ function initPost() {
 		dom.querySelector('img').style.padding = '20px';
 	});
 	var imgs = document.querySelectorAll('div.postPage img');
+	var imgBox = document.querySelector('#imgBox');
 	for (var i = 0; i < imgs.length; i++) {
 		imgs[i].style.cursor = 'zoom-in';
 		imgs[i].addEventListener('click', function (e) {
-			const imgBox = document.querySelector('#imgBox');
 			imgBox.classList.add('show');
-			function removeImgBox() {
-				imgBox.classList.add('removing');
-				setTimeout(() => {
-					imgBox.classList.remove('show');
-					imgBox.classList.remove('removing');
-				}, 150);
-			}
 			imgBox.querySelector('#imgBoxImage').setAttribute('src', e.target.getAttribute('src'));
 			imgBox.querySelector('#imgBoxImage').setAttribute('alt', e.target.getAttribute('alt') || '');
 			imgBox.querySelector('#imgBoxDescription').innerText = e.target.getAttribute('alt') || '';
 		});
 	}
-	document.querySelector('#imgBox').addEventListener('click', function () {
-		document.querySelector('#imgBox').classList.remove('show');
+	imgBox.addEventListener('click', function () {
+		imgBox.classList.add('removing');
+		setTimeout(() => {
+			imgBox.classList.remove('show');
+			imgBox.classList.remove('removing');
+		}, 150);
 	});
 	if (new URL(location.href).searchParams.get('pos') !== null) {
 		window.scroll({
