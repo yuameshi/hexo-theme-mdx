@@ -32,9 +32,9 @@ function initPost() {
 	var imgs = document.querySelectorAll('div.postPage img');
 	var imgBox = document.querySelector('#imgBox');
 	function addImgDesc(newElement, targetElement) {
-		var parent = targetElement.parentNode;
+		var parent = targetElement.parentElement;
 		if (parent.lastChild == targetElement) {
-			parent.appendchild(newElement);
+			parent.appendChild(newElement);
 		} else {
 			parent.insertBefore(newElement, targetElement.nextSibling);
 		}
