@@ -31,6 +31,14 @@ function initPost() {
 	});
 	var imgs = document.querySelectorAll('div.postPage img');
 	var imgBox = document.querySelector('#imgBox');
+	function addImgDesc(newElement, targetElement) {
+		var parent = targetElement.parentNode;
+		if (parent.lastChild == targetElement) {
+			parent.appendchild(newElement);
+		} else {
+			parent.insertBefore(newElement, targetElement.nextSibling);
+		}
+	}
 	for (var i = 0; i < imgs.length; i++) {
 		imgs[i].style.cursor = 'zoom-in';
 		imgs[i].addEventListener('click', function (e) {
@@ -39,6 +47,13 @@ function initPost() {
 			imgBox.querySelector('#imgBoxImage').setAttribute('alt', e.target.getAttribute('alt') || '');
 			imgBox.querySelector('#imgBoxDescription').innerText = e.target.getAttribute('alt') || '';
 		});
+		var imgDesc = document.createElement('div');
+		imgDesc.innerText = imgs[i].getAttribute('alt') || '';
+		if (imgDesc.innerText === '') {
+			imgDesc.innerText = imgs[i].getAttribute('title') || '';
+		}
+		imgDesc.classList.add('imgDesc');
+		addImgDesc(imgDesc, imgs[i]);
 	}
 	imgBox.addEventListener('click', function () {
 		imgBox.classList.add('removing');
@@ -231,4 +246,3 @@ document.addEventListener('scroll', function () {
 		document.querySelector('svg#mdxReadProgress').classList.add('hide');
 	}
 });
-
