@@ -25,8 +25,7 @@ const primaryColorMappings = {
 	brown: '#795548',
 	grey: '#9e9e9e',
 	'blue-grey': '#607d8b',
-
-}
+};
 const accentColorMappings = {
 	red: '#ff5252',
 	pink: '#ff4081',
@@ -94,8 +93,8 @@ hexo.extend.filter.register(
 			await fs.rm(path.join(hexo.config.public_dir, 'mdui'), { recursive: true, force: true });
 			await fs.rm(path.join(hexo.config.public_dir, 'qrcodejs'), { recursive: true, force: true });
 		}
-		if (hexo.config.theme_config.online_check.enable !== true) {
-			console.log('[MDx]	[INFO]	Online Check is disabled, deleting ping file.');
+		if (hexo.config.theme_config.online_check?.enable !== true || (hexo.config.theme_config.online_check?.enable === true && (hexo.config.theme_config.online_check?.inaccurate_detection || true) === true)) {
+			console.log('[MDx]	[INFO]	Online Check is disabled or set to inaccurate mode, deleting ping file.');
 			await fs.rm(path.join(hexo.config.public_dir, 'ping'), { recursive: true, force: true });
 		}
 	},
