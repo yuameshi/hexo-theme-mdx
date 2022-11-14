@@ -2,10 +2,51 @@ const fs = require('fs/promises');
 const path = require('path');
 console.log('[MDx]	[INFO]	Checking configurations...');
 
-if (hexo.config.theme_config.search.path && hexo.config.search.path !== hexo.config.theme_config.search.path) {
+if (hexo.config.theme_config.search?.path && hexo.config?.search.path !== hexo.config.theme_config.search?.path) {
 	console.log('[MDx]	[ERROR]	Search Database is not configured properly. Please chech your settings.');
 }
+const primaryColorMappings = {
+	red: '#f44336',
+	pink: '#e91e63',
+	purple: '#9c27b0',
+	'deep-purple': '#673ab7',
+	indigo: '#3f51b5',
+	blue: '#2196f3',
+	'light-blue': '#03a9f4',
+	cyan: '#00bcd4',
+	teal: '#009688',
+	green: '#4caf50',
+	'light-green': '#8bc34a',
+	lime: '#cddc39',
+	yellow: '#ffeb3b',
+	amber: '#ffc107',
+	orange: '#ff9800',
+	'deep-orange': '#ff5722',
+	brown: '#795548',
+	grey: '#9e9e9e',
+	'blue-grey': '#607d8b',
 
+}
+const accentColorMappings = {
+	red: '#ff5252',
+	pink: '#ff4081',
+	purple: '#e040fb',
+	'deep-purple': '#7c4dff',
+	indigo: '#536dfe',
+	blue: '#448aff',
+	'light-blue': '#40c4ff',
+	cyan: '#18ffff',
+	teal: '#64ffda',
+	green: '#69f0ae',
+	'light-green': '#b2ff59',
+	lime: '#eeff41',
+	yellow: '#ffff00',
+	amber: '#ffd740',
+	orange: '#ffab40',
+	'deep-orange': '#ff6e40',
+};
+hexo.locals.set('themePrimaryColor', primaryColorMappings[hexo.config.theme_config.color?.primary || 'indigo']);
+hexo.locals.set('themeAccentColor', accentColorMappings[hexo.config.theme_config.color?.primary || 'pink']);
 hexo.locals.set('linkPrefix', () => {
 	let linkPrefix = 'https://cdn.jsdelivr.net/npm/%package%@%version%/';
 	switch (hexo.config.theme_config.cdn_provider) {

@@ -1,6 +1,23 @@
 <head>
 	<meta charset="UTF-8">
 	<%
+		// Page title
+		let title = page.title || config.title
+		if(is_category()) {
+			title = __('categories') + ' - ' + page.category + ' - '+ config.title;
+		} else if(is_tag()) {
+			title = __('tags') + ' - ' + page.tag + ' - '+ config.title;
+		} else if(is_archive()) {
+			title = __('archives');
+			if (is_month()) {
+				title += ' - ' + page.year+__('archive.year') + page.month+  __('archive.month');
+			} else if (is_year()) {
+				title += ' - ' + page.year+  __('archive.year');
+			}
+			title += ' - ' + config.title;
+		}
+		title=title.replace(/\n/g,'');
+		// Page description
 		let description = config.description;
 		if(strip_html(page.excerpt)!==''){
 			description = strip_html(page.excerpt);
@@ -21,116 +38,121 @@
 			description = description.replace(/\n/g,'');
 		}
 	%>
-	<meta name="description" content="<%= description.replace(/\n/g,'') %>">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<% if (theme.favicon) { %>
-		<link rel="preload" href="<%- theme.favicon %> " as="image" crossorigin="anonymous">
-		<link rel="prefetch" href="<%- theme.favicon %> " as="image" crossorigin="anonymous">
-	<% } %>
-	<link rel="shortcut icon" href="<%= theme.favicon %>" type="image/x-icon">
-	<link rel="apple-touch-icon" href="<%= theme.favicon %>">
-	<%	let title = page.title || config.title
-		if(is_category()) {
-			title = __('categories') + ' - ' + page.category + ' - '+ config.title;
-		} else if(is_tag()) {
-			title = __('tags') + ' - ' + page.tag + ' - '+ config.title;
-		} else if(is_archive()) {
-			title = __('archives');
-			if (is_month()) {
-				title += ' - ' + page.year+__('archive.year') + page.month+  __('archive.month');
-			} else if (is_year()) {
-				title += ' - ' + page.year+  __('archive.year');
-			}
-			title += ' - ' + config.title;
-		}
-		title=title.replace(/\n/g,'');
-	%>
+	<% // SEO %>
 	<title><%= title %></title>
-	<%- js({ src: 'js/material.js', async: true }) %>
-	<%- css(['css/main.css']) %>
+	<meta name="description" content="<%= description.replace(/\n/g,'') %>">
+	<link rel="shortcut icon" href="<%- theme.favicon %>" type="image/x-icon">
+	<meta name="theme-color" content="<%- site.themePrimaryColor %>" />
+	<meta name="msapplication-TileImage" content="<%- theme.favicon %>" />
+	<meta name="msapplication-TileColor" content="<%- site.themePrimaryColor %>" />
+	<link rel="apple-touch-icon" href="<%- theme.favicon %>" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+	<meta name="apple-mobile-web-app-title" content="<%= config.title %>" />
+	<%- open_graph({
+		type: 'blog',
+		// updated: null
+	}) %>>
+	<meta name="twitter:title" content="<%= title %>" />
+	<meta name="twitter:description" content="<%= description.replace(/\n/g,'') %>" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<% if (theme.cdn_provider != 'false' && theme.cdn_provider!=false) { %>
+		<link rel="dns-prefetch" href="<%- (new URL(site.linkPrefix)).origin %>" />
+		<link rel="preconnect" href="<%- (new URL(site.linkPrefix)).origin %>" crossorigin="anonymous">
+	<% } %>
+	<% if (theme.favicon) { %>
+		<link rel="preload" href="<%- theme.favicon %>" as="image" crossorigin="anonymous">
+		<link rel="prefetch" href="<%- theme.favicon %>" as="image" crossorigin="anonymous">
+	<% } %>
+	<%- js({ src: 'js/material.js', async: true }) // Load JS %>
+	<%- css(['css/main.css']) //Load CSS %>
 	<link rel="prefetch" href="/css/post.css" as="fetch" crossorigin="anonymous">
 	<link rel="prefetch" href="/css/friends.css" as="fetch" crossorigin="anonymous">
 	<%
-	let linkPrefix = site.linkPrefix;
-	if (theme.cdn_provider==='jsdelivr' || theme.cdn_provider==='unpkg'  || theme.cdn_provider==='true' || theme.cdn_provider===true){
-		linkPrefix += 'dist/'
-	}
-	const mdui = linkPrefix.replace(/%version%/g, (theme.mdui_version || '1.0.2')).replace(/%package%/g, 'mdui');
-	const qrcodejs = site.linkPrefix.replace(/%version%/g, '1.0.0').replace(/%package%/g, 'qrcodejs') + 'qrcode.min.js';
+		// Preload MDUI assets
+		let linkPrefix = site.linkPrefix;
+		if (theme.cdn_provider==='jsdelivr' || theme.cdn_provider==='unpkg'  || theme.cdn_provider==='true' || theme.cdn_provider===true){
+			linkPrefix += 'dist/'
+		}
+		const mdui = linkPrefix.replace(/%version%/g, (theme.mdui_version || '1.0.2')).replace(/%package%/g, 'mdui');
+		const qrcodejs = site.linkPrefix.replace(/%version%/g, '1.0.0').replace(/%package%/g, 'qrcodejs') + 'qrcode.min.js';
 	%>
-	<% if (theme.cdn_provider != 'false' && theme.cdn_provider!=false) { %>
-		<link rel="preconnect" href="<%- (new URL(site.linkPrefix)).origin %>" crossorigin="anonymous">
-	<% } %>
 	<link rel="preload" href="<%- mdui + 'fonts/roboto/Roboto-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
 	<link rel="preload" href="<%- mdui + 'fonts/roboto/Roboto-Medium.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
 	<link rel="preload" href="<%- mdui + 'fonts/roboto/Roboto-Bold.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
 	<link rel="preload" href="<%- mdui + 'icons/material-icons/MaterialIcons-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<% //Load MDUI CSS & JS %>
+	<link rel="stylesheet" href="<%- mdui + 'css/mdui.min.css?v=' + (theme.mdui_version || '1.0.2') %>" crossorigin="anonymous">
+	<script src="<%- mdui + 'js/mdui.min.js?v=' + (theme.mdui_version || '1.0.2') %>" async crossorigin="anonymous"></script>
+	<% //Prefetch other MDUI font assets %>
+	<link rel="prefetch" href="<%- mdui + 'fonts/roboto/Roboto-Black.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<link rel="prefetch" href="<%- mdui + 'fonts/roboto/Roboto-BlackItalic.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<link rel="prefetch" href="<%- mdui + 'fonts/roboto/Roboto-BoldItalic.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<link rel="prefetch" href="<%- mdui + 'fonts/roboto/Roboto-Light.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<link rel="prefetch" href="<%- mdui + 'fonts/roboto/Roboto-LightItalic.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<link rel="prefetch" href="<%- mdui + 'fonts/roboto/Roboto-MediumItalic.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<link rel="prefetch" href="<%- mdui + 'fonts/roboto/Roboto-RegularItalic.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<link rel="prefetch" href="<%- mdui + 'fonts/roboto/Roboto-Thin.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+	<link rel="prefetch" href="<%- mdui + 'fonts/roboto/Roboto-ThinItalic.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
+
+	<link rel="prefetch" href="<%- qrcodejs %>" as="script" crossorigin="anonymous">
+	<%- partial('_partial/_plugins/analytics/analytics') // Load Analytics Scripts %>
 	<% if (is_post() || is_page()) { %>
 		<script src="<%- qrcodejs %>" async></script>
 		<%- css(['css/post.css']) %>
 		<%- js({ src: 'js/post.js', async: true }) %>
 	<% } %>
-	<link rel="stylesheet" href="<%- mdui + 'css/mdui.min.css?v=' + (theme.mdui_version || '1.0.2') %>" crossorigin="anonymous">
-	<script src="<%- mdui + 'js/mdui.min.js?v=' + (theme.mdui_version || '1.0.2') %>" async crossorigin="anonymous"></script>
-	<link rel="prefetch" href="<%- mdui + 'fonts/roboto/Roboto-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
-	<link rel="prefetch" href="<%- mdui + 'fonts/roboto/Roboto-Medium.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
-	<link rel="prefetch" href="<%- mdui + 'fonts/roboto/Roboto-Bold.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
-	<link rel="prefetch" href="<%- mdui + 'icons/material-icons/MaterialIcons-Regular.woff2?v=' + (theme.mdui_version || '1.0.2') %>" as="font" crossorigin="anonymous">
-	<link rel="prefetch" href="<%- qrcodejs %>" as="script" crossorigin="anonymous">
-	<%- partial('_partial/_plugins/analytics/analytics') %>
 	<% if (theme.header_picture_link) { %>
-		<link rel="preload" href="<%- theme.header_picture_link %> " as="image" crossorigin="anonymous">
-		<link rel="prefetch" href="<%- theme.header_picture_link %> " as="image" crossorigin="anonymous">
+		<link rel="preload" href="<%- theme.header_picture_link %>" as="image" crossorigin="anonymous">
 	<% } %>
 	<% if (theme.drawer_about) { %>
 		<% if (theme.drawer_about.avatar) { %>
-			<link rel="prefetch" href="<%- theme.drawer_about?.avatar %> " as="image" crossorigin="anonymous">
+			<link rel="prefetch" href="<%- theme.drawer_about?.avatar %>" as="image" crossorigin="anonymous">
 		<% } %>
 		<% if (theme.drawer_about.background) { %>
-			<link rel="prefetch" href="<%- theme.drawer_about?.background %> " as="image" crossorigin="anonymous">
+			<link rel="prefetch" href="<%- theme.drawer_about?.background %>" as="image" crossorigin="anonymous">
 		<% } %>
 	<% } %>
 	<%
-		function trimStr(str) {
+		function escapeStr(str) {
 			return str.replace(/\n/g,'').replace(/'/g,"\\'").replace(/"/g,'\\"');
 		}
 		let injectScript = '';
 		injectScript += `window.shareMetadata = {`;
-		injectScript+=`title: '${trimStr(title)}',`
-		injectScript+=`description: '${trimStr(description)}',`
+		injectScript+=`title: '${escapeStr(title)}',`
+		injectScript+=`description: '${escapeStr(description)}',`
 		injectScript+=`url: '${page.url}',`
-		injectScript+=`blogName : '${trimStr(config.title)}',`
+		injectScript+=`blogName : '${escapeStr(config.title)}',`
 		injectScript+=`postDate: '${date(page.date)}',`
 		injectScript+=`scan: '${__('share.scan_qr_to_read')}',`
 		injectScript+=`};`;
 		if (theme.gdpr_cookie_alert.enable) {
 			injectScript+='window.gpdrCookieAlert = {';
-			injectScript+=`msg: \'${trimStr(theme.gdpr_cookie_alert?.text||__('gpdr_cookie_alert.msg'))}',`;
-			injectScript+=`btnTxt: "${trimStr(theme.gdpr_cookie_alert?.ack_btn||__('gpdr_cookie_alert.ack_btn'))}",`;
+			injectScript+=`msg: \'${escapeStr(theme.gdpr_cookie_alert?.text||__('gpdr_cookie_alert.msg'))}',`;
+			injectScript+=`btnTxt: "${escapeStr(theme.gdpr_cookie_alert?.ack_btn||__('gpdr_cookie_alert.ack_btn'))}",`;
 			injectScript+='};';
 		}
 		if (theme.online_check.enable) {
 			injectScript+=`var offlineAlertSnackbar;`;
 			injectScript+=`window.onlineCheck = {`;
-				injectScript+=`offMsg: "${trimStr(theme.online_check?.offlineText||__('online_check.offline_text'))}",`;
-				injectScript+=`onMsg: "${trimStr(theme.online_check?.onlineText||__('online_check.online_text'))}",`;
-				injectScript+=`btnTxt: "${trimStr(theme.online_check?.ack_btn||__('online_check.ack_btn'))}",`;
+				injectScript+=`offMsg: "${escapeStr(theme.online_check?.offlineText||__('online_check.offline_text'))}",`;
+				injectScript+=`onMsg: "${escapeStr(theme.online_check?.onlineText||__('online_check.online_text'))}",`;
+				injectScript+=`btnTxt: "${escapeStr(theme.online_check?.ack_btn||__('online_check.ack_btn'))}",`;
 			injectScript+=`};`;
 		}
 		if (theme.search.enable !== false) {
 			injectScript+=`window.search = {`;
-				injectScript+=`path: "${trimStr(theme.search.path || '/search.json')}",`;
-				injectScript+=`noResult: "${trimStr(theme.search.no_result||__('search.no_result'))}",`;
-				injectScript+=`error: "${trimStr(theme.search.error||__('search.db_undefined'))}",`;
+				injectScript+=`path: "${escapeStr(theme.search.path || '/search.json')}",`;
+				injectScript+=`noResult: "${escapeStr(theme.search.no_result||__('search.no_result'))}",`;
+				injectScript+=`error: "${escapeStr(theme.search.error||__('search.db_undefined'))}",`;
 			injectScript+=`};`;
 		}
 		injectScript = '<script async>'+injectScript+'</script>';
 	%>
 	<% if (theme.advertisement?.google?.client_ca_pub) { %>
-		<script data-ad-client="<%- theme.advertisement?.google?.client_ca_pub %>" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>	
+		<script data-ad-client="<%- theme.advertisement?.google?.client_ca_pub %>" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
 	<% } %>
 	<%- injectScript %>
-    <link rel="preload" href="<%- trimStr(theme.search?.path || '/search.json') %>" as="fetch" crossorigin="anonymous">
-    <link rel="prefetch" href="<%- trimStr(theme.search?.path || '/search.json') %>" as="fetch" crossorigin="anonymous">
+	<link rel="preload" href="<%- escapeStr(theme.search?.path || '/search.json') %>" as="fetch" crossorigin="anonymous">
+	<link rel="prefetch" href="<%- escapeStr(theme.search?.path || '/search.json') %>" as="fetch" crossorigin="anonymous">
 </head>
