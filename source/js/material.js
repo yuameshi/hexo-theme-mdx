@@ -57,7 +57,7 @@ function pageInit() {
 		document.body.classList.toggle('mdui-theme-layout-dark');
 		localStorage.setItem('darkMode', document.body.classList.contains('mdui-theme-layout-dark').toString());
 	});
-	if(window.search){
+	if (window.search) {
 		var searchDatabase = new XMLHttpRequest();
 		searchDatabase.open('GET', search.path || '/search.json', true);
 		searchDatabase.onload = function () {
@@ -117,43 +117,52 @@ function pageInit() {
 						timeout: 0,
 						position: 'right-bottom',
 						closeOnOutsideClick: false,
-						onButtonClick: function(){
-							localStorage.setItem('checkedGPDRCookieAlert','true');
-						}
-					})
+						onButtonClick: function () {
+							localStorage.setItem('checkedGPDRCookieAlert', 'true');
+						},
+					});
 				}
 			});
 		}
 	}
 	if (window.onlineCheck) {
-		var onlineChecker = new XMLHttpRequest();
-		onlineChecker.open('GET', '/ping', true);
-		setInterval(function () {
-			onlineChecker.abort();
+		function displayOfflineAlert() {
+			if (mdui && !offlineAlertSnackbar) {
+				offlineAlertSnackbar = mdui.snackbar({
+					message: onlineCheck.offMsg,
+					buttonText: onlineCheck.btnTxt,
+					position: 'bottom',
+					closeOnOutsideClick: false,
+					timeout: 0,
+				});
+			}
+		}
+		function displayConnectedMessage() {
+			if (offlineAlertSnackbar != undefined) {
+				offlineAlertSnackbar.close();
+				mdui.snackbar({
+					message: onlineCheck.onMsg,
+					buttonText: onlineCheck.btnTxt,
+					position: 'bottom',
+				});
+				offlineAlertSnackbar = undefined;
+			}
+		}
+		if ((window.onlineCheck.inaccurateDetection || true) === true) {
+			if (navigator.onLine !== true) displayOfflineAlert();
+			window.addEventListener('offline', displayOfflineAlert);
+			window.addEventListener('online', displayConnectedMessage);
+		} else {
+			var onlineChecker = new XMLHttpRequest();
 			onlineChecker.open('GET', '/ping', true);
-			onlineChecker.send();
-			onlineChecker.addEventListener('error', function () {
-				if (mdui&&!offlineAlertSnackbar) {
-					offlineAlertSnackbar = mdui.snackbar({
-						message: onlineCheck.offMsg,
-						buttonText: onlineCheck.btnTxt,
-						position: 'bottom',
-						closeOnOutsideClick: false,
-						timeout: 0
-					});
-				}
-			});
-			onlineChecker.addEventListener('load', function () {
-				if (offlineAlertSnackbar!=undefined) {
-					offlineAlertSnackbar.close();
-					mdui.snackbar({
-						message: onlineCheck.onMsg,
-						buttonText: onlineCheck.btnTxt,
-						position: 'bottom'
-					});
-					offlineAlertSnackbar = undefined;
-				}
-			});
-		}, 5000);
+			setInterval(function () {
+				onlineChecker.abort();
+				onlineChecker.open('GET', '/ping', true);
+				onlineChecker.send();
+				onlineChecker.addEventListener('error', displayOfflineAlert);
+				onlineChecker.addEventListener('load', displayConnectedMessage);
+			}, 5000);
+		}
 	}
 }
+

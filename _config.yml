@@ -42,6 +42,9 @@ gdpr_cookie_alert:
 # 启用后MDx会每隔5秒检测一次网络连接，并在丢失网络连接时显示一条提示。
 online_check:
   enable: true
+  # 使用 navigotor.onLine 检测连接状态而不是发送请求( 默认: true )
+  # Use navigator.onLine to check connection instead of sending requests (default: true)
+  inaccurate_detection: true
   # 如需享受MDx的i18n功能，请将下面两个选项留空
   # If you want to use MDx's i18n feature, please leave them blank
   # Offline alert text(optional)

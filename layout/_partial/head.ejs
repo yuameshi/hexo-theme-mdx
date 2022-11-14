@@ -135,6 +135,7 @@
 		if (theme.online_check.enable) {
 			injectScript+=`var offlineAlertSnackbar;`;
 			injectScript+=`window.onlineCheck = {`;
+				injectScript+=`inaccurateDetection: ${theme.online_check?.inaccurate_detection !== false},`;
 				injectScript+=`offMsg: "${escapeStr(theme.online_check?.offlineText||__('online_check.offline_text'))}",`;
 				injectScript+=`onMsg: "${escapeStr(theme.online_check?.onlineText||__('online_check.online_text'))}",`;
 				injectScript+=`btnTxt: "${escapeStr(theme.online_check?.ack_btn||__('online_check.ack_btn'))}",`;

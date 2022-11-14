@@ -109,8 +109,9 @@ gdpr_cookie_alert:
 # MDx will check network connection each 5 secs, and show an alert when network is disconnected.
 online_check:
   enable: false # default: false
-  # Offline alert text(optional)
+  inaccurate_detection: true # Use navigator.onLine to check connection instead of sending requests (default: true)
   # If you want to use MDx's i18n feature, please leave them blank
+  # Offline alert text(optional)
   offlineText: It seems you are offline, some features are unavailable, please check your network connection.
   # Online alert text(optional)
   onlineText: You are online, enjoy!
