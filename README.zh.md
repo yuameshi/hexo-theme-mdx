@@ -39,7 +39,7 @@ $ npm install hexo-theme-mdx --save
 # 或者使用git clone或git submodule (不推荐)
 # 您可以去掉'-b'来获取最新的开发版本(不稳定)
 # 如需获取仓库的完整提交历史，请去掉'--depth 1'
-$ git clone https://github.com/Yuameshi/hexo-theme-mdx.git themes/mdx -b <版本号> --depth 1
+$ git clone https://github.com/Yuameshi/hexo-theme-mdx.git themes/mdx -b <版本号(仅限稳定版)> --depth 1
 # 若您执行了上一条命令，则此条命令无需执行
 $ git submodule add https://github.com/Yuameshi/hexo-theme-mdx.git themes/mdx
 ```

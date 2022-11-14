@@ -42,7 +42,7 @@ $ npm install hexo-theme-mdx --save
 # or use git clone or git submodule (not recommended)
 # You can remove '-b' to get the latest development version(Unstable)
 # To get the full commit history of the repository, remove '--depth 1'
-$ git clone https://github.com/Yuameshi/hexo-theme-mdx.git themes/mdx -b <版本号> --depth 1
+$ git clone https://github.com/Yuameshi/hexo-theme-mdx.git themes/mdx -b <Version(Stable Only)> --depth 1
 # If you executed the previous command, then this command does not need to be executed
 $ git submodule add https://github.com/Yuameshi/hexo-theme-mdx.git themes/mdx
 ```
