@@ -90,7 +90,7 @@ color:
   primary: indigo
   accent: pink
 
-# GPDR Cookie提示(支持HTML标签)
+# GDPR Cookie提示(支持HTML标签)
 # 效果是页面右下角显示一个Snackbar
 gdpr_cookie_alert:
   enable: true # 是否启用(默认关闭)

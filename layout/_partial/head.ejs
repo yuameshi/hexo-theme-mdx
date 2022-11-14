@@ -127,9 +127,9 @@
 		injectScript+=`scan: '${__('share.scan_qr_to_read')}',`
 		injectScript+=`};`;
 		if (theme.gdpr_cookie_alert.enable) {
-			injectScript+='window.gpdrCookieAlert = {';
-			injectScript+=`msg: \'${escapeStr(theme.gdpr_cookie_alert?.text||__('gpdr_cookie_alert.msg'))}',`;
-			injectScript+=`btnTxt: "${escapeStr(theme.gdpr_cookie_alert?.ack_btn||__('gpdr_cookie_alert.ack_btn'))}",`;
+			injectScript+='window.gdprCookieAlert = {';
+			injectScript+=`msg: \'${escapeStr(theme.gdpr_cookie_alert?.text||__('gdpr_cookie_alert.msg'))}',`;
+			injectScript+=`btnTxt: "${escapeStr(theme.gdpr_cookie_alert?.ack_btn||__('gdpr_cookie_alert.ack_btn'))}",`;
 			injectScript+='};';
 		}
 		if (theme.online_check.enable) {

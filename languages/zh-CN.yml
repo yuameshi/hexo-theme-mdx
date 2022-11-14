@@ -13,7 +13,7 @@ search:
   no_result: 没有找到与“$txt$”相关的结果
   db_undefined: MDx的搜索数据库似乎未正确加载，请尝试刷新页面
 
-gpdr_cookie_alert:
+gdpr_cookie_alert:
   msg: 此网站使用Cookie来改善您的体验。
   ack_btn: 了解
 

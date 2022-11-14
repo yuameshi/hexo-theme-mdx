@@ -13,7 +13,7 @@ search:
   no_result: 沒有找到與“$txt$”相關的結果
   db_undefined: MDx的搜尋資料庫似乎未正確載入，請嘗試重新整理頁面
 
-gpdr_cookie_alert:
+gdpr_cookie_alert:
   msg: 此網站使用Cookie來改善您的體驗。
   ack_btn: 瞭解
 

@@ -109,18 +109,18 @@ function pageInit() {
 			}
 		});
 	}
-	if (window.gpdrCookieAlert) {
-		if (localStorage.getItem('checkedGPDRCookieAlert') !== 'true') {
+	if (window.gdprCookieAlert) {
+		if (localStorage.getItem('checkedGDPRCookieAlert') !== 'true') {
 			window.addEventListener('load', function () {
 				if (mdui) {
 					mdui.snackbar({
-						message: gpdrCookieAlert.msg,
-						buttonText: gpdrCookieAlert.btnTxt,
+						message: gdprCookieAlert.msg,
+						buttonText: gdprCookieAlert.btnTxt,
 						timeout: 0,
 						position: 'right-bottom',
 						closeOnOutsideClick: false,
 						onButtonClick: function () {
-							localStorage.setItem('checkedGPDRCookieAlert', 'true');
+							localStorage.setItem('checkedGDPRCookieAlert', 'true');
 						},
 					});
 				}

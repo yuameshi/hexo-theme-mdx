@@ -93,7 +93,7 @@ color:
   primary: indigo
   accent: pink
 
-# GPDR Cookie alert(HTML Tag supported)
+# GDPR Cookie alert(HTML Tag supported)
 # This will show a snackbar at the right bottom of the page
 gdpr_cookie_alert:
   enable: false # default: false

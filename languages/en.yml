@@ -13,7 +13,7 @@ search:
   no_result: No results found for "$txt$"
   db_undefined: It seemed that MDx's search database is not loading properly, try refreshing the page
 
-gpdr_gookie_alert:
+gdpr_gookie_alert:
   msg: This website uses cookies to improve your experience.
   ack_btn: Got it
 
