@@ -1,0 +1,61 @@
+home: ホームページ
+about: に関し
+tags: タグ
+categories: カテゴリー
+archives: 分類して
+nightmode_switch: 昼間/夜間モード切り替え
+more: もっと
+close: 閉じ
+save: セーブ
+
+search:
+    placeholder: 探す......
+    no_result: “$txt$”についてがない
+    db_undefined: MDxの検索データベースが正しく読み込まれていないようですので、ページの更新をお試しください。
+
+gdpr_cookie_alert:
+    msg: このサイトはCookieを利用してあなたの体験を改善します。
+    ack_btn: わかりました
+
+online_check:
+    offline_text: オフラインの状態で、一部の机能が使用できないようです。ネットワーク接続を確認してください。
+    online_text: ネットワークも回復！
+    ack_btn: わかりました
+
+post:
+    post: 発表の時間
+    updated: 更新の時間
+    categories: カテゴリーに表示
+    uncategorized: アンカテゴリー
+    untagged: アンタグ
+    toc: 一覧
+    menu: メニュー
+    read_on_other_device_tooltip: 他の設備に読み続け
+archive:
+    year: 年
+    month: 月
+    counter: 全ては %d 篇
+
+subtitles:
+    yearly_archive: 年に分類して
+    monthly_archive: 月に分類して
+    article_archive: 文章に分類して
+    tag_archive: タグに分類して
+
+footer:
+    hexo: 'Hexo による強力支援'
+    theme: MDx からの主題飾り
+    copyrights: '&copy; %s'
+
+share:
+    gen_sharepic: シェアフォトを生成
+    save_sharepic: シェアフォトを長押しと右クリックで保存する
+    scan_qr_to_read: ＱＲコードをスキャンして読み続け
+    weibo: ウェイボー　にシェアする
+    qq: QQ　にシェアする
+    wechat: ウェイチャット　にシェアする
+    scan_with_wechat: ウィーチャットでスキャンしてシェアする
+    qzone: QQゾーン にシェアする
+    telegram: Telegram　にシェアする
+    twitter: Twitter　にシェアする
+    facebook: Facebook　にシェアする
