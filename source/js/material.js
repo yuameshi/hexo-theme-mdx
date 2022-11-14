@@ -49,12 +49,14 @@ function pageInit() {
 		}
 		document.querySelector('div#mainContent > div.pagination > span.current.page-number').classList.add('mdui-ripple', 'mdui-color-theme', 'mdui-text-color-theme-text');
 	}
-	if (window.matchMedia('(prefers-color-scheme: dark)').matches && (localStorage.getItem('darkMode') || 'true') === 'true') {
+	if ((window.matchMedia('(prefers-color-scheme: dark)').matches && (localStorage.getItem('darkMode') || 'true') === 'true') || localStorage.getItem('darkMode') === 'true') {
+		document.querySelector('#themeColorTag').setAttribute('content', '#212121');
 		document.body.classList.add('mdui-theme-layout-dark');
 	}
 	document.body.classList.remove('mdui-theme-layout-auto');
 	document.querySelector('#nightModeToggle').addEventListener('click', function () {
 		document.body.classList.toggle('mdui-theme-layout-dark');
+		document.querySelector('#themeColorTag').setAttribute('content', document.body.classList.contains('mdui-theme-layout-dark') ? '#212121' : document.querySelector('#themeColorTag').getAttribute('data-theme-primary-color'));
 		localStorage.setItem('darkMode', document.body.classList.contains('mdui-theme-layout-dark').toString());
 	});
 	if (window.search) {
@@ -165,4 +167,3 @@ function pageInit() {
 		}
 	}
 }
-

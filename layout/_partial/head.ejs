@@ -42,7 +42,7 @@
 	<title><%= title %></title>
 	<meta name="description" content="<%= description.replace(/\n/g,'') %>">
 	<link rel="shortcut icon" href="<%- theme.favicon %>" type="image/x-icon">
-	<meta name="theme-color" content="<%- site.themePrimaryColor %>" />
+	<meta name="theme-color" id="themeColorTag" data-theme-primary-color="<%- site.themePrimaryColor %>" content="<%- site.themePrimaryColor %>" />
 	<meta name="msapplication-TileImage" content="<%- theme.favicon %>" />
 	<meta name="msapplication-TileColor" content="<%- site.themePrimaryColor %>" />
 	<link rel="apple-touch-icon" href="<%- theme.favicon %>" />
