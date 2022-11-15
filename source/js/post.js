@@ -29,6 +29,7 @@ function initPost() {
 		dom.getElementsByTagName('canvas')[0].style.padding = '20px 20px 0 20px';
 		dom.getElementsByTagName('img')[0].style.padding = '20px';
 	});
+	var postPage = document.getElementById('postPage');
 	var imgs = postPage.getElementsByTagName('img');
 	var imgBox = document.getElementById('imgBox');
 	function addImgDesc(newElement, targetElement) {
@@ -69,7 +70,6 @@ function initPost() {
 			behavior: 'smooth',
 		});
 	}
-	var postPage = document.getElementById('postPage');
 	// generate wechat share qrcode
 	document.getElementById('shareToWechatQRCodeDialog').addEventListener('open.mdui.dialog', function () {
 		document.getElementById('shareToWechatQRCodeContainer').innerHTML = '';

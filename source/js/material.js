@@ -18,7 +18,7 @@ document.addEventListener('scroll', function () {
 		if (!(document.getElementById('appBarTitle').innerText === document.getElementById('pageTitle').innerText)) {
 			document.getElementById('appBarTitle').innerText = document.getElementById('pageTitle').innerText;
 		}
-		if (document.getElementById('goToTopBtn').classList.contains('mdui-fab-hide')) {
+		if (document.getElementById('goToTopBtn') && document.getElementById('goToTopBtn').classList.contains('mdui-fab-hide')) {
 			document.getElementById('goToTopBtn').classList.remove('mdui-fab-hide');
 		}
 	} else {
@@ -47,7 +47,9 @@ function pageInit() {
 			}
 			paginations[i].classList.add('mdui-text-color-theme-text');
 		}
-		document.querySelector('div#mainContent > div.pagination > span.current.page-number').classList.add('mdui-ripple', 'mdui-color-theme', 'mdui-text-color-theme-text');
+		if (document.getElementsByClassName('pagination').length !== 0) {
+			document.getElementsByClassName('pagination')[0].getElementsByClassName('current')[0].classList.add('mdui-ripple', 'mdui-color-theme', 'mdui-text-color-theme-text');
+		}
 	}
 	if ((window.matchMedia('(prefers-color-scheme: dark)').matches && (localStorage.getItem('darkMode') || 'true') === 'true') || localStorage.getItem('darkMode') === 'true') {
 		document.getElementById('themeColorTag').setAttribute('content', '#212121');
