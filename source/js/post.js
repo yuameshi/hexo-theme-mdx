@@ -9,8 +9,8 @@ window.addEventListener('load', function () {
 	}
 });
 function initPost() {
-	document.querySelector('#readOnOtherDeviceBtn').addEventListener('click', function () {
-		var dom = document.querySelector('#mdx_read_on_other_device');
+	document.getElementById('readOnOtherDeviceBtn').addEventListener('click', function () {
+		var dom = document.getElementById('mdx_read_on_other_device');
 		if (typeof QRCode !== 'function') {
 			dom.innerHTML = 'Error: QRCode.js is not loaded.';
 			return;
@@ -26,11 +26,11 @@ function initPost() {
 			useSVG: true,
 			correctLevel: window.QRCode.CorrectLevel.H,
 		});
-		dom.querySelector('canvas').style.padding = '20px 20px 0 20px';
-		dom.querySelector('img').style.padding = '20px';
+		dom.getElementsByTagName('canvas')[0].style.padding = '20px 20px 0 20px';
+		dom.getElementsByTagName('img')[0].style.padding = '20px';
 	});
-	var imgs = document.querySelectorAll('div.postPage img');
-	var imgBox = document.querySelector('#imgBox');
+	var imgs = postPage.getElementsByTagName('img');
+	var imgBox = document.getElementById('imgBox');
 	function addImgDesc(newElement, targetElement) {
 		var parent = targetElement.parentElement;
 		if (parent.lastChild == targetElement) {
@@ -43,9 +43,9 @@ function initPost() {
 		imgs[i].style.cursor = 'zoom-in';
 		imgs[i].addEventListener('click', function (e) {
 			imgBox.classList.add('show');
-			imgBox.querySelector('#imgBoxImage').setAttribute('src', e.target.getAttribute('src'));
-			imgBox.querySelector('#imgBoxImage').setAttribute('alt', e.target.getAttribute('alt') || '');
-			imgBox.querySelector('#imgBoxDescription').innerText = e.target.getAttribute('alt') || '';
+			document.getElementById('imgBoxImage').setAttribute('src', e.target.getAttribute('src'));
+			document.getElementById('imgBoxImage').setAttribute('alt', e.target.getAttribute('alt') || '');
+			document.getElementById('imgBoxDescription').innerText = e.target.getAttribute('alt') || '';
 		});
 		var imgDesc = document.createElement('div');
 		imgDesc.innerText = imgs[i].getAttribute('alt') || '';
@@ -69,10 +69,10 @@ function initPost() {
 			behavior: 'smooth',
 		});
 	}
-	var postPage = document.querySelector('#mainContent > div.postPage');
+	var postPage = document.getElementById('postPage');
 	// generate wechat share qrcode
-	document.querySelector('#shareToWechatQRCodeDialog').addEventListener('open.mdui.dialog', function () {
-		postPage.querySelector('div#shareToWechatQRCodeContainer').innerHTML = '';
+	document.getElementById('shareToWechatQRCodeDialog').addEventListener('open.mdui.dialog', function () {
+		document.getElementById('shareToWechatQRCodeContainer').innerHTML = '';
 		var url;
 		if (typeof URL === 'function') {
 			url = new URL(location.href);
@@ -80,7 +80,7 @@ function initPost() {
 		} else {
 			url = location.href;
 		}
-		new window.QRCode(postPage.querySelector('div#shareToWechatQRCodeContainer'), {
+		new window.QRCode(document.getElementById('shareToWechatQRCodeContainer'), {
 			text: url,
 			width: 250,
 			height: 250,
@@ -91,9 +91,9 @@ function initPost() {
 		});
 	});
 
-	document.querySelector('#generateSharePictureDialog').addEventListener('open.mdui.dialog', function () {
-		postPage.querySelector('div#generateSharePictureDialogContainer').innerHTML = '';
-		var qrCodeContainer = document.querySelector('#mdx_read_on_other_device');
+	document.getElementById('generateSharePictureDialog').addEventListener('open.mdui.dialog', function () {
+		document.getElementById('generateSharePictureDialogContainer').innerHTML = '';
+		var qrCodeContainer = document.getElementById('mdx_read_on_other_device');
 		qrCodeContainer.innerHTML = '';
 		var qrcode = new window.QRCode(qrCodeContainer, {
 			text: shareMetadata.url,
@@ -105,7 +105,7 @@ function initPost() {
 			correctLevel: window.QRCode.CorrectLevel.H,
 		});
 		qrcode.makeCode(shareMetadata.url);
-		var headerPicURL = document.querySelector('#pageTitleContainer').style.getPropertyValue('background-image').split('"')[1];
+		var headerPicURL = document.getElementById('pageTitleContainer').style.getPropertyValue('background-image').split('"')[1];
 		var headerPicXHR = new XMLHttpRequest();
 		headerPicXHR.open('GET', headerPicURL, true);
 		headerPicXHR.responseType = 'blob';
@@ -199,23 +199,23 @@ function initPost() {
 				(function drawQRCode() {
 					ctx.drawImage(qrcode._oDrawing._elCanvas, width - 85, canvas.height - 13 - 75);
 				})();
-				document.querySelector('#saveSharePic').addEventListener('click', function () {
+				document.getElementById('saveSharePic').addEventListener('click', function () {
 					const a = document.createElement('a');
 					a.href = canvas.toDataURL('image/png');
 					a.download = `${shareMetadata.title}-${shareMetadata.blogName}.png`;
 					a.click();
 				});
-				document.querySelector('#generateSharePictureDialogContainer').appendChild(canvas);
+				document.getElementById('generateSharePictureDialogContainer').appendChild(canvas);
 			});
 		});
 	});
 	// init table
-	var tables = postPage.querySelectorAll('table');
+	var tables = postPage.getElementsByTagName('table');
 	for (var k = 0; k < tables.length; k++) {
 		tables[k].classList.add('mdui-table');
 	}
 	// init GitHub info card
-	var githubInfoCards = postPage.querySelectorAll('div.mdx-github-card');
+	var githubInfoCards = postPage.getElementsByClassName('mdx-github-card');
 	for (var j = 0; j < githubInfoCards.length; j++) {
 		initGHInfoCard(githubInfoCards[j]);
 	}
@@ -239,10 +239,10 @@ function initGHInfoCard(cardElement) {
 
 document.addEventListener('scroll', function () {
 	if ((window.scrollY || window.pageYOffset) > (window.innerHeight || window.screenY) / 2) {
-		document.querySelector('svg#mdxReadProgress').classList.remove('hide');
+		document.getElementById('mdxReadProgress').classList.remove('hide');
 		var strokeDashOffset = 166.5 + (166.5 * (window.scrollY || window.pageYOffset)) / document.querySelector('#mainContent > div > div.mdui-card-content.mdui-typo').clientHeight;
-		document.querySelector('circle#mdxReadProgressRing').style.setProperty('stroke-dashoffset', Math.min(strokeDashOffset, 333));
+		document.getElementById('mdxReadProgressRing').style.setProperty('stroke-dashoffset', Math.min(strokeDashOffset, 333));
 	} else {
-		document.querySelector('svg#mdxReadProgress').classList.add('hide');
+		document.getElementById('mdxReadProgress').classList.add('hide');
 	}
 });
