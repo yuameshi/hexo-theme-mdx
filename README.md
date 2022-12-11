@@ -34,6 +34,8 @@ A hexo theme with material design.
 
 ### Note: All MDx releases(including alpha/beta versions) after June 15, 2022 will no longer support Internet Explorer due to the upcoming end of support for Internet Explorer on June 15, 2022.
 
+> To get further information, please refer to [this](https://blogs.windows.com/windowsexperience/2022/06/15/internet-explorer-11-has-retired-and-is-officially-out-of-support-what-you-need-to-know/) site. 
+
 # Getting Started
 ## Step 1: Install MDx
 ```bash

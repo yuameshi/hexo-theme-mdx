@@ -31,6 +31,8 @@
 
 ### 注意：由于Internet Explorer即将在2022年6月15日停止支持，所以在2022年6月15日之后所有的MDx版本（包括alpha和beta版本）将不再支持Internet Explorer。
 
+> 要获得更多信息，请参见[此页面](https://blogs.windows.com/windowsexperience/2022/06/15/internet-explorer-11-has-retired-and-is-officially-out-of-support-what-you-need-to-know/)。
+
 # 开始使用
 ## 1.安装MDx
 ```bash
