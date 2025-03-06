@@ -24,7 +24,7 @@
 	"scripts": {},
 	"peerDependencies": {
 		"hexo-renderer-ejs": "^2.0.0",
-		"hexo-renderer-stylus": "^2.0.0",
+		"hexo-renderer-stylus": "^2.0.0 || ^3.0.0",
 		"hexo-generator-search": "^2.4.3"
 	}
 }
