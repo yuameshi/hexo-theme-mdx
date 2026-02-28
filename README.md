@@ -51,13 +51,7 @@ $ git submodule add https://github.com/Yuameshi/hexo-theme-mdx.git themes/mdx
 
 ## Step 2: Enable MDx
 
-You can use the Hexo command to change the theme to MDx
-
-```bash
-hexo config theme mdx
-```
-
-You can also modify `_config.yml` directly
+Modify `_config.yml` to change the theme to MDx
 
 ```diff yaml
 - theme: previous theme
@@ -78,200 +72,14 @@ $ wget https://cdn.jsdelivr.net/gh/Yuameshi/hexo-theme-mdx@main/_config.yml -O _
 (New-Object System.Net.WebClient).DownloadFile("wget https://cdn.jsdelivr.net/gh/Yuameshi/hexo-theme-mdx@main/_config.yml", "_config.mdx.yml")
 ```
 
-or copy contents below to `_config.mdx.yml`
+or copy contents [here](_config.yml) to `_config.mdx.yml`
 
 > [!WARNING]
-> If you installed the theme via git, you should delete `_config.yml` in the theme directory.
+> If you installed the theme via git and using top level configuration file, please make sure to delete `_config.yml` in the theme directory.
 
 ## Step2: Edit configuration file to your needs
 
-```yaml
-# Theme settings
-# use CDN to boost your site(CDN Providers:true(use jsdelivr)/cdnjs/jsdelivr/staticfile/bootcdn/bytedance/unpkg/false(won't use CDN))
-# Note: For Waline , Valine and Twikoo comment systems, using bytedance CDN will automatically fallback to JSDelivr (the library version of this CDN is out of date and not easy to use)
-cdn_provider: 'cdnjs'
-
-# Use a specific MIUI version(default:1.0.2, you can modify it to other versions manually)
-# Note: Please leave this blank or fill in 1.0.2 when not using CDN, otherwise an error will occur
-mdui_version:
-
-# Theme settings
-use_cdn: true # use CDN to boost your site(CDN Provider:cdn.jsdelivr.net)
-
-# Theme colors
-# Check out all the colors here: https://www.mdui.org/docs/color
-color:
-  primary: indigo
-  accent: pink
-
-# GDPR Cookie alert(HTML Tag supported)
-# This will show a snackbar at the right bottom of the page
-gdpr_cookie_alert:
-  enable: false # default: false
-  # If you want to use MDx's i18n feature, please leave them blank
-  # 提示文字
-  text: This website uses cookies to improve your experience.
-  # 按钮文字
-  # Button text
-  ack_btn: Got it
-
-# Check user's online status
-# If you use Service-Worker, etc. in offline mode, you can still read articles, but cannot comment, etc, then this option will be very useful
-# MDx will check network connection each 5 secs, and show an alert when network is disconnected.
-online_check:
-  enable: false # default: false
-  inaccurate_detection: true # Use navigator.onLine to check connection instead of sending requests (default: true)
-  # If you want to use MDx's i18n feature, please leave them blank
-  # Offline alert text(optional)
-  offlineText: It seems you are offline, some features are unavailable, please check your network connection.
-  # Online alert text(optional)
-  onlineText: You are online, enjoy!
-  ack_btn: Got it
-
-# Link to header picture
-header_picture_link:
-# Link to favicon.ico
-favicon:
-# Auto-generated excerpt length, <!-- more --> is supported
-excerpt_length: 250
-
-# Search settings(depends on "hexo-generator-search")
-# Need to be configured in JSON format, the path is '/search.json'
-search:
-  # Enable search(default: true)
-  enable: true
-  # Search database path(default: './search.json')
-  path: /search.json
-  # If you want to use MDx's i18n feature, please leave them blank
-  # Search box placeholder text(optional)
-  placeholder: Search something...
-  # No result text($txt$ will be replaced with the search content)(optional)
-  no_result: No results found for "$txt$"
-  # Search database load error text(optional)
-  error: It seemed that MDx's search database is not loading properly, try refreshing the page
-
-# About field at the drawer menu
-drawer_about:
-  enable: true
-  avatar: # Link to avatar image
-  name: # Name
-  slogan: # Slogan
-  background: # Link to background image
-  is_dark: true # Whether the background is dark-colored or not
-
-# Drawer menu list (Nested lists are not supported)
-# Format: Link name: Link || Icon
-# Check out all the icons at https://www.mdui.org/docs/material_icon
-drawer:
-  Home: / || &#xe88a;
-  MDx: https://github.com/Yuameshi/hexo-theme-mdx || &#xe243;
-  GitHub: https://github.com/Yuameshi || &#xe149;
-  About: /about || &#xe88e;
-
-# Text which will inserted at the end of the article.
-# '%title%' refers to title link of current post.
-# '%link%' refers to permalink link of current post
-passage_end_tag:
-  enabled: true
-  text: 'END'
-
-# Comment system settings
-comment:
-  use:
-  # gitalk configuration refers to https://github.com/gitalk/gitalk/
-  gitalk:
-    clientID:
-    clientSecret:
-    repo:
-    owner:
-    admin: ['']
-    distractionFreeMode: true
-  # configuration of utterances refers to https://utteranc.es/
-  utterances:
-    repo:
-    issue_term:
-    lable:
-    theme:
-  # Valine configuration refers to https://valine.js.org/configuration.html
-  valine:
-    app_id:
-    app_key:
-    placeholder:
-    avatar:
-    page_size:
-    lang:
-    server_urls:
-    emoji_cdn:
-    # Please fill in standard JSON string in emoji_maps (You can use 'JSON.stringify' to generate it, and the string must can be parsed by JSON.parse in modern browsers)
-    emoji_maps:
-    # Please use commas to separate keys in 'meta' and 'required_fields'
-    meta:
-    required_fields:
-    visitor:
-    highlight:
-    avatar_force:
-    record_ip:
-    enable_qq:
-  # Waline configuration refers to links below
-  # https://waline.js.org/reference/client.html#init
-  # https://waline.js.org/reference/component.html
-  waline:
-    server_url:
-    lang:
-    dark:
-    # Please use commas to separate keys in 'meta' , 'required_meta' and 'emoji'
-    meta:
-    required_meta:
-    emoji:
-    login:
-    word_limit:
-    page_size:
-    image_uploader:
-    highlighter:
-    text_renderer:
-    copyright:
-  # Twikoo configuration refers to links below
-  # https://twikoo.js.org/quick-start.html
-  # https://twikoo.js.org/quick-start.html#%E9%80%9A%E8%BF%87-cdn-%E5%BC%95%E5%85%A5
-  twikoo:
-    envId:
-    region:
-    lang:
-
-# Analytics settings
-analytics:
-  # Google Analytics configuration refers to https://analytics.google.com/
-  google:
-    enabled: false
-    tracking_id:
-  # Cloudflare Web Analytics configuration refers to https://developers.cloudflare.com/analytics/web-analytics
-  cloudflare:
-    enabled: false
-    token:
-
-advertisement:
-  google:
-    # Google AdSense 参见 https://www.google.com/adsense
-    client_ca_pub:
-
-footer:
-  # Three choices: modern, simple, traditional
-  style: 'modern'
-  # In traditional and simple mode, you can only choose one of the following to display: copyrights, icp, miit_icp, moe_icp, powered_by
-  # Note: the choice 'powered_by' will follow your settings of 'hexo' and 'theme'
-  # Note: You only need to fillin this box when you chose 'traditional' or 'simple'
-  show: 'powered_by'
-  since: # When the site was launched
-  copyrights: true # Show '© %SITE_NAME%' in footer
-  hexo: true # Show "Powered by Hexo" in the footer
-  theme: true # Show "Themed MDx" in footer
-  text: # Text to show on the footer
-  contact: # Social media links
-    MDx: https://github.com/Yuameshi/hexo-theme-mdx
-    GitHub: https://github.com/Yuameshi
-  miit_icp: # Link to MIIT ICP
-  moe_icp: # Link to MOE ICP
-```
+For detailed configuration, please refer to the comments in the [configuration file](_config.yml).
 
 # Special features
 
