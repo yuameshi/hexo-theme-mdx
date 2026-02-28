@@ -10,7 +10,7 @@ cdn_provider: 'cdnjs'
 # Use a specific MIUI version(default:1.0.2, you can modify it to other versions manually)
 # 注意：不使用CDN时请将这项留空或者填写1.0.2，否则会出现错误
 # Note: Please leave this blank or fill in 1.0.2 when not using CDN, otherwise an error will occur
-mdui_version:  
+mdui_version:
 
 # Theme colors
 # Check out all the colors here: https://www.mdui.org/docs/color
@@ -123,23 +123,23 @@ passage_end_tag:
 # Comment system settings
 # 评论系统
 comment:
-  use: 
+  use:
   # gitalk configuration refers to https://github.com/gitalk/gitalk/
   # Gitalk配置文档：https://github.com/gitalk/gitalk/
   gitalk:
-    clientID: 
-    clientSecret: 
-    repo: 
-    owner: 
+    clientID:
+    clientSecret:
+    repo:
+    owner:
     admin: ['']
     distractionFreeMode: true
   # utterance configuration refers to https://utteranc.es/
   # utteranc配置文档：https://utteranc.es/
   utterances:
-    repo: 
-    issue_term: 
-    lable: 
-    theme: 
+    repo:
+    issue_term:
+    lable:
+    theme:
   # Valine配置参考 https://valine.js.org/configuration.html
   # Valine configuration refers to https://valine.js.org/configuration.html
   valine:
@@ -167,10 +167,10 @@ comment:
   # Waline configuration refers to links below
   # https://waline.js.org/reference/client.html#init
   # https://waline.js.org/reference/component.html
-  waline: 
-    server_url: 
-    lang: 
-    dark: 
+  waline:
+    server_url:
+    lang:
+    dark:
     # 请使用逗号分割meta、required_meta和emoji中的字符串
     # Please use commas to separate keys in 'meta' , 'required_meta' and 'emoji'
     meta:
@@ -198,12 +198,12 @@ analytics:
   # Google Analytics官网：https://analytics.google.com/
   google:
     enabled: false
-    tracking_id: 
+    tracking_id:
   # Cloudflare Web Analytics configuration refers to https://developers.cloudflare.com/analytics/web-analytics
   # Cloudflare Web Analytics文档：https://developers.cloudflare.com/analytics/web-analytics
   cloudflare:
     enabled: false
-    token: 
+    token:
 advertisement:
   google:
     # Gooele AdSense refers to https://www.google.com/adsense

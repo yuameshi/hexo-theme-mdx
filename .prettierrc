@@ -8,5 +8,21 @@
 	"useTabs": true,
 	"printWidth": 256,
 	"useEditorConfig": false,
-	"jsxBracketSameLine": true
+	"jsxBracketSameLine": true,
+	"overrides": [
+		{
+			"files": "*.yml",
+			"options": {
+				"useTabs": false,
+				"tabWidth": 2
+			}
+		},
+		{
+			"files": "*.md",
+			"options": {
+				"useTabs": false,
+				"tabWidth": 2
+			}
+		}
+	]
 }
