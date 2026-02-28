@@ -1,40 +1,41 @@
-# 警告: 🚧 项目施工中 🚧
+> [!WARNING]
+>
+> 可能有Bug，小心点用，出Bug烦请及时提出[Issue](https://github.com/Yuameshi/hexo-theme-mdx/issues)反馈
 
-还没做好，小心点用，出Bug及时提出[Issue](https://github.com/Yuameshi/hexo-theme-mdx/issues)反馈
-
-你正在阅读中文文档。
-
-[Take me to the English documentation.](./README.md)
+> [!NOTE]
+> 你正在阅读中文文档。
+>
+> [Take me to the English documentation.](./README.md)
 
 # hexo-theme-mdx
+
 一个具有Material Design设计的Hexo主题
 
 # 预览(欢迎提交链接)
 
 [Yuameshiの窝](https://www.yuameshi.top/)
 
-[AyaneYeの随手记](https://drbstore.yuameshi.top/)
-
-[Galaxy City](https://blog.restent.win/)
-
-[Neko3327's Blog](https://neko3327.restent.win)
+[AyaneYeの随手记](https://blog.ayaneye.top/)
 
 # 浏览器兼容性
-|浏览器									| 兼容性      |
-| ---										|----------|
-| Chrome								| ✔ 最近5个版本 |
-| Firefox								| ✔ 最近5个版本 |
-| Edge Chromium					| ✔ 最近5个版本 |
-| Edge EdgeHTML					| ❔ 未知      |
-| Safari								| ✔ 最近5个版本 |
-| Internet Explorer 11	| ❌ 基础支持     |
+
+| 浏览器               | 兼容性        |
+| -------------------- | ------------- |
+| Chrome               | ✔ 最近5个版本 |
+| Firefox              | ✔ 最近5个版本 |
+| Edge Chromium        | ✔ 最近5个版本 |
+| Edge EdgeHTML        | ❔ 未知       |
+| Safari               | ✔ 最近5个版本 |
+| Internet Explorer 11 | ❌ 基础支持   |
 
 ### 注意：由于Internet Explorer即将在2022年6月15日停止支持，所以在2022年6月15日之后所有的MDx版本（包括alpha和beta版本）将不再支持Internet Explorer。
 
 > 要获得更多信息，请参见[此页面](https://blogs.windows.com/windowsexperience/2022/06/15/internet-explorer-11-has-retired-and-is-officially-out-of-support-what-you-need-to-know/)。
 
 # 开始使用
+
 ## 1.安装MDx
+
 ```bash
 # 使用 npm 或 yarn 安装(推荐)
 $ npm install hexo-theme-mdx --save
@@ -45,12 +46,17 @@ $ git clone https://github.com/Yuameshi/hexo-theme-mdx.git themes/mdx -b <版本
 # 若您执行了上一条命令，则此条命令无需执行
 $ git submodule add https://github.com/Yuameshi/hexo-theme-mdx.git themes/mdx
 ```
+
 ## 2.启用主题
+
 您可以使用Hexo命令修改主题为
+
 ```bash
 hexo config theme mdx
 ```
+
 也可以直接修改`_config.yml`
+
 ```diff yaml
 - theme: previous theme
 + theme: mdx
@@ -64,15 +70,19 @@ hexo config theme mdx
 # Bash
 $ wget https://cdn.jsdelivr.net/gh/Yuameshi/hexo-theme-mdx@main/_config.yml -O _config.mdx.yml
 ```
+
 ```powershell
 # PowerShell
 (New-Object System.Net.WebClient).DownloadFile("wget https://cdn.jsdelivr.net/gh/Yuameshi/hexo-theme-mdx@main/_config.yml", "_config.mdx.yml")
 ```
+
 或者拷贝下方的内容到`_config.yml`中
 
-注意：如果您是通过 git 安装的主题，那么您应该删除主题目录中的 `_config.yml`。
+> [!WARNING]
+> 如果您是通过 git 安装的主题，那么您应该删除主题目录中的 `_config.yml`。
 
 ## 2.根据个人需求编辑配置文件
+
 ```yaml
 # 主题设置
 # 使用CDN加速前端载入(CDN提供商:true(使用默认的jsdelivr)/cdnjs/jsdelivr/staticfile/bootcdn/bytedance/unpkg/false(不使用CDN))
@@ -81,7 +91,7 @@ cdn_provider: 'cdnjs'
 
 # 使用特定的MDUI库版本(默认1.0.2，您可以手动修改为其他版本)
 # 注意：不使用CDN时请将这项留空或者填写1.0.2，否则会出现错误
-mdui_version:  
+mdui_version:
 
 # 主题设置
 use_cdn: true # 使用CDN加速前端载入(CDN提供商:cdn.jsdelivr.net)
@@ -162,21 +172,21 @@ passage_end_tag:
 
 # 评论系统
 comment:
-  use: 
+  use:
   # Gitalk配置文档：https://github.com/gitalk/gitalk/
   gitalk:
-    clientID: 
-    clientSecret: 
-    repo: 
-    owner: 
+    clientID:
+    clientSecret:
+    repo:
+    owner:
     admin: ['']
     distractionFreeMode: true
   # utterances配置文档：https://utteranc.es/
   utterances:
-    repo: 
-    issue_term: 
-    lable: 
-    theme: 
+    repo:
+    issue_term:
+    lable:
+    theme:
   # Valine配置参考 https://valine.js.org/configuration.html
   valine:
     app_id:
@@ -200,10 +210,10 @@ comment:
   # Waline配置参考以下链接
   # https://waline.js.org/reference/client.html#init
   # https://waline.js.org/reference/component.html
-  waline: 
-    server_url: 
-    lang: 
-    dark: 
+  waline:
+    server_url:
+    lang:
+    dark:
     # 请使用逗号分割meta、required_meta和emoji中的字符串
     meta:
     required_meta:
@@ -228,11 +238,11 @@ analytics:
   # Google Analytics官网：https://analytics.google.com/
   google:
     enabled: false
-    tracking_id: 
+    tracking_id:
   # Cloudflare Web Analytics文档：https://developers.cloudflare.com/analytics/web-analytics
   cloudflare:
     enabled: false
-    token: 
+    token:
 
 advertisement:
   google:
@@ -262,6 +272,7 @@ footer:
 ## 特有标签
 
 ### 折叠内容
+
 用法: {% mdx_fold Title isOpen %} Something {% endmdx_fold %}
 
 示例
@@ -276,7 +287,9 @@ footer:
 这是折叠内容这是折叠内容这是折叠内容
 {% endmdx_fold %}
 ```
+
 ### GitHub信息卡
+
 用法: {% mdx_github_info_card repoOwner repoName %}
 
 示例
@@ -286,7 +299,9 @@ footer:
 
 {% mdx_github_info_card Yuameshi hexo-theme-mdx %}
 ```
+
 ### 警告内容
+
 用法: {% mdx_warn Title %} Something {% endmdx_warn %}
 
 示例
