@@ -3,11 +3,31 @@ figure.highlight {
 	table{
 		width 100%
 		tbody  tr {
+			// fix vertical line alignment (line-height mismatch)
+			td.gutter pre,
+			td.code pre,
+			td.code pre code,
+			td.code pre code.hljs {
+				font-size 14px
+				line-height 22px
+				white-space pre
+				tab-size 4
+			}
+
 			td.gutter{
+				text-align right
 				width 50px
+				padding-left 12px
+				pre {
+					padding 12px
+				}
+			}
+			td.code {
+				padding 12px
 			}
 			td.code pre{
 				text-align left !important
+				padding 12px
 				span.line{
 					span.comment{
 						color #999
